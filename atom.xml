@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>糖仔呐</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.tangbzai.top/"/>
+  <updated>2019-03-28T16:41:33.118Z</updated>
+  <id>http://blog.tangbzai.top/</id>
+  
+  <author>
+    <name>糖仔</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭建Hexo博客</title>
+    <link href="http://blog.tangbzai.top/2019/03/29/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://blog.tangbzai.top/2019/03/29/搭建Hexo博客/</id>
+    <published>2019-03-28T16:30:03.000Z</published>
+    <updated>2019-03-28T16:41:33.118Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hexo-博客搭建"><a href="#Hexo-博客搭建" class="headerlink" title="Hexo 博客搭建"></a>Hexo 博客搭建</h1><h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h2><ol><li>windows：到git官网上下载 <a href="https://www.git-scm.com/download/win/" target="_blank" rel="noopener">Download git</a>,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</li><li>linux：一行代码<pre><code>sudo apt-get install git</code></pre></li></ol><h2 id="2-安装nodeJS"><a href="#2-安装nodeJS" class="headerlink" title="2.安装nodeJS"></a>2.安装nodeJS</h2><p>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。</p><ul><li>windows：nodejs选择LTS版本就行了。(LTS:长期支持版本)</li><li>linux：<pre><code>  sudo apt-get install nodejs  sudo apt-get install npm</code></pre></li></ul><ol start="2"><li>安装完后，打开命令行<pre><code>node -vnpm -v</code></pre><h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h2>1.先创建一个文件夹blog，然后cd到这个文件夹下（或 文件夹右键-&gt;git bash）<pre><code>npm install -g hexo-cli</code></pre></li></ol><ul><li>可用<code>hexo -v</code>查看一下版本</li></ul><p>初始化hexo</p><pre><code>    hexo init myblog    cd myblog //进入文件夹内    npm install</code></pre><p>新建完成后，指定文件夹目录下有：</p><ul><li>node+modules: 依赖包</li><li>public: 存放生成的页面</li><li>scaffolds: 生成文章的一些模板</li><li>source: 存放文章</li><li>themes: 主题</li><li>_config.yml: 博客的配置文件</li></ul><p>生成静态文件<br><br>启动服务器 <code>http://localhost:4000</code></p><pre><code>    hexo g    hexo sever  </code></pre><h2 id="4-注册Github账号、注册Github"><a href="#4-注册Github账号、注册Github" class="headerlink" title="4.注册Github账号、注册Github"></a>4.注册Github账号、注册Github</h2><ol><li>注册Github帐号</li><li>登陆后需选择New repository,新建仓库</li><li>创建一个与用户名相同的仓库，后面加.github.io</li><li>点击create repository。</li></ol><h2 id="5-生成SSH添加到GitHub"><a href="#5-生成SSH添加到GitHub" class="headerlink" title="5.生成SSH添加到GitHub"></a>5.生成SSH添加到GitHub</h2><ol><li>设置git的身份信息（名字与邮箱）<pre><code> git config --global user.name &quot;name&quot; git config --global user.email &quot;email&quot;</code></pre></li><li>创建SSH<pre><code>ssh-keygen -t rsa -C &quot;email&quot;</code></pre></li><li><p>在 系统盘-&gt;用户-&gt;（用户名）-&gt;.ssh 目录下找到.ssh文件</p><blockquote><p>ssh，简单来讲，就是一个秘钥，其中，<code>id_rsa</code>是你这台电脑的私人秘钥，不能给别人看的，<code>id_rsa.pub</code>是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p><p>作者：zjufangzh<br><br>来源：CSDN <br><br>原文：<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">https://blog.csdn.net/sinat_37781304/article/details/82729029</a> <br><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p></blockquote></li><li><p>在GitHub的setting中，找到SSH keys的设置选项，点击<code>New SSH key</code><br>把你的<code>id_rsa.pub</code>里面的信息复制进去。</p></li><li>查看是否成功<pre><code>ssh -T git@github.com </code></pre><h2 id="6-将Hexo部署到GitHub"><a href="#6-将Hexo部署到GitHub" class="headerlink" title="6.将Hexo部署到GitHub"></a>6.将Hexo部署到GitHub</h2></li><li>将hexo和GitHub关联起来,打开站点配置文件 _config.yml，翻到最后，修改为<pre><code>deploy:type: gitrepo: https://github.com/YourgithubName/YourgithubName.github.io.gitbranch: master</code></pre>YourgithubName就是你的GitHub账户</li><li>安装 <strong>deploy-git</strong><pre><code>npm install hexo-deployer-git --save</code></pre></li><li>使用命令部署<pre><code>hexo cleanhexo generatehexo deploy</code></pre><blockquote><p><code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p></blockquote></li></ol><p>过一会儿就可以在<code>http://yourname.github.io</code> 这个网站看到你的博客了</p><h2 id="7-设置个人域名"><a href="#7-设置个人域名" class="headerlink" title="7.设置个人域名"></a>7.设置个人域名</h2><p>这步之前博客的地址是<code>yourname.github.io</code>,如果想换个就买个域名。<br>买好了就在域名控制台，选择域名点<strong>解析</strong>添加192.30.252.153 和 192.30.252.154 是GitHub的服务器地址。<br><strong>解析线路选默认</strong></p><ol><li>登陆GitHub, 进入之前创建的仓库，点击settings, 设置Custiom domain,输入你的域名<br></li><li><code>source</code>创建一个名为CHANME的文件，不要后缀，写上域名。</li><li>最后在<strong>git bash</strong> 中输入<pre><code>hexo cleanhexo ghexo d</code></pre><h2 id="8-使用腾讯开发者平台的pages服务进行分流"><a href="#8-使用腾讯开发者平台的pages服务进行分流" class="headerlink" title="8.使用腾讯开发者平台的pages服务进行分流"></a>8.使用腾讯开发者平台的pages服务进行分流</h2>注：现在coding不能使用pages,得升级账号，腾讯开发者平台的才有此功能。</li><li>注册腾讯云开发者平台账号，或coding用户升级。</li><li>新建项目</li><li>使用Git上传文件项目里</li><li>添加ssh公钥到个人账号的公钥上</li><li>选择项目-&gt;代码-&gt;pages服务，按照指引完成即可</li><li>修改配置文件<pre><code>deploy:type: gitrepository:   github: git@github.com:ShomyLiu/ShomyLiu.github.io.git   coding: git@git.coding.net:shomyliu/shomyliu.gitbranch: master</code></pre><blockquote><p>在博客的source/目录下需要创建一个空白文件,至于原因，是因为 coding.net需要这个文件来作为以静态文件部署的标志。就是说看到这个Staticfile就知道按照静态文件来发布。<br><br>coding还需要在根目录下建一个.nojekyll空文件（coding page 配置hexo报错 the xx theme not be found<br><br>在根目录下建一个.nojekyll空文件就可以了，因为Coding默认支持Jekyll搭建网站）</p></blockquote></li><li>域名添加解析，这时要把之前的github的解析改成境外，把coding的设置为默认。<h2 id="参考来源"><a href="#参考来源" class="headerlink" title="参考来源"></a>参考来源</h2></li></ol><ul><li><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">hexo史上最全搭建教程 作者：zjufangzh</a><br></li><li><a href="https://www.jianshu.com/p/a19962485b4a" target="_blank" rel="noopener">Coding Pages 搭建 Hexo 静态博客 作者：Zelsonia</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hexo-博客搭建&quot;&gt;&lt;a href=&quot;#Hexo-博客搭建&quot; class=&quot;headerlink&quot; title=&quot;Hexo 博客搭建&quot;&gt;&lt;/a&gt;Hexo 博客搭建&lt;/h1&gt;&lt;h2 id=&quot;1-安装git&quot;&gt;&lt;a href=&quot;#1-安装git&quot; class=&quot;he
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://blog.tangbzai.top/2019/02/09/hello-world/"/>
+    <id>http://blog.tangbzai.top/2019/02/09/hello-world/</id>
+    <published>2019-02-08T17:55:37.063Z</published>
+    <updated>2019-02-08T15:01:53.835Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
