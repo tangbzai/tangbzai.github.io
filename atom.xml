@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.tangbzai.top/"/>
-  <updated>2019-03-28T17:06:53.923Z</updated>
+  <updated>2019-04-07T04:27:12.855Z</updated>
   <id>http://blog.tangbzai.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS动画（animation与keyframes）</title>
+    <link href="http://blog.tangbzai.top/2019/04/02/CSS%E5%8A%A8%E7%94%BB%EF%BC%88animation%E4%B8%8Ekeyframes%EF%BC%89/"/>
+    <id>http://blog.tangbzai.top/2019/04/02/CSS动画（animation与keyframes）/</id>
+    <published>2019-04-01T17:05:00.000Z</published>
+    <updated>2019-04-07T04:27:12.855Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><pre><code>animation: name duration timing-function delay iteration-count direction;</code></pre><table><thead><tr><th style="text-align:left">属性名</th><th style="text-align:left">中文名</th><th style="text-align:center">值</th></tr></thead><tbody><tr><td style="text-align:left">animation-name</td><td style="text-align:left">keyframe名称</td><td style="text-align:center">/</td></tr><tr><td style="text-align:left">animation-duration</td><td style="text-align:left">持续时间</td><td style="text-align:center">(time)</td></tr><tr><td style="text-align:left">animation-timing-function</td><td style="text-align:left">速度曲线</td><td style="text-align:center">linear &#124; ease &#124; ease-in &#124; ease-out &#124; <br> ease-in-out &#124; cubic-bezier(n,n,n,n)</td></tr><tr><td style="text-align:left">animation-delay</td><td style="text-align:left">开始前的延迟</td><td style="text-align:center">(time)</td></tr><tr><td style="text-align:left">animation-iteration-count</td><td style="text-align:left">播放次数</td><td style="text-align:center">(n) &#124; infinite</td></tr><tr><td style="text-align:left">animation-direction</td><td style="text-align:left">是否轮流反向播放</td><td style="text-align:center">normal &#124; alternate</td></tr><tr><td style="text-align:left">animation-play-state</td><td style="text-align:left">指定动画播放或暂停</td><td style="text-align:center">paused &#124; running</td></tr></tbody></table><p>注：</p><ol><li>time为时间值默认毫秒为单位，可设置秒为单位（ns）</li><li>n表示任意整数</li></ol><h2 id="keyframes"><a href="#keyframes" class="headerlink" title="@keyframes"></a>@keyframes</h2><pre><code>@keyframes name {    from {        color: #fff;    }    to {        color: #000;    }}</code></pre><pre><code>@keyframes name {    0% {        color: #fff;    }    100% {        color: #000;    }}</code></pre><ul><li>上面两种效果是等同的<br><br>（可用百分比来规定变化发生的时间，或用关键词 “from” 和 “to”）</li><li>0% 是动画的开始，100% 是动画的完成。</li><li>避免兼容性问题，应该始终定义 0% 和 100% 选择器</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;animation&quot;&gt;&lt;a href=&quot;#animation&quot; class=&quot;headerlink&quot; title=&quot;animation&quot;&gt;&lt;/a&gt;animation&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;animation: name duration timing-fu
+      
+    
+    </summary>
+    
+    
+      <category term="CSS" scheme="http://blog.tangbzai.top/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo d 时出现 On branch master nothing to commit</title>
