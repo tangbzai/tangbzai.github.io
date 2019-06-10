@@ -2,6 +2,8 @@
 title: Windows2012安装IIS和FTP
 date: 2019-06-06 10:57:48
 tags:
+	- 问题
+	- 记录
 	- 教程
 ---
 ## Windows2012安装IIS和FTP
