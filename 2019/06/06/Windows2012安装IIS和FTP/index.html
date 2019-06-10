@@ -19,7 +19,7 @@
     <meta name="description" content="糖仔呐的博客">
     <meta name="author" content="糖仔">
     <meta name="keywords" content="">
-    <title>CSS动画（animation与keyframes） ~ 糖仔呐</title>
+    <title>Windows2012安装IIS和FTP ~ 糖仔呐</title>
     <link rel="stylesheet" href="/css/Material_Icons.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -70,8 +70,8 @@
   <div class="page-header header-filter" data-parallax="false" style="background-image: url('/img/post-banner.jpg'); height: 70vh;">
     
       <div class="container">
-        <h1 class="title text-center post_title">CSS动画（animation与keyframes）</h1>
-        <p class="text-center"><b>星期二, 四月 2日 2019, 1:05 凌晨</b></p>
+        <h1 class="title text-center post_title">Windows2012安装IIS和FTP</h1>
+        <p class="text-center"><b>星期四, 六月 6日 2019, 10:57 上午</b></p>
       </div>
     
   </div>
@@ -85,86 +85,31 @@
       <div class="container">
         <div class="section">
           <div class="post_content">
-              <h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><pre><code>animation: name duration timing-function delay iteration-count direction;
-</code></pre><table>
-<thead>
-<tr>
-<th style="text-align:left">属性名</th>
-<th style="text-align:left">中文名</th>
-<th style="text-align:center">值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">animation-name</td>
-<td style="text-align:left">keyframe名称</td>
-<td style="text-align:center">/</td>
-</tr>
-<tr>
-<td style="text-align:left">animation-duration</td>
-<td style="text-align:left">持续时间</td>
-<td style="text-align:center">(time)</td>
-</tr>
-<tr>
-<td style="text-align:left">animation-timing-function</td>
-<td style="text-align:left">速度曲线</td>
-<td style="text-align:center">linear &#124; ease &#124; ease-in &#124; ease-out &#124; <br> ease-in-out &#124; cubic-bezier(n,n,n,n)</td>
-</tr>
-<tr>
-<td style="text-align:left">animation-delay</td>
-<td style="text-align:left">开始前的延迟</td>
-<td style="text-align:center">(time)</td>
-</tr>
-<tr>
-<td style="text-align:left">animation-iteration-count</td>
-<td style="text-align:left">播放次数</td>
-<td style="text-align:center">(n) &#124; infinite</td>
-</tr>
-<tr>
-<td style="text-align:left">animation-direction</td>
-<td style="text-align:left">是否轮流反向播放</td>
-<td style="text-align:center">normal &#124; alternate</td>
-</tr>
-<tr>
-<td style="text-align:left">animation-play-state</td>
-<td style="text-align:left">指定动画播放或暂停</td>
-<td style="text-align:center">paused &#124; running</td>
-</tr>
-</tbody>
-</table>
-<p>注：</p>
-<ol>
-<li>time为时间值默认毫秒为单位，可设置秒为单位（ns）</li>
-<li>n表示任意整数</li>
+              <h2 id="Windows2012安装IIS和FTP"><a href="#Windows2012安装IIS和FTP" class="headerlink" title="Windows2012安装IIS和FTP"></a>Windows2012安装IIS和FTP</h2><h3 id="1-安装IIS"><a href="#1-安装IIS" class="headerlink" title="1. 安装IIS"></a>1. 安装IIS</h3><ol>
+<li>打开Windows 2012的服务器管理器，选择 管理→添加角色和功能。<br> <img src="TB147AsHXXXXXc7XpXXjcp1IXXX-780-536.jpg" alt=""></li>
+<li>进入 添加角色和功能向导，选择 “Web服务器(IIS)”。<br> <img src="TB18WwvHXXXXXbiXpXXJy1J_VXX-800-567.jpg" alt=""></li>
+<li>根据情况选择对应功能，这里选择.Net3.5。<br> <img src="TB1i2AuHXXXXXbFXpXXJy1J_VXX-800-567.jpg" alt=""></li>
+<li>安装角色服务，选择对应的安全性选项，如图。<br> <img src="TB1V5AtHXXXXXcjXpXXJy1J_VXX-800-567.jpg" alt=""></li>
+<li>选择“FTP服务器”，以及开设主机必须要用的“管理工具”，此项重要。<br> <img src="TB1X3.kHXXXXXXraVXXJy1J_VXX-800-567.jpg" alt=""></li>
+<li>等待安装，时间稍长，耐心等待即可。<br> <img src="TB1aLQsHXXXXXXiXFXXJy1J_VXX-800-567.jpg" alt=""></li>
+<li>安装完毕，打开IIS管理器查看。<br> <img src="TB1Pi.mHXXXXXaoaXXXXgLyVXXX-945-533.jpg" alt=""></li>
+<li>打开了IIS管理器，看到程序池，站点，至此，在Windows2012下安装IIS已经成功。<br> <img src="TB1aoQsHXXXXXcSXpXXQV7OGVXX-668-525.jpg" alt=""><h3 id="2-安装FTP"><a href="#2-安装FTP" class="headerlink" title="2. 安装FTP"></a>2. 安装FTP</h3></li>
+<li>单击图标进入服务器管理器。<br> <img src="TB11NgLHVXXXXXaXXXXXXXXXXXX.png" alt=""></li>
+<li>单击 IIS， 右击服务器，选择 Internet 信息服务（IIS）管理器。<br> <img src="TB1f4EuHVXXXXa4XpXXXXXXXXXX.png" alt=""></li>
+<li>右击服务器，选择添加 FTP 站点。<br> <img src="TB1piQgHVXXXXcPXFXXXXXXXXXX.png" alt=""></li>
+<li>填写 FTP 站点名称，选择 FTP 路径，单击下一步。<br> <img src="TB1gx7xHVXXXXb5XXXXXXXXXXXX.png" alt=""></li>
+<li>IP地址选择全部未分配，SSL选择无SSL。<br> <img src="TB1vkwEHVXXXXa7XXXXXXXXXXXX.png" alt=""></li>
+<li>身份验证选择基本，授权选择所有用户 ，权限设置为读取与写入 。单击完成。<br> <img src="TB1POPTHVXXXXbBXXXXXXXXXXXX.png" alt=""></li>
+<li>使用系统默认的 administrator 账号和密码，进行登录测试，现在您可以可以正常上传下载文件。<br> <img src="TB1a3.KHVXXXXXsXXXXXXXXXXXX.png" alt=""><h3 id="3-阿里云安全设置开发ftp端口"><a href="#3-阿里云安全设置开发ftp端口" class="headerlink" title="3. 阿里云安全设置开发ftp端口"></a>3. 阿里云安全设置开发ftp端口</h3> 添加规则选择FTP<br> <img src="ftp.png" alt=""><h3 id="遇到的问题与解决办法"><a href="#遇到的问题与解决办法" class="headerlink" title="遇到的问题与解决办法"></a>遇到的问题与解决办法</h3> 1.Xftp 提示无法显示远程文件<br> <img src="xftpnoshowdir.png" alt=""><br> 点击属性-&gt;选项-&gt;将使用被动模式选项去掉即可<br> <img src="2018091715131039.png" alt=""><br> * 如果还不行请检查目录是否属于当前用户下的目录，用户是否有权限访问当前目录</li>
 </ol>
-<h2 id="keyframes"><a href="#keyframes" class="headerlink" title="@keyframes"></a>@keyframes</h2><pre><code>@keyframes name {
-    from {
-        color: #fff;
-    }
-    to {
-        color: #000;
-    }
-}
-</code></pre><pre><code>@keyframes name {
-    0% {
-        color: #fff;
-    }
-    100% {
-        color: #000;
-    }
-}
-</code></pre><ul>
-<li>上面两种效果是等同的<br><br>（可用百分比来规定变化发生的时间，或用关键词 “from” 和 “to”）</li>
-<li>0% 是动画的开始，100% 是动画的完成。</li>
-<li>避免兼容性问题，应该始终定义 0% 和 100% 选择器</li>
-</ul>
+<h2 id="摘自"><a href="#摘自" class="headerlink" title="摘自"></a>摘自</h2><p><a href="https://help.aliyun.com/knowledge_detail/40896.html?spm=5176.10695662.1996646101.searchclickresult.582843c0LhJGp6" target="_blank" rel="noopener">Windows2012安装IIS和FTP</a><br><br><a href="https://help.aliyun.com/knowledge_detail/40944.html#windows2012" target="_blank" rel="noopener">云服务器 ECS Windows Server 通过 IIS 配置 FTP</a><br><br><a href="https://blog.csdn.net/qq_29473881/article/details/82740592" target="_blank" rel="noopener">Xftp 提示无法显示远程文件夹</a></p>
 
           </div>
           <br><br>
           <div>
               <p>
                        
-                      <span class="badge badge-default">#&nbsp;CSS</span>
+                      <span class="badge badge-default">#&nbsp;教程</span>
                       &nbsp;
                       
               </p>
@@ -193,8 +138,8 @@
     <script>               
         var disqus_shortname = '';
         var disqus_config = function () {
-            this.page.url = 'http://blog.tangbzai.top/2019/04/02/CSS动画（animation与keyframes）/'; 
-            this.page.identifier = '/2019/04/02/CSS动画（animation与keyframes）/';
+            this.page.url = 'http://blog.tangbzai.top/2019/06/06/Windows2012安装IIS和FTP/'; 
+            this.page.identifier = '/2019/06/06/Windows2012安装IIS和FTP/';
         };
         (function() { 
             var d = document, s = d.createElement('script');
