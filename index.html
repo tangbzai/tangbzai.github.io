@@ -14,110 +14,117 @@
     <meta charset="utf-8">
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon.png">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="糖仔呐的博客">
     <meta name="author" content="糖仔">
     <meta name="keywords" content="">
     <title>糖仔呐</title>
-    <link rel="stylesheet" href="/css/Material_Icons.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
     
 </head>
 
-<body class=" sidebar-collapse">
-<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-    <div class="container">
-        <div class="navbar-translate">
-            <a class="navbar-brand" href="/">
-                糖仔呐</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    
-                        
-                            <li class="nav-item">
-                                <a class="nav-link" href="/archives/">
-                                    archives
-                                </a>
-                            </li>
-                        
-                            <li class="nav-item">
-                                <a class="nav-link" href="/about/">
-                                    about
-                                </a>
-                            </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-    </div>
-</nav>
-    
-  <div class="page-header header-filter" data-parallax="false" style="background-image: url('/img/index-banner.jpg'); height: 100vh;">
-    
-      <div class="container">
-        <h1 class="title text-center"></h1>
-      </div>
-    
-  </div>
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/"><strong>糖仔呐</strong></a>
 
-  
-  
-    <div class="main main-raised">
-      <div class="container">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">Archives</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2" style='background: url("/img/index-banner.jpg")no-repeat center center;background-size: cover;'>
+    <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+            <p class="h2"></p>
+            <br>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <main>
+    
+  <div class="container">
+    <div class="py-5 z-depth-3 main">
       
-          <div class="section">
-            <div class="row">
-    <div class="col-md-10 offset-md-1">
-        
-        <div class="row post-card">
+      <div class="container">
+        <div class="row">
+          <div class="col-10 offset-1">
             
-            
-                <div class="col-md-11">
-                    <a href="/2019/06/06/Windows2012安装IIS和FTP/" class="h3 title" target="_self">Windows2012安装IIS和FTP</a>
-                    
-                    <p>Windows2012安装IIS和FTP1. 安装IIS
+
+<div class="row mb-3">
+
+<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
+    <a href="/2019/06/06/Windows2012安装IIS和FTP/" class="h4" style="font-weight: 700;">Windows2012安装IIS和FTP</a>
+    
+      <p class="mb-1">Windows2012安装IIS和FTP1. 安装IIS
 打开Windows 2012的服务器管理器，选择 管理→添加角色和功能。 
 进入 添加角色和功能向导，选择 “Web服务器(IIS)”。 
 根据情况选择对应功能，这里选择.Net3.5。 
 安装角色服务，选择对应的安全性选项，如图。 
-选择“FTP服务器”，以及开设主机必须要用的“管理工具”...</p>
-                    
-                    
-                    <p class="h6">
-                        <i class="material-icons">date_range</i>2019-06-06
-                        
-                            <i class="material-icons">bookmark_border</i>
-                                
-                                    问题 &nbsp;
-                                
-                                    记录 &nbsp;
-                                
-                                    教程 &nbsp;
-                                
-                        
-                    </p>
-                    
-                </div>
-        </div>
-       
+选择“FTP服务器”，以及开设主机必须要用的“管理工具”，此项重要。 
+等待安装，时间稍长，耐心等待即可。 
+安装完毕，打开IIS管理器查看。 
+打开了IIS管理器，看到程序池，站点，至此，在Windows2012下安装IIS已经成功。 2. 安装FTP
+单击图标进入服务器管理器。 
+单击 IIS， 右击...</p>
+    
+    
+      <p>
+        <i class="iconfont icon-riqi2"></i>&nbsp;2019-06-06
+        &nbsp;
         
-        <div class="row post-card">
+            <i class="iconfont icon-cc-tag-more"></i>
             
+                问题&nbsp;
             
-                <div class="col-md-11">
-                    <a href="/2019/04/02/CSS动画（animation与keyframes）/" class="h3 title" target="_self">CSS动画（animation与keyframes）</a>
-                    
-                    <p>animationanimation: name duration timing-function delay iteration-count direction;
+                记录&nbsp;
+            
+                教程&nbsp;
+            
+        
+      </p>
+    
+</div>
+</div>
+
+<div class="row mb-3">
+
+<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
+    <a href="/2019/04/02/CSS动画（animation与keyframes）/" class="h4" style="font-weight: 700;">CSS动画（animation与keyframes）</a>
+    
+      <p class="mb-1">animationanimation: name duration timing-function delay iteration-count direction;
 
 
 
@@ -138,132 +145,138 @@ animation-duration
 (time)
 
 
-animation-ti...</p>
-                    
-                    
-                    <p class="h6">
-                        <i class="material-icons">date_range</i>2019-04-02
-                        
-                            <i class="material-icons">bookmark_border</i>
-                                
-                                    CSS &nbsp;
-                                
-                        
-                    </p>
-                    
-                </div>
-        </div>
-       
+animation-timing-function
+速度曲线
+linear &#124; ease &#124; ease-in &#124; ease-out &#124;  ease-in-out &#124; cubic-bezier(n,n,n,n)
+
+
+anima...</p>
+    
+    
+      <p>
+        <i class="iconfont icon-riqi2"></i>&nbsp;2019-04-02
+        &nbsp;
         
-        <div class="row post-card">
+            <i class="iconfont icon-cc-tag-more"></i>
             
+                CSS&nbsp;
             
-                <div class="col-md-11">
-                    <a href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/" class="h3 title" target="_self">Hexo d 时出现 On branch master nothing to commit</a>
-                    
-                    <p>问题：
+        
+      </p>
+    
+</div>
+</div>
+
+<div class="row mb-3">
+
+<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
+    <a href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/" class="h4" style="font-weight: 700;">Hexo d 时出现 On branch master nothing to commit</a>
+    
+      <p class="mb-1">问题：
 Hexo d 时出现 On branch master nothing to commit 和一大串的 warning
 上传不上远程仓库
 
 解决删除文件夹里的.deploy_git文件
 参考来源git 使用——关于使用指令hexo d 出现一大串waring以及无法成功部署到github的解决办法 作者： 寰宇的行者
 ...</p>
-                    
-                    
-                    <p class="h6">
-                        <i class="material-icons">date_range</i>2019-03-29
-                        
-                            <i class="material-icons">bookmark_border</i>
-                                
-                                    问题 &nbsp;
-                                
-                        
-                    </p>
-                    
-                </div>
-        </div>
-       
+    
+    
+      <p>
+        <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-29
+        &nbsp;
         
-        <div class="row post-card">
+            <i class="iconfont icon-cc-tag-more"></i>
             
+                问题&nbsp;
             
-                <div class="col-md-11">
-                    <a href="/2019/03/29/搭建Hexo博客/" class="h3 title" target="_self">搭建Hexo博客</a>
-                    
-                    <p>Hexo 博客搭建1.安装git
+        
+      </p>
+    
+</div>
+</div>
+
+<div class="row mb-3">
+
+<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
+    <a href="/2019/03/29/搭建Hexo博客/" class="h4" style="font-weight: 700;">搭建Hexo博客</a>
+    
+      <p class="mb-1">Hexo 博客搭建1.安装git
 windows：到git官网上下载 Download git,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。
 linux：一行代码sudo apt-get install git
 
 
 2.安装nodeJSHexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。
-...</p>
-                    
-                    
-                    <p class="h6">
-                        <i class="material-icons">date_range</i>2019-03-29
-                        
-                            <i class="material-icons">bookmark_border</i>
-                                
-                                    记录 &nbsp;
-                                
-                        
-                    </p>
-                    
-                </div>
-        </div>
-       
-        
-        <div class="row post-card">
-            
-            
-                <div class="col-md-11">
-                    <a href="/2019/02/09/hello-world/" class="h3 title" target="_self">Hello World</a>
-                    
-                    <p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you ca...</p>
-                    
-                    
-                    <p class="h6">
-                        <i class="material-icons">date_range</i>2019-02-09
-                        
-                    </p>
-                    
-                </div>
-        </div>
-       
-         
-        <br><br>
-        
 
-    </div>
+windows：nodejs选择LTS版本就行了。(LTS:长期支持版本)
+linux：  sudo apt-get install nodejs
+  sudo apt-get install npm
+
+
+
+安装完后，打开命令行node -v
+np...</p>
+    
+    
+      <p>
+        <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-29
+        &nbsp;
+        
+            <i class="iconfont icon-cc-tag-more"></i>
+            
+                记录&nbsp;
+            
+        
+      </p>
+    
 </div>
+</div>
+
+<div class="row mb-3">
+
+<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
+    <a href="/2019/02/09/hello-world/" class="h4" style="font-weight: 700;">Hello World</a>
+    
+      <p class="mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server$ hexo serve...</p>
+    
+    
+      <p>
+        <i class="iconfont icon-riqi2"></i>&nbsp;2019-02-09
+        &nbsp;
+        
+      </p>
+    
+</div>
+</div>
+ 
+<br><br>
+
+
           </div>
-      
+        </div>
       </div>
     </div>
+  </div>
   
+  </main>
 
-<footer class="footer footer-default">
-        <div class="container">
-          <div class="float-left" style="padding: 15px 0;">
-              <b>多喝热水</b>
-          </div>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>&nbsp;<a href="https://hexo.io/zh-cn/" target="_blank">HEXO</a>&nbsp;<i class="material-icons">favorite_border</i>
-            <a href="https://github.com/invom/Material-T" target="_blank">Material-T</a>
-          </div>
-        </div>
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+  </div>
 </footer>
-      <!--   Core JS Files   -->
-      <script src="/js/core/jquery.min.js?v=3.2.1"></script>
-      <script src="/js/main.js"></script>
-      <script src="/js/core/popper.min.js"></script>
-      <script src="/js/core/bootstrap-material-design.min.js"></script>
-      <script src="/js/plugins/moment.min.js"></script>
-      <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-      <script src="/js/material-kit.min.js?v=2.0.5"></script>
-      
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
+  <script src="/js/main.js"></script>
+  
 </body>
 </html>
