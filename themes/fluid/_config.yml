@@ -20,7 +20,7 @@ title_join_string: ' - '  # 浏览器标签页中的标题分隔符，效果： 
 force_https: false  # 强制所有链接升级为 HTTPS（适用于图片等资源出现 HTTP 混入报错）
 
 highlight: # 代码高亮
-  enable: true
+  enable: false
   theme: tomorrow-night-eighties # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties，更多主题可从 https://jmblog.github.io/color-themes-for-google-code-prettify/ 获取，保存为 `*.min.css` 到 `source/lib/prettify/`，在其中 .prettyprint{ background: ***; ...} 的background 值后加上 !important，例如：.prettyprint{background:#fafbfc!important; ...}
 
 fun_features: # 一些好玩的功能
@@ -62,7 +62,7 @@ web_analytics:  # 网页访问统计
 
 lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
   enable: true
-  onlypost: false  # 仅在文章页使用懒加载
+  onlypost: true  # 仅在文章页使用懒加载
 
 smooth_scroll: # 平滑滚动效果，服务器加载过慢可能会影响滚动，请慎用
   enable: false

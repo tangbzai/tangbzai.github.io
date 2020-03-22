@@ -8,11 +8,21 @@
     <%- partial('_partial/busuanzi.ejs') %>
     <%- partial('_partial/beian.ejs') %>
     <% if(theme.web_analytics.cnzz) { %>
-      <!-- cnzz Analytics Icon -->
-      <span id="cnzz_stat_icon_<%- theme.web_analytics.cnzz %>" style="display: none"></span>
+    <!-- cnzz Analytics Icon -->
+    <span id="cnzz_stat_icon_<%- theme.web_analytics.cnzz %>" style="display: none"></span>
     <% } %>
   </div>
 </footer>
 
 <!-- SCRIPTS -->
 <%- partial('_partial/scripts.ejs') %>
+
+<% if (theme.mermaid.enable) { %>
+<!-- <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.js'></script> -->
+<%- js_ex(theme.static_prefix.internal_js, "mermaid.min.js") %>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: 'default' });
+  }
+</script>
+<% } %>
