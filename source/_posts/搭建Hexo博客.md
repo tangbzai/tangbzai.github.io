@@ -39,7 +39,7 @@ Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工�
     npm install
 ```
 新建完成后，指定文件夹目录下有：
-- node+modules: 依赖包
+- node_modules: 依赖包
 - public: 存放生成的页面
 - scaffolds: 生成文章的一些模板
 - source: 存放文章
