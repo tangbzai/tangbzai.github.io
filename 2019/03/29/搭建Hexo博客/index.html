@@ -25,8 +25,6 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
-
 <link rel="stylesheet" href="/css/main.css">
 
 
@@ -159,7 +157,7 @@
               <h1 id="hexo-博客搭建"><a class="markdownIt-Anchor" href="#hexo-博客搭建"></a> Hexo 博客搭建</h1>
 <h2 id="1安装git"><a class="markdownIt-Anchor" href="#1安装git"></a> 1.安装git</h2>
 <ol>
-<li>windows：到git官网上下载 <a href="https://www.git-scm.com/download/win/" target="_blank" rel="noopener">Download git</a>,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</li>
+<li>windows：到git官网上下载 <a href="https://www.git-scm.com/download/win/">Download git</a>,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</li>
 <li>linux：一行代码</li>
 </ol>
 <pre class="highlight"><code class="">sudo apt-get install git
@@ -209,7 +207,7 @@
 <ol>
 <li>注册Github帐号</li>
 <li>登陆后需选择New repository,新建仓库</li>
-<li>创建一个与用户名相同的仓库，<a href="http://xn--yfr16an19l.github.io" target="_blank" rel="noopener">后面加.github.io</a></li>
+<li>创建一个与用户名相同的仓库，<a href="http://xn--yfr16an19l.github.io">后面加.github.io</a></li>
 <li>点击create repository。</li>
 </ol>
 <h2 id="5生成ssh添加到github"><a class="markdownIt-Anchor" href="#5生成ssh添加到github"></a> 5.生成SSH添加到GitHub</h2>
@@ -231,7 +229,7 @@
 <p>ssh，简单来讲，就是一个秘钥，其中，<code>id_rsa</code>是你这台电脑的私人秘钥，不能给别人看的，<code>id_rsa.pub</code>是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p>
 <p>作者：zjufangzh<br><br>
 来源：CSDN <br><br>
-原文：<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">https://blog.csdn.net/sinat_37781304/article/details/82729029</a> <br><br>
+原文：<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">https://blog.csdn.net/sinat_37781304/article/details/82729029</a> <br><br>
 版权声明：本文为博主原创文章，转载请附上博文链接！</p>
 </blockquote>
 <ol start="4">
@@ -307,8 +305,8 @@ coding还需要在根目录下建一个.nojekyll空文件（coding page 配置he
 </ol>
 <h2 id="参考来源"><a class="markdownIt-Anchor" href="#参考来源"></a> 参考来源</h2>
 <ul>
-<li><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">hexo史上最全搭建教程 作者：zjufangzh</a><br></li>
-<li><a href="https://www.jianshu.com/p/a19962485b4a" target="_blank" rel="noopener">Coding Pages 搭建 Hexo 静态博客 作者：Zelsonia</a></li>
+<li><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">hexo史上最全搭建教程 作者：zjufangzh</a><br></li>
+<li><a href="https://www.jianshu.com/p/a19962485b4a">Coding Pages 搭建 Hexo 静态博客 作者：Zelsonia</a></li>
 </ul>
 
             </div>
@@ -497,14 +495,6 @@ coding还需要在根目录下建一个.nojekyll空文件（coding page 配置he
 
 
 
-  <script src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  ');
-      prettyPrint();
-    })
-  </script>
-
 
 
   <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
@@ -577,6 +567,15 @@ coding还需要在根目录下建一个.nojekyll空文件（coding page 配置he
 
 
 
+
+
+  <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.js"></script>
+<!-- <script  src="/js/mermaid.min.js" ></script> -->
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: 'default' });
+  }
+</script>
 
 
 </body>

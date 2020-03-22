@@ -25,8 +25,6 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
-
 <link rel="stylesheet" href="/css/main.css">
 
 
@@ -121,7 +119,7 @@
           >
           
             <div class="about-avatar">
-              <img src="/img/avatar.jpg" srcset="/img/loading.gif"
+              <img src="/img/avatar.jpg"
                    class="img-fluid z-depth-1 rounded-circle"
                    alt="avatar">
             </div>
@@ -226,14 +224,6 @@
 
 
 
-  <script src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  ');
-      prettyPrint();
-    })
-  </script>
-
 
 
   <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
@@ -306,6 +296,15 @@
 
 
 
+
+
+  <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.js"></script>
+<!-- <script  src="/js/mermaid.min.js" ></script> -->
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: 'default' });
+  }
+</script>
 
 
 </body>

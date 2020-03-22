@@ -25,8 +25,6 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
-
 <link rel="stylesheet" href="/css/main.css">
 
 
@@ -133,7 +131,7 @@
       <a href="https://hexo.fluid-dev.com/docs/" class="card-body" target="_blank" rel="nofollow noopener">
         <div class="row">
           
-            <img class="link-avatar my-auto" src="/img/favicon.png" srcset="/img/loading.gif" alt="Fluid Docs">
+            <img class="link-avatar my-auto" src="/img/favicon.png" alt="Fluid Docs">
           
           <div class="link-text">
             <div class="link-title">Fluid Docs</div>
@@ -149,7 +147,7 @@
       <a href="https://github.com/fluid-dev/hexo-theme-fluid" class="card-body" target="_blank" rel="nofollow noopener">
         <div class="row">
           
-            <img class="link-avatar my-auto" src="/img/favicon.png" srcset="/img/loading.gif" alt="Fluid Repo">
+            <img class="link-avatar my-auto" src="/img/favicon.png" alt="Fluid Repo">
           
           <div class="link-text">
             <div class="link-title">Fluid Repo</div>
@@ -165,7 +163,7 @@
       <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/Changelog.md" class="card-body" target="_blank" rel="nofollow noopener">
         <div class="row">
           
-            <img class="link-avatar my-auto" src="/img/favicon.png" srcset="/img/loading.gif" alt="Fluid Changelog">
+            <img class="link-avatar my-auto" src="/img/favicon.png" alt="Fluid Changelog">
           
           <div class="link-text">
             <div class="link-title">Fluid Changelog</div>
@@ -255,14 +253,6 @@
 
 
 
-  <script src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  ');
-      prettyPrint();
-    })
-  </script>
-
 
 
   <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
@@ -335,6 +325,15 @@
 
 
 
+
+
+  <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.js"></script>
+<!-- <script  src="/js/mermaid.min.js" ></script> -->
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: 'default' });
+  }
+</script>
 
 
 </body>

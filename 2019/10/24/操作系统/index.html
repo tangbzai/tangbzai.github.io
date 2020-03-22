@@ -25,8 +25,6 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
-
 <link rel="stylesheet" href="/css/main.css">
 
 
@@ -153,7 +151,7 @@
         <div class="py-5 z-depth-3" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p class="note note-warning">本文最后更新于：2020 3月 22日, 星期日, 4:27 下午</p>
+              <p class="note note-warning">本文最后更新于：2020 3月 23日, 星期一, 1:32 凌晨</p>
             
             <div class="markdown-body">
               <h1 id="操作系统"><a class="markdownIt-Anchor" href="#操作系统"></a> 操作系统</h1>
@@ -172,12 +170,11 @@
 </ul>
 <h3 id="进程的状态"><a class="markdownIt-Anchor" href="#进程的状态"></a> 进程的状态</h3>
 <p><mark>三态模型：</mark></p>
-<pre class="highlight"><code class="">graph LR
-id(就绪)--调度--&gt;id1(运行)
-id1(运行)--等待某个事件--&gt;id2(等待)
-id2(等待)--等待事情发生--&gt;id(就绪)
-id1(运行)--时间片到--&gt;id(就绪)
-</code></pre>
+<pre class="mermaid">graph LR
+id(就绪)--调度-->id1(运行)
+id1(运行)--等待某个事件-->id2(等待)
+id2(等待)--等待事情发生-->id(就绪)
+id1(运行)--时间片到-->id(就绪)</pre>
 <h3 id="进程的同步与互斥"><a class="markdownIt-Anchor" href="#进程的同步与互斥"></a> 进程的同步与互斥</h3>
 <ul>
 <li>直接制约关系</li>
@@ -213,11 +210,10 @@ id1(运行)--时间片到--&gt;id(就绪)
 </tbody>
 </table>
 <h4 id="同步模型"><a class="markdownIt-Anchor" href="#同步模型"></a> 同步模型</h4>
-<pre class="highlight"><code class="">graph LR
+<pre class="mermaid">graph LR
 
-id(生产者)--&gt;id1(市场)
-id1(市场)--&gt;id2(消费者)
-</code></pre>
+id(生产者)-->id1(市场)
+id1(市场)-->id2(消费者)</pre>
 <table>
 <thead>
 <tr>
@@ -238,12 +234,11 @@ id1(市场)--&gt;id2(消费者)
 </table>
 <p>PV操作是成对的</p>
 <h4 id="前趋图帮助理解"><a class="markdownIt-Anchor" href="#前趋图帮助理解"></a> 前趋图（帮助理解）</h4>
-<pre class="highlight"><code class="">graph LR
-id(A)--&gt;id3(D)
-id1(B)--&gt;id3(D)
-id2(C)--&gt;id3(D)
-id3(D)--&gt;id4(E)
-</code></pre>
+<pre class="mermaid">graph LR
+id(A)-->id3(D)
+id1(B)-->id3(D)
+id2(C)-->id3(D)
+id3(D)-->id4(E)</pre>
 <p>例如上图：<br>
 Sa = Sb = Sc = Sd = 0;<br><br>
 <mark>线程D需要等待线程A、B、C的V(Sa、Sb、Sc)的唤醒 : P(Sa、Sb、Sc)</mark></p>
@@ -334,11 +329,10 @@ Sa = Sb = Sc = Sd = 0;<br><br>
 </ol>
 <h2 id="作业管理"><a class="markdownIt-Anchor" href="#作业管理"></a> 作业管理</h2>
 <h3 id="作业状态与作业管理"><a class="markdownIt-Anchor" href="#作业状态与作业管理"></a> 作业状态与作业管理</h3>
-<pre class="highlight"><code class="">graph LR
-id(提交)--&gt;id1(后备)
-id1(后备)--&gt;id2(执行)
-id2(执行)--&gt;id3(完成)
-</code></pre>
+<pre class="mermaid">graph LR
+id(提交)-->id1(后备)
+id1(后备)-->id2(执行)
+id2(执行)-->id3(完成)</pre>
 <h3 id="作业调度算法"><a class="markdownIt-Anchor" href="#作业调度算法"></a> 作业调度算法</h3>
 <ul>
 <li>先来先服务法</li>
@@ -354,24 +348,21 @@ id2(执行)--&gt;id3(完成)
 <ul>
 <li>直接索引：</li>
 </ul>
-<pre class="highlight"><code class="">graph LR
-id1(索引节点)--&gt;id2(物理盘块)
-</code></pre>
+<pre class="mermaid">graph LR
+id1(索引节点)-->id2(物理盘块)</pre>
 <ul>
 <li>一级间接索引：</li>
 </ul>
-<pre class="highlight"><code class="">graph LR
-id1(索引节点)--&gt;id3(地址项)
-id3(地址项)--&gt;id2(物理盘块)
-</code></pre>
+<pre class="mermaid">graph LR
+id1(索引节点)-->id3(地址项)
+id3(地址项)-->id2(物理盘块)</pre>
 <ul>
 <li>二级间接索引：</li>
 </ul>
-<pre class="highlight"><code class="">graph LR
-id1(索引节点)--&gt;id3(地址项)
-id3(地址项)--&gt;id4(地址项)
-id4(地址项)--&gt;id2(物理盘块)
-</code></pre>
+<pre class="mermaid">graph LR
+id1(索引节点)-->id3(地址项)
+id3(地址项)-->id4(地址项)
+id4(地址项)-->id2(物理盘块)</pre>
 <p><em>物理盘块存放的是逻辑页</em></p>
 <ul>
 <li>逻辑页计算公式
@@ -444,6 +435,11 @@ id4(地址项)--&gt;id2(物理盘块)
               
                 <div class="post-prevnext row">
                   <div class="post-prev col-12 col-md-6">
+                    
+                      <a href="/2020/03/22/让Hexo博客支持流程图/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>让Hexo博客支持流程图</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-12 col-md-6">
@@ -605,14 +601,6 @@ id4(地址项)--&gt;id2(物理盘块)
 
 
 
-  <script src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  ');
-      prettyPrint();
-    })
-  </script>
-
 
 
   <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
@@ -692,6 +680,15 @@ id4(地址项)--&gt;id2(物理盘块)
 
 
 
+
+
+  <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.js"></script>
+<!-- <script  src="/js/mermaid.min.js" ></script> -->
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: 'default' });
+  }
+</script>
 
 
 </body>
