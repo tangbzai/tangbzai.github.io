@@ -5,126 +5,442 @@
 
 
 
-
-
-
-
-
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="糖仔呐的博客">
-    <meta name="author" content="糖仔">
-    <meta name="keywords" content="">
-    <title>糖仔呐</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
-    
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2E294E">
+  <meta name="description" content="糖仔呐的博客">
+  <meta name="author" content="糖仔">
+  <meta name="keywords" content="">
+  <title>糖仔呐</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
 </head>
+
 
 <body>
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-<div class="container">
-    <a class="navbar-brand" href="/"><strong>糖仔呐</strong></a>
+  <div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <div class="animated-icon"><span></span><span></span><span></span></div>
+      <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto text-center">
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/archives/">Archives</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/about/">About</a>
-            </li>
-            
-        </ul>
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-
-
+  </div>
 </nav>
-    <div class="view intro-2" style='background: url("/img/index-banner.jpg")no-repeat center center;background-size: cover;'>
-    <div class="full-bg-img">
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
-        <div class="container text-center white-text wow fadeInUp">
-            <p class="h2"></p>
-            <br>
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
             
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
         </div>
-        </div>
-    </div>
+      </div>
     </div>
   </header>
 
   <main>
     
-  <div class="container">
-    <div class="py-5 z-depth-3 main">
-      
-      <div class="container">
-        <div class="row">
-          <div class="col-10 offset-1">
-            
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
-<div class="row mb-3">
 
-<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
-    <a href="/2019/06/06/Windows2012安装IIS和FTP/" class="h4" style="font-weight: 700;">Windows2012安装IIS和FTP</a>
-    
-      <p class="mb-1">Windows2012安装IIS和FTP1. 安装IIS
-打开Windows 2012的服务器管理器，选择 管理→添加角色和功能。 
-进入 添加角色和功能向导，选择 “Web服务器(IIS)”。 
-根据情况选择对应功能，这里选择.Net3.5。 
-安装角色服务，选择对应的安全性选项，如图。 
-选择“FTP服务器”，以及开设主机必须要用的“管理工具”，此项重要。 
-等待安装，时间稍长，耐心等待即可。 
-安装完毕，打开IIS管理器查看。 
-打开了IIS管理器，看到程序池，站点，至此，在Windows2012下安装IIS已经成功。 2. 安装FTP
-单击图标进入服务器管理器。 
-单击 IIS， 右击...</p>
+  <div class="row mx-auto index-card">
     
     
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-06-06
-        &nbsp;
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/10/24/操作系统/">
+        <p class="h4 index-header">操作系统</p>
+      </a>
+
+      <a href="/2019/10/24/操作系统/">
         
-            <i class="iconfont icon-cc-tag-more"></i>
-            
-                问题&nbsp;
-            
-                记录&nbsp;
-            
-                教程&nbsp;
-            
         
-      </p>
-    
-</div>
-</div>
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1"> 操作系统
+ 进程管理
+ 概念
 
-<div class="row mb-3">
+进程是程序在一个数据集合上运行的过程，它是系统的一个独立单位。它由程序块、进程控制块（PCB）和数据块三部分组成。
+进程与程序的区别：
 
-<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
-    <a href="/2019/04/02/CSS动画（animation与keyframes）/" class="h4" style="font-weight: 700;">CSS动画（animation与keyframes）</a>
+进程是程序的一次执行过程，没有程序就没有进程。
+程序是完成某个特定功能的一系列程序语句的集合，只要不被破坏，它就永远存在。
+程序是一个静态的概念，而进程是一个动态的概念，它由创建而产生，完成任务后因撤销而消亡。
+进程是系统进行资源分配和调度的独立单位，而程序不是。
+
+
+
+ 进程的状态
+三态模型：
+graph LR
+id(就绪)--调度--&gt;id1(运行)
+id1(运行)--等待某个事件--&gt;id2(等待)
+id2</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-24&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
     
-      <p class="mb-1">animationanimation: name duration timing-function delay iteration-count direction;
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/10/22/校验码/">
+        <p class="h4 index-header">校验码</p>
+      </a>
+
+      <a href="/2019/10/22/校验码/">
+        
+        
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1"> 校验码
+ 奇偶校验码
+有效信息位加一个二进制位(校验位)
+
+可检查奇数个位数出错的情况
+
+奇校验：整个校验码（信息位和校验位）中的“1”的个数为奇数
+偶校验：整个校验码（信息位和校验位）中的“1”的个数为偶数
+例如：
+
+
+
+校验法（奇/偶）
+信息位
+校验位
+校验码
+
+
+
+
+奇校验
+1010
+1
+10101
+
+
+奇校验
+1101
+0
+11010
+
+
+偶校验
+1011
+1
+10111
+
+
+偶校验
+0101
+0
+01010
+
+
+
+ 循环校验码CRC
+k位信息码拼接r位校验码
+CRC可检错不可纠错
+运算过程中使用到模2除法
+模2除法：在除法运算的过程中不计其进位与借位的的除法。
+ 海明码
+在有效信息</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-22&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/10/20/Cache/">
+        <p class="h4 index-header">Cache</p>
+      </a>
+
+      <a href="/2019/10/20/Cache/">
+        
+        
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1"> Cache
+
+在计算机的存储系统体系中，Cache是访问速度最快的层次（若有寄存器，则寄存器最快）
+使用Cache改善系统性能的依据是程序的局部性原理。
+如果 h 代表对Cache的访问命令率，
+t1 表示Cache的周期时间，
+t2 表示主存储器周期时间，
+以读操作为例，使用“Cache + 主存储器”的系统的平均周期为 t3 则：
+
+t3=h×t1+(1−h)×t2    t_3 = h × t_1 + (1 - h) × t_2
+t3​=h×t1​+(1−h)×t2​
+其中 (1 - h) 又称 失效率（未命中率）
+ 映象
+映象(Cache与主存的对应关系）是直接由硬件控制的。
+
+直接</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-20&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/10/20/流水线/">
+        <p class="h4 index-header">流水线</p>
+      </a>
+
+      <a href="/2019/10/20/流水线/">
+        
+        
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1"> 流水线
+ 公式
+流水线周期（Δt）：执行时间最长的一段
+理论公式：
+(t1+t2+⋯+tk)+(n−1)∗Δt    (t_1 + t_2 + \cdots + t_k) + (n - 1) * Δt
+(t1​+t2​+⋯+tk​)+(n−1)∗Δt
+实践公式：
+k∗Δt+(n−1)∗Δt    k * Δt + (n-1) * Δt
+k∗Δt+(n−1)∗Δt
+注意：
+
+k 为执行完一条指令需要多少个步骤
+Δt 在题目中一般指单位时间
+
+ 流水线吞吐量
+流水线吞吐量（Though Put, TP）指在单位时间内流水线所完成的任务数量或输出的结果数量。
+TP=指令条数流水线执行时间    T</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-20&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/06/06/Windows2012安装IIS和FTP/">
+        <p class="h4 index-header">Windows2012安装IIS和FTP</p>
+      </a>
+
+      <a href="/2019/06/06/Windows2012安装IIS和FTP/">
+        
+        
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1"> Windows2012安装IIS和FTP
+ 1. 安装IIS
+
+打开Windows 2012的服务器管理器，选择 管理→添加角色和功能。
+
+进入 添加角色和功能向导，选择 “Web服务器(IIS)”。
+
+根据情况选择对应功能，这里选择.Net3.5。
+
+安装角色服务，选择对应的安全性选项，如图。
+
+选择“FTP服务器”，以及开设主机必须要用的“管理工具”，此项重要。
+
+等待安装，时间稍长，耐心等待即可。
+
+安装完毕，打开IIS管理器查看。
+
+打开了IIS管理器，看到程序池，站点，至此，在Windows2012下安装IIS已经成功。
+
+
+ 2. 安装FTP
+
+单击图标进入服务器管理器。
+
+单击</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-06-06&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/问题/">问题</a>&nbsp;
+          
+            <a href="/tags/记录/">记录</a>&nbsp;
+          
+            <a href="/tags/教程/">教程</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/04/02/CSS动画（animation与keyframes）/">
+        <p class="h4 index-header">CSS动画（animation与keyframes）</p>
+      </a>
+
+      <a href="/2019/04/02/CSS动画（animation与keyframes）/">
+        
+        
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1"> animation
+animation: name duration timing-function delay iteration-count direction;
+
 
 
 
@@ -147,145 +463,334 @@ animation-duration
 
 animation-timing-function
 速度曲线
-linear &#124; ease &#124; ease-in &#124; ease-out &#124;  ease-in-out &#124; cubic-bezier(n,n,n,n)
+linear | ease | ease-in | ease-out |  ease-in-out | cubic-bezier(n,n,n,n)
 
 
-anima...</p>
-    
-    
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-04-02
-        &nbsp;
-        
-            <i class="iconfont icon-cc-tag-more"></i>
-            
-                CSS&nbsp;
-            
-        
-      </p>
-    
-</div>
-</div>
-
-<div class="row mb-3">
-
-<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
-    <a href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/" class="h4" style="font-weight: 700;">Hexo d 时出现 On branch master nothing to commit</a>
-    
-      <p class="mb-1">问题：
-Hexo d 时出现 On branch master nothing to commit 和一大串的 warning
-上传不上远程仓库
-
-解决删除文件夹里的.deploy_git文件
-参考来源git 使用——关于使用指令hexo d 出现一大串waring以及无法成功部署到github的解决办法 作者： 寰宇的行者
-...</p>
-    
-    
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-29
-        &nbsp;
-        
-            <i class="iconfont icon-cc-tag-more"></i>
-            
-                问题&nbsp;
-            
-        
-      </p>
-    
-</div>
-</div>
-
-<div class="row mb-3">
-
-<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
-    <a href="/2019/03/29/搭建Hexo博客/" class="h4" style="font-weight: 700;">搭建Hexo博客</a>
-    
-      <p class="mb-1">Hexo 博客搭建1.安装git
-windows：到git官网上下载 Download git,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。
-linux：一行代码sudo apt-get install git
-
-
-2.安装nodeJSHexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。
-
-windows：nodejs选择LTS版本就行了。(LTS:长期支持版本)
-linux：  sudo apt-get install nodejs
-  sudo apt-get install npm
-
-
-
-安装完后，打开命令行node -v
-np...</p>
-    
-    
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-29
-        &nbsp;
-        
-            <i class="iconfont icon-cc-tag-more"></i>
-            
-                记录&nbsp;
-            
-        
-      </p>
-    
-</div>
-</div>
-
-<div class="row mb-3">
-
-<div class="col-12 col-md-8 offset-md-2 offset-xl-0 col-xl-12">
-    <a href="/2019/02/09/hello-world/" class="h4" style="font-weight: 700;">Hello World</a>
-    
-      <p class="mb-1">欢迎来到Hexo! 这是第一个帖子. 点击 文档 查看更多信息。 如果在使用时有任何问题可以在 故障排除 里找解决办法，或者来GitHub 问.
-快速上手创建新帖$ hexo new &quot;My New Post&quot;
-
-更多信息: Writing
-运行本地服务$ hexo server
-
-更多信息: Server
-生成静态文件$ hexo generate
-
-更多信息: Generating
-部署到远程站点$ hexo deploy
-
-更多信息: Deployment
-...</p>
-    
-    
-      <p>
-        <i class="iconfont icon-riqi2"></i>&nbsp;2019-02-09
-        &nbsp;
-        
-      </p>
-    
-</div>
-</div>
- 
-<br><br>
-
-
-          </div>
+animation-delay
+开始前的延迟
+(tim</div>
         </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-04-02&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CSS/">CSS</a>&nbsp;
+          
+        
       </div>
     </div>
   </div>
-  
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/">
+        <p class="h4 index-header">Hexo d 时出现 On branch master nothing to commit</p>
+      </a>
+
+      <a href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/">
+        
+        
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1"> 问题：
+
+Hexo d 时出现 On branch master nothing to commit 和一大串的 warning
+上传不上远程仓库
+
+ 解决
+删除文件夹里的.deploy_git文件
+ 参考来源
+git 使用——关于使用指令hexo d 出现一大串waring以及无法成功部署到github的解决办法 作者： 寰宇的行者
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-29&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/问题/">问题</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/03/29/搭建Hexo博客/">
+        <p class="h4 index-header">搭建Hexo博客</p>
+      </a>
+
+      <a href="/2019/03/29/搭建Hexo博客/">
+        
+        
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1"> Hexo 博客搭建
+ 1.安装git
+
+windows：到git官网上下载 Download git,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。
+linux：一行代码
+
+sudo apt-get install git
+
+ 2.安装nodeJS
+Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。
+
+windows：nodejs选择LTS版本就行了。(LTS:长期支持版本)
+linux：
+
+	sudo apt-get install nodejs
+	sudo apt-get install npm
+
+
+安装完后，打开命令行
+
+  </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-29&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/记录/">记录</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/02/09/hello-world/">
+        <p class="h4 index-header">Hello World</p>
+      </a>
+
+      <a href="/2019/02/09/hello-world/">
+        
+        
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1">欢迎来到Hexo! 这是第一个帖子. 点击 文档 查看更多信息。 如果在使用时有任何问题可以在 故障排除 里找解决办法，或者来GitHub 问.
+ 快速上手
+ 创建新帖
+$ hexo new "My New Post"
+
+更多信息: Writing
+ 运行本地服务
+$ hexo server
+
+更多信息: Server
+ 生成静态文件
+$ hexo generate
+
+更多信息: Generating
+ 部署到远程站点
+$ hexo deploy
+
+更多信息: Deployment
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-02-09&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
   </main>
 
-<footer class="mt-5">
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
   </div>
 </footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
-  <script src="/js/main.js"></script>
-  
+<!-- SCRIPTS -->
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="/js/lazyload.js"></script>
+
+
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

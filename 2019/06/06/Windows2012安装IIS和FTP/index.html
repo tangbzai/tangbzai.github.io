@@ -5,170 +5,481 @@
 
 
 
-
-
-
-
-
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="糖仔呐的博客">
-    <meta name="author" content="糖仔">
-    <meta name="keywords" content="">
-    <title>Windows2012安装IIS和FTP ~ 糖仔呐</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
-    
-        <link rel="stylesheet" href="/css/Prettify/tomorrow-night-eighties.min.css">
-    
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2E294E">
+  <meta name="description" content="糖仔呐的博客">
+  <meta name="author" content="糖仔">
+  <meta name="keywords" content="">
+  <title>Windows2012安装IIS和FTP - 糖仔呐</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
 </head>
+
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-<div class="container">
-    <a class="navbar-brand" href="/"><strong>糖仔呐</strong></a>
+  <div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <div class="animated-icon"><span></span><span></span><span></span></div>
+      <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto text-center">
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/archives/">Archives</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/about/">About</a>
-            </li>
-            
-        </ul>
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-
-
+  </div>
 </nav>
-    <div class="view intro-2" style='background: url("/img/post-banner.jpg")no-repeat center center;background-size: cover;'>
-    <div class="full-bg-img">
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
-        <div class="container text-center white-text wow fadeInUp">
-            <p class="h2">Windows2012安装IIS和FTP</p>
-            <br>
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
             
-            <p>星期四, 六月 6日 2019, 10:57 上午</p>
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  2019 6月 6日, 星期四, 10:57 上午
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    447 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      1 分钟
+                  </span>
+                
+
+                
+              </p>
             
+          </div>
+
+          
         </div>
-        </div>
-    </div>
+      </div>
     </div>
   </header>
 
   <main>
-  
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 ">
-            <div class="post-content py-5 z-depth-3 main">
-                <h2 id="Windows2012安装IIS和FTP"><a href="#Windows2012安装IIS和FTP" class="headerlink" title="Windows2012安装IIS和FTP"></a>Windows2012安装IIS和FTP</h2><h3 id="1-安装IIS"><a href="#1-安装IIS" class="headerlink" title="1. 安装IIS"></a>1. 安装IIS</h3><ol>
-<li>打开Windows 2012的服务器管理器，选择 管理→添加角色和功能。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB147AsHXXXXXc7XpXXjcp1IXXX-780-536.jpg" alt=""></li>
-<li>进入 添加角色和功能向导，选择 “Web服务器(IIS)”。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB18WwvHXXXXXbiXpXXJy1J_VXX-800-567.jpg" alt=""></li>
-<li>根据情况选择对应功能，这里选择.Net3.5。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1i2AuHXXXXXbFXpXXJy1J_VXX-800-567.jpg" alt=""></li>
-<li>安装角色服务，选择对应的安全性选项，如图。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1V5AtHXXXXXcjXpXXJy1J_VXX-800-567.jpg" alt=""></li>
-<li>选择“FTP服务器”，以及开设主机必须要用的“管理工具”，此项重要。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1X3.kHXXXXXXraVXXJy1J_VXX-800-567.jpg" alt=""></li>
-<li>等待安装，时间稍长，耐心等待即可。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1aLQsHXXXXXXiXFXXJy1J_VXX-800-567.jpg" alt=""></li>
-<li>安装完毕，打开IIS管理器查看。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1Pi.mHXXXXXaoaXXXXgLyVXXX-945-533.jpg" alt=""></li>
-<li>打开了IIS管理器，看到程序池，站点，至此，在Windows2012下安装IIS已经成功。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1aoQsHXXXXXcSXpXXQV7OGVXX-668-525.jpg" alt=""><h3 id="2-安装FTP"><a href="#2-安装FTP" class="headerlink" title="2. 安装FTP"></a>2. 安装FTP</h3></li>
-<li>单击图标进入服务器管理器。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB11NgLHVXXXXXaXXXXXXXXXXXX.png" alt=""></li>
-<li>单击 IIS， 右击服务器，选择 Internet 信息服务（IIS）管理器。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1f4EuHVXXXXa4XpXXXXXXXXXX.png" alt=""></li>
-<li>右击服务器，选择添加 FTP 站点。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1piQgHVXXXXcPXFXXXXXXXXXX.png" alt=""></li>
-<li>填写 FTP 站点名称，选择 FTP 路径，单击下一步。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1gx7xHVXXXXb5XXXXXXXXXXXX.png" alt=""></li>
-<li>IP地址选择全部未分配，SSL选择无SSL。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1vkwEHVXXXXa7XXXXXXXXXXXX.png" alt=""></li>
-<li>身份验证选择基本，授权选择所有用户 ，权限设置为读取与写入 。单击完成。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1POPTHVXXXXbBXXXXXXXXXXXX.png" alt=""></li>
-<li>使用系统默认的 administrator 账号和密码，进行登录测试，现在您可以可以正常上传下载文件。<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/TB1a3.KHVXXXXXsXXXXXXXXXXXX.png" alt=""><h3 id="3-阿里云安全设置开发ftp端口"><a href="#3-阿里云安全设置开发ftp端口" class="headerlink" title="3. 阿里云安全设置开发ftp端口"></a>3. 阿里云安全设置开发ftp端口</h3> 添加规则选择FTP<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/ftp.png" alt=""><h3 id="遇到的问题与解决办法"><a href="#遇到的问题与解决办法" class="headerlink" title="遇到的问题与解决办法"></a>遇到的问题与解决办法</h3> 1.Xftp 提示无法显示远程文件<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/xftpnoshowdir.png" alt=""><br> 点击属性-&gt;选项-&gt;将使用被动模式选项去掉即可<br> <img src="/2019/06/06/Windows2012安装IIS和FTP/2018091715131039.png" alt=""><br> * 如果还不行请检查目录是否属于当前用户下的目录，用户是否有权限访问当前目录</li>
-</ol>
-<h2 id="摘自"><a href="#摘自" class="headerlink" title="摘自"></a>摘自</h2><p><a href="https://help.aliyun.com/knowledge_detail/40896.html?spm=5176.10695662.1996646101.searchclickresult.582843c0LhJGp6" target="_blank" rel="noopener">Windows2012安装IIS和FTP</a><br><br><a href="https://help.aliyun.com/knowledge_detail/40944.html#windows2012" target="_blank" rel="noopener">云服务器 ECS Windows Server 通过 IIS 配置 FTP</a><br><br><a href="https://blog.csdn.net/qq_29473881/article/details/82740592" target="_blank" rel="noopener">Xftp 提示无法显示远程文件夹</a></p>
+    
+      
 
-                <hr>
-                <div>
-                    <p>
-                         
-                        <span class="badge badge-light">#&nbsp;问题</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;记录</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;教程</span>
-                        &nbsp;
-                        
-                    </p>
-                </div>
-                <br>
-                
-            </div>
-        </div>
-        <div class="d-none d-md-block col-md-2">
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
             
-  <div id="toc" class="py-5">
-    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
-    <div id="tocbot"></div>
-  </div>
+              <p class="note note-warning">本文最后更新于：2019 7月 16日, 星期二, 5:52 下午</p>
+            
+            <div class="markdown-body">
+              <h2 id="windows2012安装iis和ftp"><a class="markdownIt-Anchor" href="#windows2012安装iis和ftp"></a> Windows2012安装IIS和FTP</h2>
+<h3 id="1-安装iis"><a class="markdownIt-Anchor" href="#1-安装iis"></a> 1. 安装IIS</h3>
+<ol>
+<li>打开Windows 2012的服务器管理器，选择 管理→添加角色和功能。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB147AsHXXXXXc7XpXXjcp1IXXX-780-536.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>进入 添加角色和功能向导，选择 “Web服务器(IIS)”。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB18WwvHXXXXXbiXpXXJy1J_VXX-800-567.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>根据情况选择对应功能，这里选择.Net3.5。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1i2AuHXXXXXbFXpXXJy1J_VXX-800-567.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>安装角色服务，选择对应的安全性选项，如图。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1V5AtHXXXXXcjXpXXJy1J_VXX-800-567.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>选择“FTP服务器”，以及开设主机必须要用的“管理工具”，此项重要。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1X3.kHXXXXXXraVXXJy1J_VXX-800-567.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>等待安装，时间稍长，耐心等待即可。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1aLQsHXXXXXXiXFXXJy1J_VXX-800-567.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>安装完毕，打开IIS管理器查看。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1Pi.mHXXXXXaoaXXXXgLyVXXX-945-533.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>打开了IIS管理器，看到程序池，站点，至此，在Windows2012下安装IIS已经成功。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1aoQsHXXXXXcSXpXXQV7OGVXX-668-525.jpg" srcset="/img/loading.gif" alt=""></li>
+</ol>
+<h3 id="2-安装ftp"><a class="markdownIt-Anchor" href="#2-安装ftp"></a> 2. 安装FTP</h3>
+<ol>
+<li>单击图标进入服务器管理器。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB11NgLHVXXXXXaXXXXXXXXXXXX.png" srcset="/img/loading.gif" alt=""></li>
+<li>单击 IIS， 右击服务器，选择 Internet 信息服务（IIS）管理器。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1f4EuHVXXXXa4XpXXXXXXXXXX.png" srcset="/img/loading.gif" alt=""></li>
+<li>右击服务器，选择添加 FTP 站点。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1piQgHVXXXXcPXFXXXXXXXXXX.png" srcset="/img/loading.gif" alt=""></li>
+<li>填写 FTP 站点名称，选择 FTP 路径，单击下一步。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1gx7xHVXXXXb5XXXXXXXXXXXX.png" srcset="/img/loading.gif" alt=""></li>
+<li>IP地址选择全部未分配，SSL选择无SSL。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1vkwEHVXXXXa7XXXXXXXXXXXX.png" srcset="/img/loading.gif" alt=""></li>
+<li>身份验证选择基本，授权选择所有用户 ，权限设置为读取与写入 。单击完成。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1POPTHVXXXXbBXXXXXXXXXXXX.png" srcset="/img/loading.gif" alt=""></li>
+<li>使用系统默认的 administrator 账号和密码，进行登录测试，现在您可以可以正常上传下载文件。<br>
+<img src="Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB1a3.KHVXXXXXsXXXXXXXXXXXX.png" srcset="/img/loading.gif" alt=""></li>
+</ol>
+<h3 id="3-阿里云安全设置开发ftp端口"><a class="markdownIt-Anchor" href="#3-阿里云安全设置开发ftp端口"></a> 3. 阿里云安全设置开发ftp端口</h3>
+<pre><code>添加规则选择FTP
+![](Windows2012安装IIS和FTP/ftp.png)
+</code></pre>
+<h3 id="遇到的问题与解决办法"><a class="markdownIt-Anchor" href="#遇到的问题与解决办法"></a> 遇到的问题与解决办法</h3>
+<pre><code>1.Xftp 提示无法显示远程文件
+![](Windows2012安装IIS和FTP/xftpnoshowdir.png)
+点击属性-&gt;选项-&gt;将使用被动模式选项去掉即可
+![](Windows2012安装IIS和FTP/2018091715131039.png)
+\* 如果还不行请检查目录是否属于当前用户下的目录，用户是否有权限访问当前目录
+</code></pre>
+<h2 id="摘自"><a class="markdownIt-Anchor" href="#摘自"></a> 摘自</h2>
+<p><a href="https://help.aliyun.com/knowledge_detail/40896.html?spm=5176.10695662.1996646101.searchclickresult.582843c0LhJGp6" target="_blank" rel="noopener">Windows2012安装IIS和FTP</a><br><br>
+<a href="https://help.aliyun.com/knowledge_detail/40944.html#windows2012" target="_blank" rel="noopener">云服务器 ECS Windows Server 通过 IIS 配置 FTP</a><br><br>
+<a href="https://blog.csdn.net/qq_29473881/article/details/82740592" target="_blank" rel="noopener">Xftp 提示无法显示远程文件夹</a></p>
 
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/问题/">问题</a>
+                    
+                      <a class="hover-with-bg" href="/tags/记录/">记录</a>
+                    
+                      <a class="hover-with-bg" href="/tags/教程/">教程</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-12 col-md-6">
+                    
+                      <a href="/2019/10/20/流水线/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>流水线</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-12 col-md-6">
+                    
+                      <a href="/2019/04/02/CSS动画（animation与keyframes）/">
+                        <span>CSS动画（animation与keyframes）</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
         </div>
-    </div>        
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
 </div>
 
-<br><br><br>
-
-<!-- Comments -->
-<div class="comments" id="comments">
- 
+      </div>
+    
+  </div>
 </div>
-  
+
+<!-- Custom -->
+
+
+    
   </main>
 
-<footer class="mt-5">
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
   </div>
 </footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
-  <script src="/js/main.js"></script>
+<!-- SCRIPTS -->
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="/js/lazyload.js"></script>
+
+
+
   
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    
-    <script src="/js/post.js"></script>
-    
-      <script src="/js/plugins/prettify.js"></script>
-      <script>
-          $(document).ready(function(){
-              $('pre').addClass('prettyprint linenums');
-              prettyPrint();
-          })
-      </script>
-    
-  
+  <script src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Windows2012安装IIS和FTP&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
