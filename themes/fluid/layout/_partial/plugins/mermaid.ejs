@@ -1,0 +1,9 @@
+<% if(theme.post.mermaid.enable && (!theme.post.mermaid.specific || (theme.post.mermaid.specific && page.mermaid))) { %>
+<!-- <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.js'></script> -->
+<%- js_ex(theme.static_prefix.mermaid, "mermaid.min.js") %>
+<script>
+    if (window.mermaid) {
+        mermaid.initialize({ theme: 'default' });
+    }
+</script>
+<% } %>

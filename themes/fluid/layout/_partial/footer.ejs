@@ -16,13 +16,3 @@
 
 <!-- SCRIPTS -->
 <%- partial('_partial/scripts.ejs') %>
-
-<% if (theme.mermaid.enable) { %>
-<!-- <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.js'></script> -->
-<%- js_ex(theme.static_prefix.internal_js, "mermaid.min.js") %>
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({ theme: 'default' });
-  }
-</script>
-<% } %>

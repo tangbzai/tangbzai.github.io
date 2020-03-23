@@ -1,7 +1,9 @@
 ---
 title: 让Hexo博客支持流程图
 date: 2020-03-22 19:10:54
-tags: 记录
+tags: 
+  - 记录
+  - 教程
 ---
 
 本文讲的是hexo的插件[hexo-filter-mermaid-diagrams](https://github.com/webappdevelp/hexo-filter-mermaid-diagrams)
@@ -62,3 +64,39 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 highlight: # 代码高亮
   enable: false
 ```
+
+### 优化
+在模版`footer`文件引入mermaid.js的话会在博客的每个页面都加载这个文件，而我们往往并不是每个页面都会有用到这个插件。
+1. 把==配置部分==放到==主题配置==(`/themes/fluid/_config.yml`)里<br>
+```
+mermaid: # 流程图
+    enable: true
+    specific: true  # 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
+```
+（就快速使用的第二步里的内容多了`specific`来控制是否启动转换）
+*如果不想放在主题配置里把第二步的`theme.post`改成`config`就好了
+2. 在`/themes/fluid/layout/_partial/plugins`新建`mermaid.ejs`文件，内容如下<br>
+```
+<% if(theme.post.mermaid.enable && (!theme.post.mermaid.specific || (theme.post.mermaid.specific && page.mermaid))) { %>
+<%- js_ex(theme.static_prefix.mermaid, "mermaid.min.js") %>
+<script>
+    if (window.mermaid) {
+        mermaid.initialize({ theme: 'default' });
+    }
+</script>
+<% } %>
+```
+3. 引入文件到`scripts.ejs`<br>
+在`/themes/fluid/layout/_partial/scripts.ejs`最下面添加
+```
+<%- partial('_partial/plugins/mermaid.ejs') %>
+```
+4. 最后在`_static_prefix.yml`添加cdn即可
+在`/themes/fluid/source/_static_prefix.yml`最下面添加
+```
+mermaid: https://cdn.bootcss.com/mermaid/8.4.8/
+```
+*此处写死了版本号，想移到配置文件中请自行修改
+
+### 总结
+优化部分的代码还是蛮好懂的，照着本身自带的math进行修改即可。就是代码高亮部分导致的报错并无法显示耗费了许多时间。下次遇到问题先在github的Issues里看看。
