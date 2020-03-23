@@ -116,7 +116,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    384 字
+                    756 字
                   </span>
                 
 
@@ -124,7 +124,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      3 分钟
                   </span>
                 
 
@@ -151,7 +151,7 @@
         <div class="py-5 z-depth-3" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p class="note note-warning">本文最后更新于：2020 3月 23日, 星期一, 11:16 晚上</p>
+              <p class="note note-warning">本文最后更新于：2020 3月 24日, 星期二, 1:08 凌晨</p>
             
             <div class="markdown-body">
               <p>本文讲的是hexo的插件<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">hexo-filter-mermaid-diagrams</a></p>
@@ -210,6 +210,42 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 <pre class="highlight"><code class="">highlight: # 代码高亮
   enable: false
 </code></pre>
+<h3 id="优化"><a class="markdownIt-Anchor" href="#优化"></a> 优化</h3>
+<p>在模版<code>footer</code>文件引入mermaid.js的话会在博客的每个页面都加载这个文件，而我们往往并不是每个页面都会有用到这个插件。</p>
+<ol>
+<li>把<mark>配置部分</mark>放到<mark>主题配置</mark>(<code>/themes/fluid/_config.yml</code>)里<br></li>
+</ol>
+<pre class="highlight"><code class="">mermaid: # 流程图
+    enable: true
+    specific: true  # 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
+</code></pre>
+<p>（就快速使用的第二步里的内容多了<code>specific</code>来控制是否启动转换）<br>
+*如果不想放在主题配置里把第二步的<code>theme.post</code>改成<code>config</code>就好了<br>
+2. 在<code>/themes/fluid/layout/_partial/plugins</code>新建<code>mermaid.ejs</code>文件，内容如下<br></p>
+<pre class="highlight"><code class="">&lt;% if(theme.post.mermaid.enable &amp;&amp; (!theme.post.mermaid.specific || (theme.post.mermaid.specific &amp;&amp; page.mermaid))) { %&gt;
+&lt;%- js_ex(theme.static_prefix.mermaid, &quot;mermaid.min.js&quot;) %&gt;
+&lt;script&gt;
+    if (window.mermaid) {
+        mermaid.initialize({ theme: 'default' });
+    }
+&lt;/script&gt;
+&lt;% } %&gt;
+</code></pre>
+<ol start="3">
+<li>引入文件到<code>scripts.ejs</code><br><br>
+在<code>/themes/fluid/layout/_partial/scripts.ejs</code>最下面添加</li>
+</ol>
+<pre class="highlight"><code class="">&lt;%- partial('_partial/plugins/mermaid.ejs') %&gt;
+</code></pre>
+<ol start="4">
+<li>最后在<code>_static_prefix.yml</code>添加cdn即可<br>
+在<code>/themes/fluid/source/_static_prefix.yml</code>最下面添加</li>
+</ol>
+<pre class="highlight"><code class="">mermaid: https://cdn.bootcss.com/mermaid/8.4.8/
+</code></pre>
+<p>*此处写死了版本号，想移到配置文件中请自行修改</p>
+<h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
+<p>优化部分的代码还是蛮好懂的，照着本身自带的math进行修改即可。就是代码高亮部分导致的报错并无法显示耗费了许多时间。下次遇到问题先在github的Issues里看看。</p>
 
             </div>
             <hr>
@@ -465,14 +501,6 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 
 
 
-
-<!-- <script src='https://unpkg.com/mermaid@8.4.8/dist/mermaid.js'></script> -->
-<script src="/js/mermaid.min.js"></script>
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({ theme: 'default' });
-  }
-</script>
 
 
 </body>
