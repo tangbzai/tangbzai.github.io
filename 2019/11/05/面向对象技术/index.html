@@ -16,7 +16,7 @@
   <meta name="description" content="糖仔呐的博客">
   <meta name="author" content="糖仔">
   <meta name="keywords" content="">
-  <title>让Hexo博客支持流程图 - 糖仔呐</title>
+  <title>面向对象技术 - 糖仔呐</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
@@ -107,7 +107,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  2020 3月 22日, 星期日, 7:10 晚上
+                  2019 11月 5日, 星期二, 10:25 晚上
                 </p>
               
 
@@ -116,7 +116,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    384 字
+                    1.3k 字
                   </span>
                 
 
@@ -124,7 +124,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      4 分钟
                   </span>
                 
 
@@ -151,65 +151,222 @@
         <div class="py-5 z-depth-3" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p class="note note-warning">本文最后更新于：2020 3月 23日, 星期一, 11:16 晚上</p>
+              <p class="note note-warning">本文最后更新于：2020 3月 23日, 星期一, 11:28 晚上</p>
             
             <div class="markdown-body">
-              <p>本文讲的是hexo的插件<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">hexo-filter-mermaid-diagrams</a></p>
-<h2 id="hexo-filter-mermaid-diagrams"><a class="markdownIt-Anchor" href="#hexo-filter-mermaid-diagrams"></a> hexo-filter-mermaid-diagrams</h2>
-<h3 id="1-快速使用"><a class="markdownIt-Anchor" href="#1-快速使用"></a> 1. 快速使用</h3>
-<ol>
-<li>安装<br><br>
-在博客的根目录下使用命令</li>
-</ol>
-<pre class="highlight"><code class="">$ yarn add hexo-filter-mermaid-diagrams
-或者
-$ npm install hexo-filter-mermaid-diagrams
-</code></pre>
-<ol start="2">
-<li>配置<br><br>
-配置hexo的配置文件<code>_config.yml</code></li>
-</ol>
-<pre class="highlight"><code class=""># mermaid chart
-mermaid: ## mermaid url https://github.com/knsv/mermaid
-  enable: true  # default true
-  version: &quot;7.1.2&quot; # default v7.1.2
-  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
-    #startOnload: true  // default true
-</code></pre>
-<ol start="3">
-<li>在模版文件引入mermaid.js<br>
-在<code>/themes/</code>里找到自己正在使用的主题的文件夹 ,打开里面的<code>layout</code>文件夹，在里面找到一个在文章页面有被加载的模版文件(官方写的是<code>after_footer</code>文件，我的主题没有)根据下面情况引入相应内容。</li>
-</ol>
+              <h1 id="面向对象技术"><a class="markdownIt-Anchor" href="#面向对象技术"></a> 面向对象技术</h1>
+<h2 id="面向对象的基本概念"><a class="markdownIt-Anchor" href="#面向对象的基本概念"></a> 面向对象的基本概念</h2>
 <ul>
-<li>我的主题使用的是<a href="https://github.com/fluid-dev/hexo-theme-fluid">fluid</a>就添加下面的代码到<code>/themes/fluid/layout/plugins/footer.ejs</code>, 如果是其他尾缀类型的模版例如<code>pug</code>或<code>swig</code>请去看<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">官方文档</a><br></li>
+<li>对象：属性（数据）+ 方法（操作）+ 对象ID</li>
+<li>类（实体类/控制类/边界类）</li>
+<li>继承与泛化：复用机制</li>
+<li>封装：隐藏对象的属性和实现细节，仅对外公开接口</li>
+<li>多态：不同对象收到同样的消息产生不同的结果</li>
+<li>接口：一种特殊的类，他只有方法定义没有实现</li>
+<li>重载：一个类可以有多个同名而参数类型不同的方法</li>
+<li>模板类</li>
+<li>消息和消息通信：消息是异步通信的。</li>
 </ul>
-<pre class="highlight"><code class="">&lt;% if (theme.mermaid.enable) { %&gt;
-  &lt;script src='https://unpkg.com/mermaid@&lt;%= theme.mermaid.version %&gt;/dist/mermaid.min.js'&gt;&lt;/script&gt;
-  &lt;script&gt;
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  &lt;/script&gt;
-&lt;% } %&gt;
-</code></pre>
-<p>添加完成后，回到博客根目录的_config.yml，把external_link的值改为false，默认的为true</p>
-<h3 id="2-出现问题"><a class="markdownIt-Anchor" href="#2-出现问题"></a> 2. 出现问题</h3>
-<ol>
-<li>没有效果<br><br>
-原因：语法不一样,三个点后面填写<code>mermaid</code></li>
-</ol>
-<pre class="highlight"><code class="">` ` `mermaid
-内容
-` ` `
-</code></pre>
-<ol start="2">
-<li>报错Error: &lt;svg&gt; attribute viewBox: Expected number, “0 0 -Infinity -Infin…”.<br>
-原因：主题的代码高亮样式冲突了。（主题版本为v1.7.4）<br>
-将主题的代码高亮关了就好了.</li>
-</ol>
-<pre class="highlight"><code class="">highlight: # 代码高亮
-  enable: false
-</code></pre>
+<p><strong>面向对象设计7大原则</strong></p>
+<ul>
+<li>单一职责原则：设计目的单一的类</li>
+<li>开发-封闭原则：对扩展开发，对修改封闭</li>
+<li>李氏(Liskov)替换原则：子类可以替换父类</li>
+<li>依赖倒置原则：要依赖于抽象，而不是具体实现；针对接口编程，不要针对实现编程</li>
+<li>接口隔离原则：使用多个专门的接口比使用单一的总接口要好</li>
+<li>组合重用原则：要尽量使用组合，而不是继承关系达到重用目的</li>
+<li>迪米特(Demeter)原则(最少知识法则)：一个对象对其他对象有尽可能少的了解。（独立性）</li>
+</ul>
+<h2 id="uml统一建模语言"><a class="markdownIt-Anchor" href="#uml统一建模语言"></a> UML(统一建模语言)</h2>
+<p>UML2.0:</p>
+<ul>
+<li>结构图
+<ul>
+<li><mark>类图</mark></li>
+<li>对象图</li>
+<li>包图</li>
+<li>组合结构图（2.0新加的）</li>
+<li>构件图</li>
+<li>部署图：软硬件之间映射</li>
+<li>制品图</li>
+</ul>
+</li>
+<li>行为图
+<ul>
+<li><mark>用例图</mark>：系统与外部参与者的交互</li>
+<li>顺序图：强调按时间顺序</li>
+<li>通信图（协作图）</li>
+<li>定时图（2.0新加的）</li>
+<li>状态图</li>
+<li>活动图：类似程序流程图，并行行为</li>
+<li>交互概念图</li>
+</ul>
+</li>
+</ul>
+<h3 id="类图"><a class="markdownIt-Anchor" href="#类图"></a> 类图</h3>
+<table>
+<thead>
+<tr>
+<th>关系</th>
+<th>说明</th>
+<th>表示方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖关系</td>
+<td>一个事物发生变化影响另一个事物</td>
+<td>虚线实心箭头</td>
+</tr>
+<tr>
+<td>泛化（继承）关系</td>
+<td>特殊（派生）/一般（基类）关系</td>
+<td>实线空心箭头</td>
+</tr>
+<tr>
+<td>关联关系</td>
+<td>描述了一组链，链是对象之间的连接。</td>
+<td>实线</td>
+</tr>
+<tr>
+<td>聚合关系</td>
+<td>整体与部分生命周期不同（部分离开整体还能使用</td>
+<td>实线空心菱形</td>
+</tr>
+<tr>
+<td>组合关系</td>
+<td>整体与部分生命周期相同（部分离开整体不能使用）</td>
+<td>实线实心菱形</td>
+</tr>
+<tr>
+<td>实现关系</td>
+<td>接口与类之间的关系</td>
+<td>虚线空心箭头</td>
+</tr>
+</tbody>
+</table>
+<h2 id="设计模式的分类"><a class="markdownIt-Anchor" href="#设计模式的分类"></a> 设计模式的分类</h2>
+<ul>
+<li>创建型模式
+<ul>
+<li>工厂方法（factory method）模式</li>
+<li>抽象工厂（abstract factory）模式</li>
+<li>原型（porototype）模式</li>
+<li>单例（singleton）模式</li>
+<li>构建器（builder）模式</li>
+</ul>
+</li>
+<li>结构型模式
+<ul>
+<li>适配器(adapter)模式</li>
+<li>桥接(bridge)模式</li>
+<li>组合(composite)模式</li>
+<li>装饰（decorator）模式</li>
+<li>外观（facade）模式</li>
+<li>享元（flyweight）模式</li>
+<li>代理（proxy）模式</li>
+</ul>
+</li>
+<li>行为模式
+<ul>
+<li>职责链（chain of responsibility）模式</li>
+<li>命令（command）模式</li>
+<li>解释器（interpreter）模式</li>
+<li>迭代器（iterator）模式</li>
+<li>中介者（mediator）模式</li>
+<li>备忘录（memento）模式</li>
+<li>观察者（observer）模式</li>
+<li>状态（state）模式</li>
+<li>策略（strategy）模式</li>
+<li>模版方法（template method）模式</li>
+<li>访问者（visitor）模式</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建型模式"><a class="markdownIt-Anchor" href="#创建型模式"></a> 创建型模式</h3>
+<table>
+<thead>
+<tr>
+<th>设计模式名称</th>
+<th>简要说明</th>
+<th>速记关键词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abstract Factory<br>抽象工厂模式</td>
+<td>提供一个借口，可以创建<mark>一系列相关或相互依赖</mark>的对象，而无需指定它们具体的类</td>
+<td>生产成系列对象</td>
+</tr>
+<tr>
+<td>Builder<br>构建器模式</td>
+<td>将一个<mark>复杂类</mark>的表示<mark>与其构造相分离</mark>，使得相同的构建过程能够得出不同的表示</td>
+<td>复杂对象构造</td>
+</tr>
+<tr>
+<td>Factory method<br>工厂方法模式</td>
+<td>定义一个创建对象的接口，但由<mark>子类决定需要实例化哪一个类</mark>。工厂方法使得子类实例化的过程推迟。</td>
+<td>动态生产对象</td>
+</tr>
+<tr>
+<td>Prototype<br>原型模式</td>
+<td>用原型实例指定创建对象的类型，并且通过拷贝这个原型来创建新的对象</td>
+<td>克隆对象</td>
+</tr>
+<tr>
+<td>Singleton<br>单例模式</td>
+<td>保证一个类只有一个实例，并提供一个访问它的全局访问点</td>
+<td>单实例</td>
+</tr>
+</tbody>
+</table>
+<h3 id="结构型模式"><a class="markdownIt-Anchor" href="#结构型模式"></a> 结构型模式</h3>
+<table>
+<thead>
+<tr>
+<th>设计模式名称</th>
+<th>简要说明</th>
+<th>速记关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adapter<br>适配器</td>
+<td>将一个类的接口转换成用户希望得到的另一种接口。它使原本不相容的接口得以协同工作</td>
+<td>转换接口</td>
+</tr>
+<tr>
+<td>Bridge<br>桥接模式</td>
+<td>将类的抽象部分和它的实现部分分离开来，使它们可以独立地变化</td>
+<td>继承树拆分</td>
+</tr>
+<tr>
+<td>Composite<br>组合模式</td>
+<td>将对象组合成属性结构以表示“整体-部分”的层次结构，使得用户对单个对象和组合对象的使用具有一致性</td>
+<td>树形目录结构</td>
+</tr>
+<tr>
+<td>Decorator<br>装饰模式</td>
+<td>动态地给一个对象<mark>添加一些额外的职责</mark>。它提供了用子类扩展功能的一个灵活的替代，比派生一个子类更佳灵活</td>
+<td>附加职责</td>
+</tr>
+<tr>
+<td>Facade<br>外观模式</td>
+<td>定义一个高层接口，为子系统中的一组接口提供一个一致的外观，从而简化了该子系统的使用</td>
+<td>对外统一接口</td>
+</tr>
+<tr>
+<td>Flyweight<br>享元模式</td>
+<td>提供支持大量细粒度对象共享的有效方法</td>
+<td>文章共享文字对象</td>
+</tr>
+<tr>
+<td>Proxy<br>代理模式</td>
+<td>为其他对象提供一钟<mark>代理以控制</mark>这个对象的访问</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
             </div>
             <hr>
@@ -220,7 +377,7 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
                   <span>
                 <i class="iconfont icon-tag"></i>
                     
-                      <a class="hover-with-bg" href="/tags/记录/">记录</a>
+                      <a class="hover-with-bg" href="/tags/软件设计师/">软件设计师</a>
                     
                   </span>
                 
@@ -232,11 +389,16 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
                 <div class="post-prevnext row">
                   <div class="post-prev col-12 col-md-6">
                     
+                      <a href="/2020/03/22/让Hexo博客支持流程图/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>让Hexo博客支持流程图</span>
+                      </a>
+                    
                   </div>
                   <div class="post-next col-12 col-md-6">
                     
-                      <a href="/2019/11/05/面向对象技术/">
-                        <span>面向对象技术</span>
+                      <a href="/2019/11/04/计算机网络与信息安全/">
+                        <span>计算机网络与信息安全</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
                     
@@ -399,7 +561,7 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "让Hexo博客支持流程图&nbsp;",
+        "面向对象技术&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

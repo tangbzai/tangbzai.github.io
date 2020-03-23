@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2E294E">
+  <meta name="description" content="糖仔呐的博客">
+  <meta name="author" content="糖仔">
+  <meta name="keywords" content="">
+  <title>计算机网络与信息安全 - 糖仔呐</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  2019 11月 4日, 星期一, 8:23 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    2k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      7 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-warning">本文最后更新于：2020 3月 23日, 星期一, 11:25 晚上</p>
+            
+            <div class="markdown-body">
+              <h1 id="计算机网络与信息安全"><a class="markdownIt-Anchor" href="#计算机网络与信息安全"></a> 计算机网络与信息安全</h1>
+<h2 id="计算机网络"><a class="markdownIt-Anchor" href="#计算机网络"></a> 计算机网络</h2>
+<h3 id="osirm七层模型"><a class="markdownIt-Anchor" href="#osirm七层模型"></a> OSI/RM七层模型</h3>
+<html>
+<table>
+<th>层次</th><th>名称</th><th>主要功能</th><th>主要设备及协议</th>
+<tr>
+<td>7</td><td>应用层</td><td>实现具体的应用功能</td><td rowspan="3">POP3、FTP、HTTP、Telnet、SMTP<br>DHCP、TFTP、SNMP、DNS</td></tr>
+<tr><td>6</td><td>表示层</td><td>数据格式与表达、加密、压缩</td></tr>
+<tr><td>5</td><td>会话层</td><td>建立、管理和终止会话</td></tr>
+<tr><td>4</td><td>传输层</td><td>端到端的连接</td><td>TCP、UDP</td></tr>
+<tr><td>3</td><td>网络层</td><td>分组传输和路由选择</td><td>三层交换机、路由器<br>ARP、RARP、IP、ICMP、IGMP</td></tr>
+<tr><td>2</td><td>数据链路层</td><td>传送以帧为单位的信息</td><td>网桥、交换机（多端网桥）、网卡<br>PPTP、L2TP、SLIP、PPP</td></tr>
+<tr><td>1</td><td>物理层</td><td>二进制传输</td><td>中继器、集线器（多端中继器）</td></tr>
+</table>
+</html>
+<ul>
+<li>
+<p>传输层</p>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCP（传输控制协议）</td>
+<td>- 面向连接的服务<br>- 可靠的</td>
+</tr>
+<tr>
+<td>UDP（用户数据报协议）</td>
+<td>- 无连接的服务 <br> - 不可靠</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>网络层</p>
+<ul>
+<li>三层交换机：具有路由功能。</li>
+<li>路由器：具有路由功能、可以解决交换机的广播问题。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARP（地址解析协议）</td>
+<td>把IP地址转换为MAC地址</td>
+</tr>
+<tr>
+<td>RARP（反向地址解析协议）</td>
+<td>把MAC地址转换为IP地址</td>
+</tr>
+<tr>
+<td>IP（网际协议）</td>
+<td>分配用户上网使用的数字标签</td>
+</tr>
+<tr>
+<td>ICMP（因特网控制协议）</td>
+<td>1.它是TCP/IP协议簇的一个子协议。<br>2.用于在IP主机、路由器之间传递控制消息。<br>3.控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息。</td>
+</tr>
+<tr>
+<td>IGMP（因特网组管理协议）</td>
+<td>组播协议（网关信息协议）</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>数据链路层</p>
+<ul>
+<li>网桥：可以隔离冲突、但会出现广播风暴。</li>
+</ul>
+</li>
+<li>
+<p>物理层</p>
+<ul>
+<li>中继器：延长数据传输距离</li>
+<li>集线器(Hub）: 可以分流、但会出现冲突域</li>
+</ul>
+</li>
+</ul>
+<h3 id="tcpip协议族"><a class="markdownIt-Anchor" href="#tcpip协议族"></a> TCP/IP协议族</h3>
+<p>TCP/IP模型与OSI七层模型的对应：</p>
+<html>
+<table>
+<th>TCP/IP</th><th>OSI</th>
+<tr><td rowspan="3">应用层</td><td>应用层</td></tr>
+<tr><td>表示层</td></tr>
+<tr><td>会话层</td></tr>
+<tr><td>传输层</td><td>传输层</td></tr>
+<tr><td>网际层</td><td>网际层</td></tr>
+<tr><td rowspan="2">网络接口层</td><td>数据链路层</td></tr>
+<tr><td>物理层</td></tr>
+</table>
+</html>
+<p><em>下列分层为TCP/IP分层</em></p>
+<ul>
+<li>应用层
+<ul>
+<li>基于TCP协议
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>端口</th>
+<th>功能/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POP3（离线收邮件）</td>
+<td>110</td>
+<td>邮件收取</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>20(主动)/21(控制)<br> (被动则两者随机)</td>
+<td>文件传输</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>80</td>
+<td>超文本传输协议（访问网站）</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>443</td>
+<td>带加密的超文本传输协议</td>
+</tr>
+<tr>
+<td>Telnet</td>
+<td>23</td>
+<td>远程访问</td>
+</tr>
+<tr>
+<td>SMTP（简单邮件传输协议）</td>
+<td>25</td>
+<td>邮件发送</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>基于UDP协议
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>端口</th>
+<th>功能/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DHCP</td>
+<td>67</td>
+<td>自动分配IP地址</td>
+</tr>
+<tr>
+<td>TFTP</td>
+<td>69</td>
+<td>文件传输协议</td>
+</tr>
+<tr>
+<td>SNMP</td>
+<td>161</td>
+<td>简单 网路管理协议</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>53</td>
+<td>域名解析服务</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>NFS：</li>
+</ul>
+</li>
+<li>传输层
+<ul>
+<li>TCP</li>
+<li>UDP</li>
+</ul>
+</li>
+<li>网际层 <br><br>
+IP、ICMP、IGMP、ARP、RARP</li>
+<li>网络接口层 <br><br>
+CSMA/CD: 载波监听多路访问</li>
+</ul>
+<h3 id="ip地址"><a class="markdownIt-Anchor" href="#ip地址"></a> IP地址</h3>
+<p><em>目前使用的是IPv4每个地址都是32位</em></p>
+<table>
+<thead>
+<tr>
+<th>网络类型</th>
+<th>网络号与主机号的分布</th>
+<th>网络号范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A类</td>
+<td>8位网络号 + 24位主机号</td>
+<td>0-127（二进制为0开头）</td>
+</tr>
+<tr>
+<td>B类</td>
+<td>16位网络号 + 16位主机号</td>
+<td>128-191（二进制为10开头）</td>
+</tr>
+<tr>
+<td>C类</td>
+<td>24位网络号 + 8位主机号</td>
+<td>192-223（二进制为110开头）</td>
+</tr>
+</tbody>
+</table>
+<p><em>D、E类省略</em></p>
+<ul>
+<li>子网掩码划分子网
+<ul>
+<li>原来的网络号部分全为1（255）</li>
+<li>主机号的前面划分出作为子网网络号的部分。<br>例如:划分27个子网，主机号前面5（2<sup>5</sup>=32&gt;27）位就为 11111（248）</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络规划与设计"><a class="markdownIt-Anchor" href="#网络规划与设计"></a> 网络规划与设计</h3>
+<p>四个过程：</p>
+<ol>
+<li>需求分析
+<ul>
+<li>网络功能要求</li>
+<li>网络性能要求</li>
+<li>网络运行环境的要求</li>
+<li>网络的可扩充性和可维护性的要求</li>
+</ul>
+</li>
+<li>网络规划原则
+<ul>
+<li>实用性原则</li>
+<li>开放性原则</li>
+<li>先进性原则</li>
+</ul>
+</li>
+<li>网络设计与实施原则
+<ul>
+<li>可靠性原则</li>
+<li>安全性原则</li>
+<li>高效性原则</li>
+<li>可扩展性原则</li>
+</ul>
+</li>
+<li>层次化网络设计
+<ul>
+<li>核心层（快速、高效的数据分发）</li>
+<li>汇入层（主要以过滤为主）</li>
+<li>接入层（接入PC端）</li>
+</ul>
+</li>
+</ol>
+<h3 id="网络分类"><a class="markdownIt-Anchor" href="#网络分类"></a> 网络分类</h3>
+<ul>
+<li>按分布范围分
+<ul>
+<li>局域网(LAN)</li>
+<li>城域网(MAN)</li>
+<li>广域网(WAN)</li>
+<li>因特网</li>
+</ul>
+</li>
+<li>按拓扑结构分
+<ul>
+<li>总线型</li>
+<li>星型</li>
+<li>环形</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络接入技术"><a class="markdownIt-Anchor" href="#网络接入技术"></a> 网络接入技术</h3>
+<ul>
+<li>有限接入
+<ul>
+<li>公用交换电话网络(PSTN)</li>
+<li>数字数据网(DDN)</li>
+<li>综合业务数字网(ISDN)</li>
+<li><strong>非对称数字用户线路（ADSL）</strong></li>
+<li>同轴光纤技术(HFC)</li>
+</ul>
+</li>
+<li>无限接入
+<ul>
+<li>IEEE 802.11(WIFI)</li>
+<li>IEEE 802.15(蓝牙Bluetooth)</li>
+<li>红外(lrDA)</li>
+<li>WAPI</li>
+</ul>
+</li>
+<li>3G标准
+<ul>
+<li>WCDMA</li>
+<li>CDMA2000</li>
+<li>TD-SCDMA</li>
+<li>WirelessMAN(802.16)(WiMAX)</li>
+</ul>
+</li>
+<li>4G标准
+<ul>
+<li>FDD-LTE</li>
+<li>TD-LTE</li>
+<li>WirelessMAN(802.16m)(WiMAX)</li>
+</ul>
+</li>
+</ul>
+<h2 id="信息安全"><a class="markdownIt-Anchor" href="#信息安全"></a> 信息安全</h2>
+<h3 id="对称加密技术"><a class="markdownIt-Anchor" href="#对称加密技术"></a> 对称加密技术</h3>
+<p>使用同一套密钥</p>
+<pre class="mermaid">graph LR
+发送者A-明文-->加密算法-Ke
+加密算法-Ke-->互联网-攻击者
+互联网-攻击者-->解密算法-Kd
+解密算法-Kd-->接受者B-明文</pre>
+<p>对称加密：K<sub>e</sub>=K<sub>d</sub><br><br>
+特点：</p>
+<ol>
+<li>加密强度不高，但效率高;</li>
+<li>密钥分发困难。</li>
+</ol>
+<p><mark>常见对称密钥算法：DES、3DES(三重DES)、RC-5、IDEA.</mark></p>
+<h3 id="非对称加密技术"><a class="markdownIt-Anchor" href="#非对称加密技术"></a> 非对称加密技术</h3>
+<ul>
+<li>每人都有一成对的密钥（公钥和私钥）<br></li>
+<li>发给谁就用谁的公钥加密，接收时用自己的私钥解密。</li>
+</ul>
+<p>非对称加密：：K<sub>e</sub>≠K<sub>d</sub> 密钥必须成对使用（公钥加密，私钥解密）<br><br>
+特点： 加密速度慢，但强度高。<br>
+常见非对称密钥加密算法：RSA、ECC.</p>
+<h3 id="数字签名"><a class="markdownIt-Anchor" href="#数字签名"></a> 数字签名</h3>
+<ul>
+<li>每人都有一成对的密钥（公钥和私钥）<br></li>
+<li>用发送方的私钥加密，接收时用发送方的公钥解密。</li>
+</ul>
+<h3 id="信息摘要"><a class="markdownIt-Anchor" href="#信息摘要"></a> 信息摘要</h3>
+<p>*一般用于判断两者是否相同</p>
+<p>数字摘要：由单向散列函数加密成固定长度的散列值。（不可逆）<br></p>
+<p>常用算法有MD5, SHA等。<br><br>
+市场上广泛使用的MD5、SHA的散列值分别为128位和160位，由于SHA通常采用的密钥长度较长，因此安全性高于MD5</p>
+<h3 id="pki公钥体系"><a class="markdownIt-Anchor" href="#pki公钥体系"></a> PKI公钥体系</h3>
+<p>CA中心：</p>
+<ul>
+<li>管理密钥
+<ul>
+<li>注册密钥</li>
+<li>更新密钥</li>
+<li>注销密钥</li>
+</ul>
+</li>
+<li>分发证书给服务器（数字签名）</li>
+</ul>
+<h2 id="网络安全"><a class="markdownIt-Anchor" href="#网络安全"></a> 网络安全</h2>
+<h3 id="各个网络层次的安全保障"><a class="markdownIt-Anchor" href="#各个网络层次的安全保障"></a> 各个网络层次的安全保障</h3>
+<ul>
+<li>物理层
+<ul>
+<li>隔离</li>
+<li>屏蔽</li>
+</ul>
+</li>
+<li>数据链路层
+<ul>
+<li>链路加密</li>
+<li>PPTP</li>
+<li>L2TP</li>
+</ul>
+</li>
+<li>网络层
+<ul>
+<li>防火墙</li>
+<li>IPSec</li>
+</ul>
+</li>
+<li>传输层
+<ul>
+<li>TLS （基于SSL3.0）</li>
+<li>SET</li>
+<li>SSL</li>
+</ul>
+</li>
+<li>会话层
+<ul>
+<li>SSL</li>
+</ul>
+</li>
+<li>表示层
+<ul>
+<li>SSL</li>
+</ul>
+</li>
+<li>应用层
+<ul>
+<li>PGP</li>
+<li>HTTPS</li>
+<li>SSL<br><br>
+注意：SSL属于传输层、会话层、表示层、应用层四层</li>
+</ul>
+</li>
+</ul>
+<h3 id="主动攻击与被动攻击"><a class="markdownIt-Anchor" href="#主动攻击与被动攻击"></a> 主动攻击与被动攻击</h3>
+<pre class="mermaid">graph TB
+被动攻击-->监听-保密性
+监听-保密性-->消息内容获取
+监听-保密性-->业务流分析
+主动攻击-->中断-可用性
+主动攻击-->篡改-完整性
+主动攻击-->伪造-真实性</pre>
+<h3 id="防火墙"><a class="markdownIt-Anchor" href="#防火墙"></a> 防火墙</h3>
+<p>特点：防外不防内</p>
+<pre class="mermaid">graph LR
+防火墙-->网络级
+防火墙-->应用级
+
+网络级-->包过滤
+网络级-->代理
+网络级-->状态监测
+应用级-->双穴主机
+应用级-->屏蔽主机
+应用级-->屏蔽子网</pre>
+<table>
+<thead>
+<tr>
+<th>防火墙类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>包过滤</td>
+<td>只检查数据包的格式（原地址、目标地址…是否合理），速度比较快，但安全性差。</td>
+</tr>
+<tr>
+<td>代理</td>
+<td>不仅检查包，还检查里面。速度慢，但安全性好。</td>
+</tr>
+<tr>
+<td>状态监测</td>
+<td>使用状态表。综合速度与安全性。</td>
+</tr>
+<tr>
+<td>双穴主机</td>
+<td>将内部网络与外部网络用一台主机分隔开</td>
+</tr>
+<tr>
+<td>屏蔽主机</td>
+<td>在双穴主机的基础上，用路屏蔽路由器将堡垒主机与外网隔开</td>
+</tr>
+<tr>
+<td>屏蔽子网</td>
+<td>两个屏蔽路由器隔开内网与外网<br>两个屏蔽路由器之间为BMZ(非军事区)<br><strong>BMZ区可被外网访问也可被内网访问</strong>（web服务器放在此）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="安全防范体系"><a class="markdownIt-Anchor" href="#安全防范体系"></a> 安全防范体系</h2>
+<ul>
+<li>物理环境的安全性。</li>
+<li>操作系统安全性。</li>
+<li>网络安全性。</li>
+<li>应用的安全性。</li>
+<li>管理的安全性。</li>
+</ul>
+<h2 id="病毒与木马"><a class="markdownIt-Anchor" href="#病毒与木马"></a> 病毒与木马</h2>
+<ul>
+<li>病毒：编制或在计算机程序中插入的<mark>破坏</mark>计算机功能或者数据，以你影响计算机使用并且能够自我复制的一组计算机指令或者程序代码。</li>
+<li>木马：计算机木马是一种后门程序，常被黑客用作控制远程计算机的工具。</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/软件设计师/">软件设计师</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-12 col-md-6">
+                    
+                      <a href="/2019/11/05/面向对象技术/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>面向对象技术</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-12 col-md-6">
+                    
+                      <a href="/2019/11/04/系统开发基础/">
+                        <span>系统开发基础</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="/js/lazyload.js"></script>
+
+
+
+  
+  <script src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+
+
+  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "计算机网络与信息安全&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script src='https://unpkg.com/mermaid@8.4.8/dist/mermaid.js'></script> -->
+<script src="/js/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: 'default' });
+  }
+</script>
+
+
+</body>
+</html>

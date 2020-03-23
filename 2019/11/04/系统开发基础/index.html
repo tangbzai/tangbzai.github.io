@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2E294E">
+  <meta name="description" content="糖仔呐的博客">
+  <meta name="author" content="糖仔">
+  <meta name="keywords" content="">
+  <title>系统开发基础 - 糖仔呐</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  2019 11月 4日, 星期一, 3:20 下午
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    2.2k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      7 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-warning">本文最后更新于：2020 3月 23日, 星期一, 11:22 晚上</p>
+            
+            <div class="markdown-body">
+              <h1 id="系统开发基础"><a class="markdownIt-Anchor" href="#系统开发基础"></a> 系统开发基础</h1>
+<h2 id="软件开发模型"><a class="markdownIt-Anchor" href="#软件开发模型"></a> 软件开发模型</h2>
+<ul>
+<li>
+<p>瀑布模型</p>
+<p>用于需求明确的时候</p>
+  <html>
+  <table>
+  <th>阶段</th><th>具体活动</th><th>产物</th>
+  <tr><td rowspan="2">定义阶段</td><td>软件计划</td><td>1. 可行性分析<br>2. 软件计划书</td></tr>
+  <tr><td>需求分析</td><td> 需求规格说明书</td></tr>
+  <tr><td rowspan="3">开发阶段</td><td>软件设计</td><td>1. 概要设计说明书<br>2. 详细设计说明书</td></tr>
+  <tr><td>程序编码</td><td>系统</td></tr>
+  <tr><td>软件测试</td><td>测试报告<br>(测试计划、测试用意)</td></tr>
+  <tr><td>维护阶段</td><td>运行维护</td><td>交付给用户，跟踪维护。</td></tr>
+  </table>
+  </html>
+<ul>
+<li>V模型
+<ul>
+<li>相对瀑布模型更重视测试</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>喷泉模型<br><br>
+<em>面向对象的开发模型</em><br><br>
+没有明确的界限</p>
+</li>
+<li>
+<p>演化模型</p>
+<ul>
+<li>原型模型<br><br>
+沟通后快速构建原型并交付，收集反馈并在下一轮进行改进。
+<ul>
+<li>探索型原型</li>
+<li>实验型原型</li>
+<li>演化型原型：在原型进行后续的开发</li>
+</ul>
+</li>
+<li>螺旋模型<br>
+<ul>
+<li>综合了瀑布模型与原型模型</li>
+<li>给每个螺旋周期分成了四个步骤：制定计划、<mark>风险分析</mark>、实施工程、用户评估</li>
+<li>强调风险分析，使用户、开发人员对演化层出现的风险有所了解，从而做出反应。螺旋模型适合开发庞大、复杂、高风险的系统。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>统一过程（UP/RUP）</p>
+<ul>
+<li>“用例驱动，以架构为中心迭代，并增量”</li>
+<li>分成四个阶段：
+<ol>
+<li>初始（起始）</li>
+<li>细化（精化）</li>
+<li>构建</li>
+<li>移交（交付）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>敏捷方法</p>
+<ul>
+<li>自适应开发(ASD)</li>
+<li>并列争球法(SCRUM)
+<ul>
+<li>明确定义了的可重复的方法过程</li>
+</ul>
+</li>
+<li>水晶方法(Crystal)
+<ul>
+<li>用最少的纪律约束而仍能成功的方法</li>
+</ul>
+</li>
+<li>特性驱动开发(FDD)
+<ul>
+<li>开发人员分两类：富有经验的作为协调者、设计者和指导者，另一类则主要做源码编写。</li>
+</ul>
+</li>
+<li>极限编程(XP)
+<ul>
+<li>费用严格控制的公司中使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="软件开发方法"><a class="markdownIt-Anchor" href="#软件开发方法"></a> 软件开发方法</h2>
+<ul>
+<li>结构化方法(面向数据流)
+<ul>
+<li>用户至上</li>
+<li>严格区分工作阶段，每阶段有任务和结果</li>
+<li>强调系统开发过程的整体性和全局性</li>
+<li>系统开发过程工程化，文档资料标准化</li>
+<li><mark>自顶向下，逐步分解（求精）</mark></li>
+<li>不适合复杂、大型的项目</li>
+</ul>
+</li>
+<li>原型法</li>
+<li>面向对象方法
+<ul>
+<li>更好的<mark>复用性</mark></li>
+<li>关键在于建立一个全面、合理、统一的模型</li>
+<li>分析、设计、实现三个阶段，<mark>界限不明确</mark>(喷泉模型)</li>
+</ul>
+</li>
+<li>面向服务的方法 （SOA）</li>
+<li>面向数据结构的方法 (Jackson)</li>
+</ul>
+<h2 id="需求分析"><a class="markdownIt-Anchor" href="#需求分析"></a> 需求分析</h2>
+<ul>
+<li>需求的任务</li>
+<li>需求的过程
+<ul>
+<li>问题识别</li>
+<li>分析与综合</li>
+<li>编制需求分析文档</li>
+<li>需求分析与评审</li>
+</ul>
+</li>
+<li>需求的分类
+<ul>
+<li>功能需求</li>
+<li>非功能需求</li>
+<li>设计约束</li>
+</ul>
+</li>
+<li>应用的工具
+<ul>
+<li>数据流图(DFD)</li>
+<li>数据字典(DD)</li>
+<li>判定表</li>
+<li>判定树（决策树）</li>
+</ul>
+</li>
+</ul>
+<h2 id="软件设计"><a class="markdownIt-Anchor" href="#软件设计"></a> 软件设计</h2>
+<ul>
+<li>软件设计的任务与活动</li>
+<li>模块设计原则
+<ul>
+<li>保证独立性（<mark>高内聚，低耦合</mark>）</li>
+</ul>
+</li>
+<li>应用的工具
+<ul>
+<li>IPO图</li>
+<li>PDL（程序描述语言）:用来描述IPO图</li>
+<li>PAD（问题分析图）</li>
+<li>程序流程图</li>
+<li>N/S盒图</li>
+</ul>
+</li>
+</ul>
+<p><em>下面由内聚程度高到低排列</em></p>
+<table>
+<thead>
+<tr>
+<th>内聚类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能内聚</td>
+<td>完成<mark>一个单一功能</mark>，各个部分协同工作，缺一不可。</td>
+</tr>
+<tr>
+<td>顺序内聚</td>
+<td>处理元素相关，而且必须<mark>顺序执行</mark></td>
+</tr>
+<tr>
+<td>通信内聚</td>
+<td>所有处理元素<mark>集中在一个数据结构的区域</mark>上</td>
+</tr>
+<tr>
+<td>过程内聚</td>
+<td>处理元素相关，而且必须按<mark>特定的次序执行</mark></td>
+</tr>
+<tr>
+<td>瞬时内聚（时间内聚）</td>
+<td>所包含的任务必须在<mark>同一时间间隔</mark>内执行</td>
+</tr>
+<tr>
+<td>逻辑内聚</td>
+<td>完成<mark>逻辑上相关</mark>的一组任务</td>
+</tr>
+<tr>
+<td>偶然内聚（巧合内聚）</td>
+<td>完成一组<mark>没有关系或松散关系</mark>的任务</td>
+</tr>
+</tbody>
+</table>
+<p><em>下面由耦合程度低到高排列</em></p>
+<table>
+<thead>
+<tr>
+<th>耦合类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>非直接耦合</td>
+<td>两个模块之间没有直接关系，他们之间的联系完全是通过<mark>主模块的控制和调用</mark>来实现的</td>
+</tr>
+<tr>
+<td>数据耦合</td>
+<td>一组模块借助参数表<mark>传递简单数据</mark></td>
+</tr>
+<tr>
+<td>标记耦合</td>
+<td>一组模块通过参数表<mark>传递记录信息</mark>（数据结构）</td>
+</tr>
+<tr>
+<td>控制耦合</td>
+<td>模块之间传递的信息中包含用于<mark>控制模块内部逻辑</mark>的信息</td>
+</tr>
+<tr>
+<td>外部耦合</td>
+<td>一组模块都访问同一全局简单变量，而且不是通过参数表传递该全局变量的信息</td>
+</tr>
+<tr>
+<td>公共耦合</td>
+<td>多个模块都访问同一个公共数据环境</td>
+</tr>
+<tr>
+<td>内容耦合</td>
+<td>一个模块直接访问另一个模块的内部数据；一个模块不通过正常入口转到另一个模块的内部；两个模块有一部分程序代码重叠；一个模块有多个入口</td>
+</tr>
+</tbody>
+</table>
+<h2 id="软件测试"><a class="markdownIt-Anchor" href="#软件测试"></a> 软件测试</h2>
+<pre class="mermaid">graph LR
+静态测试-->桌面检查
+静态测试-->代码审查
+静态测试-->代码走查
+动态测试-->黑盒测试
+动态测试-->白盒测试
+动态测试-->灰盒测试
+黑盒测试-->等价类划分/边界值分析/错误推断/因果图
+白盒测试-->语句覆盖/判定覆盖/条件覆盖/条件判定覆盖/路径覆盖</pre>
+<ul>
+<li>等价类划分
+<ul>
+<li>确定无效与有效等价类</li>
+<li>设计用例尽可能多的覆盖有效类</li>
+<li>设计用例只覆盖一个无效类</li>
+</ul>
+</li>
+<li>边界值分析
+<ul>
+<li>处理边界情况时最容易出错</li>
+<li>选区的测试数据应该恰好等于、稍小于或稍大于边界值</li>
+</ul>
+</li>
+</ul>
+<pre class="mermaid">graph LR
+
+需求分析---验收测试
+概要设计---系统测试
+详细设计---集成测试
+编码---单元测试
+
+需求分析-->概要设计
+概要设计-->详细设计
+详细设计-->编码
+编码-->单元测试
+单元测试-->集成测试
+集成测试-->系统测试
+系统测试-->验收测试
+
+单元测试-.->模块接口/局部数据结构/边界条件/独立的路径/错误处理
+集成测试-.->模块间的接口和通信
+系统测试-.->需要硬件环境,模拟一个真实环境进行恢复测试/安全性测试/强度测试/性能测试/可靠性测试和安装测试
+验收测试-.->以用户为主导的测试-软件配置审查/验收测试</pre>
+<ul>
+<li>回归测试：测试出bug在提第二次提交的时候再测一遍。</li>
+<li>性能测试
+<ul>
+<li>负载测试：在一定的资源的条件下能够承受的负载（最大负荷量）是多少。</li>
+<li>压力测试：达到失效压力下能够承受的最大压力。</li>
+</ul>
+</li>
+</ul>
+<h3 id="mccabe复杂度环路复杂度"><a class="markdownIt-Anchor" href="#mccabe复杂度环路复杂度"></a> McCabe复杂度（环路复杂度）</h3>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo><mo>=</mo><mi>m</mi><mo>−</mo><mi>n</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">    V(G)=m-n+2
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mopen">(</span><span class="mord mathdefault">G</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span></span></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m</td>
+<td>边数</td>
+</tr>
+<tr>
+<td>n</td>
+<td>节点数</td>
+</tr>
+</tbody>
+</table>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo><mo>=</mo><mi mathvariant="normal">封</mi><mi mathvariant="normal">闭</mi><mi mathvariant="normal">区</mi><mi mathvariant="normal">域</mi><mi mathvariant="normal">数</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">    V(G)=封闭区域数+1
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mopen">(</span><span class="mord mathdefault">G</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">封</span><span class="mord cjk_fallback">闭</span><span class="mord cjk_fallback">区</span><span class="mord cjk_fallback">域</span><span class="mord cjk_fallback">数</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></span></p>
+<h2 id="软件维护"><a class="markdownIt-Anchor" href="#软件维护"></a> 软件维护</h2>
+<ul>
+<li>可维护性因素决定
+<ul>
+<li>可理解性
+<ul>
+<li>文档</li>
+</ul>
+</li>
+<li>可测试性</li>
+<li>可修改性 (可扩展性)</li>
+</ul>
+</li>
+<li>软件维护类型
+<ul>
+<li>改正性维护：<mark>发布前</mark>的bug没改，发布后才改。</li>
+<li>适应性维护：因为<mark>外部环境</mark>发生了变化的更改。</li>
+<li>预防性维护：为了==未来（将来）==的某个时候而做的修改。</li>
+<li>完善性维护(占维护的50%)：为了<mark>扩充功能和改善性能</mark>而进行的更改。</li>
+</ul>
+</li>
+</ul>
+<h2 id="软件工程"><a class="markdownIt-Anchor" href="#软件工程"></a> 软件工程</h2>
+<h3 id="国家标准-软件文档管理指南-按阅读对象分类"><a class="markdownIt-Anchor" href="#国家标准-软件文档管理指南-按阅读对象分类"></a> 国家标准-软件文档管理指南-按阅读对象分类</h3>
+<ul>
+<li><strong>开发文档</strong>
+<ul>
+<li>可行性研究和项目书</li>
+<li>需求规格说明</li>
+<li>功能规格说明</li>
+<li>设计规格说明（包括程序和书序规格说明）</li>
+<li>开发计划</li>
+<li>软件集成和测试计划</li>
+<li>质量保证计划、标准、进度</li>
+<li>安全和测试信息</li>
+</ul>
+</li>
+<li>产品文档（跟用户有关的）
+<ul>
+<li>培训手册</li>
+<li>参考手册和用户指南</li>
+<li>软件支持手册</li>
+<li>产品手册和信息广告</li>
+</ul>
+</li>
+<li>管理文档</li>
+</ul>
+<h3 id="软件质量保证"><a class="markdownIt-Anchor" href="#软件质量保证"></a> 软件质量保证</h3>
+<p>外部和内部质量：</p>
+<ul>
+<li>功能性</li>
+<li>可靠性</li>
+<li>易用性</li>
+<li>效率</li>
+<li>维护性</li>
+<li>可移植性</li>
+</ul>
+<h3 id="软件过程改进-cmmi"><a class="markdownIt-Anchor" href="#软件过程改进-cmmi"></a> 软件过程改进-CMMI</h3>
+<p>CMMI（软件成熟度模型）：衡量一个企业达到了一个什么资质。</p>
+<pre class="mermaid">graph BT
+初始级--纪律化-->可管理级
+可管理级--标准化-->已定义级
+已定义级--可预测-对过程和质量可以度量-->定量管理级
+定量管理级--持续优化改进-->优化管理级</pre>
+<h2 id="项目管理"><a class="markdownIt-Anchor" href="#项目管理"></a> 项目管理</h2>
+<p>十大知识领域：</p>
+<ol>
+<li>范围管理</li>
+<li><mark>时间管理</mark></li>
+<li>成本管理</li>
+<li>质量管理</li>
+<li>人力资源管理</li>
+<li>沟通管理</li>
+<li>风险管理</li>
+<li>采购管理</li>
+<li>整体管理</li>
+<li>项目干系人管理</li>
+</ol>
+<h3 id="时间管理"><a class="markdownIt-Anchor" href="#时间管理"></a> 时间管理</h3>
+<h4 id="前导图法单代号网络图pdm"><a class="markdownIt-Anchor" href="#前导图法单代号网络图pdm"></a> 前导图法（单代号网络图，PDM）</h4>
+<p>求关键路径 = 求工期最长路径<br><br>
+关键活动：关键路径上的活动，<mark>总时差为0。</mark></p>
+<h2 id="活动排序"><a class="markdownIt-Anchor" href="#活动排序"></a> 活动排序</h2>
+<h3 id="箭头突发双代号网络图adm"><a class="markdownIt-Anchor" href="#箭头突发双代号网络图adm"></a> 箭头突发（双代号网络图，ADM）</h3>
+<p>虚线：表示两者有关系（不耗时）</p>
+<h2 id="项目管理-2"><a class="markdownIt-Anchor" href="#项目管理-2"></a> 项目管理</h2>
+<p>风险曝光度（Risk Exposure）:风险<mark>出现的概率乘以</mark>风险<mark>可能造成的损失</mark>。</p>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/软件设计师/">软件设计师</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-12 col-md-6">
+                    
+                      <a href="/2019/11/04/计算机网络与信息安全/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>计算机网络与信息安全</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-12 col-md-6">
+                    
+                      <a href="/2019/10/28/并发控制与数据库完整性约束/">
+                        <span>并发控制与数据库完整性约束</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="/js/lazyload.js"></script>
+
+
+
+  
+  <script src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+
+
+  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "系统开发基础&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script src='https://unpkg.com/mermaid@8.4.8/dist/mermaid.js'></script> -->
+<script src="/js/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: 'default' });
+  }
+</script>
+
+
+</body>
+</html>
