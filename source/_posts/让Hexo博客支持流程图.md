@@ -56,7 +56,7 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 ```
 
 2. 报错Error: \<svg> attribute viewBox: Expected number, "0 0 -Infinity -Infin…".
-原因：主题的代码高亮样式冲突了。
+原因：主题的代码高亮样式冲突了。（主题版本为v1.7.4）
 将主题的代码高亮关了就好了.
 ```
 highlight: # 代码高亮
