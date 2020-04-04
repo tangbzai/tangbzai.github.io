@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+
+  <script type="text/javascript">
+    var now = new Date();
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var day = dayStr ? new Date(dayStr) : new Date();
+    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
+    if (isMemorialDay) {
+      var html = document.getElementsByTagName('html')[0];
+      html.style.setProperty('-webkit-filter', 'grayscale(100%)');
+      html.style.setProperty('filter', 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)')
+    }
+  </script>
+  <!DOCTYPE html>
 <html lang="zh-CN">
 
 
@@ -116,7 +128,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    756 字
+                    760 字
                   </span>
                 
 
@@ -151,7 +163,7 @@
         <div class="py-5 z-depth-3" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p class="note note-warning">本文最后更新于：2020 3月 24日, 星期二, 1:14 凌晨</p>
+              <p class="note note-warning">本文最后更新于：2020 3月 25日, 星期三, 11:42 晚上</p>
             
             <div class="markdown-body">
               <p>本文讲的是hexo的插件<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">hexo-filter-mermaid-diagrams</a></p>
@@ -196,6 +208,7 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 <h3 id="2-出现问题"><a class="markdownIt-Anchor" href="#2-出现问题"></a> 2. 出现问题</h3>
 <ol>
 <li>没有效果<br><br>
+*记得<code>hexo clean</code><br><br>
 原因：语法不一样,三个点后面填写<code>mermaid</code></li>
 </ol>
 <pre class="highlight"><code class="">` ` `mermaid
@@ -269,6 +282,11 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
               
                 <div class="post-prevnext row">
                   <div class="post-prev col-12 col-md-6">
+                    
+                      <a href="/2020/03/25/函数-极限与连续/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>函数 极限与连续</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-12 col-md-6">

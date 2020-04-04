@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+
+  <script type="text/javascript">
+    var now = new Date();
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var day = dayStr ? new Date(dayStr) : new Date();
+    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
+    if (isMemorialDay) {
+      var html = document.getElementsByTagName('html')[0];
+      html.style.setProperty('-webkit-filter', 'grayscale(100%)');
+      html.style.setProperty('filter', 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)')
+    }
+  </script>
+  <!DOCTYPE html>
 <html lang="zh-CN">
 
 
@@ -127,6 +139,54 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/25/函数-极限与连续/">
+        <p class="h4 index-header">函数 极限与连续</p>
+      </a>
+
+      <a href="/2020/03/25/函数-极限与连续/">
+        
+        
+          
+        
+        <div class="index-excerpt">
+          <div class="index-text mb-1"> 函数、极限与连续
+ 函数
+ 求函数的定义域
+原则：
+
+分母不能为01x:x=0̸\frac{1}{x}: x =\not 0
+x1​:x=​0
+
+开偶次方时被开方数大于等于0x2n:x≥0\sqrt[2n]{x}: x \geq 0
+2nx​:x≥0
+
+真数大于0log⁡ax(ln⁡x,lg⁡x):x&gt;0\log_ax(\ln x, \lg x): x &gt; 0
+loga​x(lnx,lgx):x&gt;0
+
+反正弦反余弦变量的整体 |x|≤ 1arcsin⁡x,arccos⁡x:−1≤x≤1\arcsin x, \arccos x: -1\leq x \leq 1
+arcsin</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-25&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/数学/">数学</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
 
   <div class="row mx-auto index-card">
     

@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+
+  <script type="text/javascript">
+    var now = new Date();
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var day = dayStr ? new Date(dayStr) : new Date();
+    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
+    if (isMemorialDay) {
+      var html = document.getElementsByTagName('html')[0];
+      html.style.setProperty('-webkit-filter', 'grayscale(100%)');
+      html.style.setProperty('filter', 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)')
+    }
+  </script>
+  <!DOCTYPE html>
 <html lang="zh-CN">
 
 
@@ -443,7 +455,7 @@ id5(死锁)-->id6(预防 / 死锁的解除)</pre>
 
 
 <!-- <script src='https://unpkg.com/mermaid@8.4.8/dist/mermaid.js'></script> -->
-<script src="https://cdn.bootcss.com/mermaid/8.4.8/mermaid.min.js"></script>
+<script src="https://cdn.staticfile.org/mermaid/8.4.8/mermaid.min.js"></script>
 <script>
     if (window.mermaid) {
         mermaid.initialize({ theme: 'default' });
