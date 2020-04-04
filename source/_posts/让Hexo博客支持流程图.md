@@ -49,6 +49,7 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 
 ### 2. 出现问题
 1. 没有效果<br>
+*记得`hexo clean`<br>
 原因：语法不一样,三个点后面填写`mermaid`
 
 ```
