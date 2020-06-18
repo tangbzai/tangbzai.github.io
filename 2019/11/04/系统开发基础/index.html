@@ -1,7 +1,7 @@
 
   <script type="text/javascript">
     var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
     var day = dayStr ? new Date(dayStr) : new Date();
     var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
     if (isMemorialDay) {
@@ -19,8 +19,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -30,22 +30,30 @@
   <meta name="keywords" content="">
   <title>系统开发基础 - 糖仔呐</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+
+  
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/tomorrow-night.min.css">
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
 <link rel="stylesheet" href="/css/main.css">
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
 
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script src="/js/utils.js"></script>
 </head>
 
 
@@ -53,7 +61,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
@@ -67,33 +75,49 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
@@ -109,7 +133,7 @@
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -117,31 +141,38 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  2019 11月 4日, 星期一, 3:20 下午
-                </p>
-              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2019-11-04 15:20">
+      2019年11月4日 下午
+    </time>
+  </div>
 
-              <p class="mt-1">
-                
-                  
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    2.3k 字
-                  </span>
-                
 
-                
-                  
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      8 分钟
-                  </span>
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
 
-                
-              </p>
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
             
           </div>
 
@@ -156,7 +187,7 @@
       
   <script type="text/javascript">
     var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
     var day = dayStr ? new Date(dayStr) : new Date();
     var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
     if (isMemorialDay) {
@@ -172,16 +203,14 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p class="note note-warning">本文最后更新于：2020 3月 24日, 星期二, 12:36 凌晨</p>
-            
-            <div class="markdown-body">
+            <article class="markdown-body">
               
   <script type="text/javascript">
     var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
     var day = dayStr ? new Date(dayStr) : new Date();
     var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
     if (isMemorialDay) {
@@ -428,7 +457,7 @@
 </tbody>
 </table>
 <h2 id="软件测试"><a class="markdownIt-Anchor" href="#软件测试"></a> 软件测试</h2>
-<pre class="mermaid">graph LR
+<div class="hljs"><pre class="hljs mermaid">graph LR
 静态测试-->桌面检查
 静态测试-->代码审查
 静态测试-->代码走查
@@ -436,7 +465,7 @@
 动态测试-->白盒测试
 动态测试-->灰盒测试
 黑盒测试-->等价类划分/边界值分析/错误推断/因果图
-白盒测试-->语句覆盖/判定覆盖/条件覆盖/条件判定覆盖/路径覆盖</pre>
+白盒测试-->语句覆盖/判定覆盖/条件覆盖/条件判定覆盖/路径覆盖</pre></div>
 <ul>
 <li>等价类划分
 <ul>
@@ -452,7 +481,7 @@
 </ul>
 </li>
 </ul>
-<pre class="mermaid">graph LR
+<div class="hljs"><pre class="hljs mermaid">graph LR
 
 需求分析---验收测试
 概要设计---系统测试
@@ -470,7 +499,7 @@
 单元测试-.->模块接口/局部数据结构/边界条件/独立的路径/错误处理
 集成测试-.->模块间的接口和通信
 系统测试-.->需要硬件环境,模拟一个真实环境进行恢复测试/安全性测试/强度测试/性能测试/可靠性测试和安装测试
-验收测试-.->以用户为主导的测试-软件配置审查/验收测试</pre>
+验收测试-.->以用户为主导的测试-软件配置审查/验收测试</pre></div>
 <ul>
 <li>回归测试：测试出bug在提第二次提交的时候再测一遍。</li>
 <li>性能测试
@@ -562,11 +591,11 @@
 </ul>
 <h3 id="软件过程改进-cmmi"><a class="markdownIt-Anchor" href="#软件过程改进-cmmi"></a> 软件过程改进-CMMI</h3>
 <p>CMMI（软件成熟度模型）：衡量一个企业达到了一个什么资质。</p>
-<pre class="mermaid">graph BT
+<div class="hljs"><pre class="hljs mermaid">graph BT
 初始级--纪律化-->可管理级
 可管理级--标准化-->已定义级
 已定义级--可预测-对过程和质量可以度量-->定量管理级
-定量管理级--持续优化改进-->优化管理级</pre>
+定量管理级--持续优化改进-->优化管理级</pre></div>
 <h2 id="项目管理"><a class="markdownIt-Anchor" href="#项目管理"></a> 项目管理</h2>
 <p>十大知识领域：</p>
 <ol>
@@ -591,38 +620,42 @@
 <h2 id="项目管理-2"><a class="markdownIt-Anchor" href="#项目管理-2"></a> 项目管理</h2>
 <p>风险曝光度（Risk Exposure）:风险<mark>出现的概率乘以</mark>风险<mark>可能造成的损失</mark>。</p>
 
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/软件设计师/">软件设计师</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-12 col-md-6">
+                  <div class="post-prev col-6">
+                    
                     
                       <a href="/2019/11/04/计算机网络与信息安全/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span>计算机网络与信息安全</span>
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算机网络与信息安全</span>
+                        <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </div>
-                  <div class="post-next col-12 col-md-6">
+                  <div class="post-next col-6">
+                    
                     
                       <a href="/2019/10/28/并发控制与数据库完整性约束/">
-                        <span>并发控制与数据库完整性约束</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <span class="hidden-mobile">并发控制与数据库完整性约束</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -630,16 +663,15 @@
               
             </div>
 
-              
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -655,8 +687,8 @@
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -689,9 +721,10 @@
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
 
@@ -703,79 +736,49 @@
 
 <!-- SCRIPTS -->
 <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+<script src="/js/debouncer.js"></script>
 <script src="/js/main.js"></script>
 
-
-  <script src="/js/lazyload.js"></script>
-
+<!-- Plugins -->
 
 
   
-  <script src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js"></script>
+    <script src="/js/lazyload.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js"></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
-        contentSelector: '.post-content',
+        contentSelector: 'article.markdown-body',
         headingSelector: 'h1,h2,h3,h4,h5,h6',
         linkClass: 'tocbot-link',
         activeLinkClass: 'tocbot-active-link',
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
-
-
-
-
-
-
-
-
-
-
-<!-- Plugins -->
-
-
 
 
 
@@ -821,20 +824,22 @@
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
@@ -849,13 +854,19 @@
 
 
 
-<!-- <script src='https://unpkg.com/mermaid@8.4.8/dist/mermaid.js'></script> -->
-<script src="https://cdn.staticfile.org/mermaid/8.4.8/mermaid.min.js"></script>
-<script>
+
+
+
+
+  <script src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js"></script>
+  <script>
     if (window.mermaid) {
-        mermaid.initialize({ theme: 'default' });
+      mermaid.initialize({"theme":"default"});
     }
-</script>
+  </script>
+
+
+
 
 
 

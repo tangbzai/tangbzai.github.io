@@ -1,7 +1,7 @@
 
   <script type="text/javascript">
     var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
     var day = dayStr ? new Date(dayStr) : new Date();
     var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
     if (isMemorialDay) {
@@ -19,8 +19,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -30,22 +30,21 @@
   <meta name="keywords" content="">
   <title>糖仔呐</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
 <link rel="stylesheet" href="/css/main.css">
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
 
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script src="/js/utils.js"></script>
 </head>
 
 
@@ -53,7 +52,7 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
@@ -67,33 +66,49 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
@@ -109,7 +124,7 @@
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -120,7 +135,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -131,7 +146,7 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
+        <div class="py-5" id="board"
           style=margin-top:0>
           
           <div class="container">
@@ -144,17 +159,14 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/12/微分中值定理及导数应用/">
-        <p class="h4 index-header">微分中值定理及导数应用</p>
-      </a>
+      <a class="index-header" href="/2020/04/12/微分中值定理及导数应用/">微分中值定理及导数应用</a>
 
-      <a href="/2020/04/12/微分中值定理及导数应用/">
+      <a href="/2020/04/12/微分中值定理及导数应用/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 微分中值定理及导数的应用
+        <div> 微分中值定理及导数的应用
  一、微分中值定理
  1. 罗尔定理
 如果函数f(x)f(x)f(x)满足：
@@ -167,26 +179,23 @@ f(a)=f(b)f(a) = f(b)f(a)=f(b)
 f′(ξ)=0f&#x27;(\xi) = 0
 f′(ξ)=0
  2. 拉格朗日中值定理
-如果函数f(x)f(x)f(x)满足：
-
-在闭区间[a,b]上连续;
-在开区间(a,b)上内可导;
-则∃ξ∈(a,b)\exist \xi\in(a,b)∃ξ∈(a,b)，使得
-
-f′(ξ)=f(b)−f</div>
-        </div>
+如果</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-12&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-04-12
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/数学/">数学</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/数学/">数学</a>
+            
+          </div>
         
       </div>
     </div>
@@ -196,36 +205,34 @@ f′(ξ)=f(b)−f</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/04/导数与微分/">
-        <p class="h4 index-header">导数与微分</p>
-      </a>
+      <a class="index-header" href="/2020/04/04/导数与微分/">导数与微分</a>
 
-      <a href="/2020/04/04/导数与微分/">
+      <a href="/2020/04/04/导数与微分/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 导数与微分
+        <div> 导数与微分
  一、导数概念
  1. 导数的定义
 若极限lim⁡Δx→xΔyΔx\lim_{\Delta x\to x}{\frac{\Delta y}{\Delta x}}limΔx→x​ΔxΔy​存在，则称函数y=f(x)y=f(x)y=f(x)在x0x_0x0​处可导，并称此极限为函数y=f(x)y=f(x)y=f(x)在点x0x_0x0​处的导数，记作
-y′∣x=x0或y′(x0)或dydx∣x=x0    y&#x27;|_{x=x_0} 或 y&#x27;(x_0) 或 \frac{dy}{dx}|_{x=x_0}
-y′∣x=x0​​或y′(x0​)或dxdy​∣x=x0​​
- 2</div>
-        </div>
+y′∣x=x0或y′(x0)或dyd</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-04-04
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/数学/">数学</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/数学/">数学</a>
+            
+          </div>
         
       </div>
     </div>
@@ -235,17 +242,14 @@ y′∣x=x0​​或y′(x0​)或dxdy​∣x=x0​​
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/25/函数-极限与连续/">
-        <p class="h4 index-header">函数 极限与连续</p>
-      </a>
+      <a class="index-header" href="/2020/03/25/函数-极限与连续/">函数 极限与连续</a>
 
-      <a href="/2020/03/25/函数-极限与连续/">
+      <a href="/2020/03/25/函数-极限与连续/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 函数、极限与连续
+        <div> 函数、极限与连续
  函数
  求函数的定义域
 原则：
@@ -257,23 +261,23 @@ x1​:x​=0
 2nx​:x≥0
 
 真数大于0log⁡ax(ln⁡x,lg⁡x):x&gt;0\log_ax(\ln x, \lg x): x &gt; 0
-loga​x(lnx,lgx):x&gt;0
-
-反正弦反余弦变量的整体 |x|≤ 1arcsin⁡x,arccos⁡x:−1≤x≤1\arcsin x, \arccos x: -1\leq x \leq 1
-arcsinx,</div>
-        </div>
+loga​x(lnx,l</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-25&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-25
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/数学/">数学</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/数学/">数学</a>
+            
+          </div>
         
       </div>
     </div>
@@ -283,17 +287,14 @@ arcsinx,</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/22/让Hexo博客支持流程图/">
-        <p class="h4 index-header">让Hexo博客支持流程图</p>
-      </a>
+      <a class="index-header" href="/2020/03/22/让Hexo博客支持流程图/">让Hexo博客支持流程图</a>
 
-      <a href="/2020/03/22/让Hexo博客支持流程图/">
+      <a href="/2020/03/22/让Hexo博客支持流程图/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1">本文讲的是hexo的插件hexo-filter-mermaid-diagrams
+        <div>本文讲的是hexo的插件hexo-filter-mermaid-diagrams
  hexo-filter-mermaid-diagrams
  1. 快速使用
 
@@ -304,28 +305,26 @@ $ yarn add hexo-filter-mermaid-diagrams
 或者
 $ npm install hexo-filter-mermaid-diagrams
 
-
 配置
-配置hexo的配置文件_config.yml
-
-# mermaid chart
-mermaid: ## mermaid url https://github.com/knsv/mermaid
-  enable: true </div>
-        </div>
+配置hexo的配置文件_</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-22&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-22
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/记录/">记录</a>&nbsp;
-          
-            <a href="/tags/教程/">教程</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/记录/">记录</a>
+            
+              <a href="/tags/教程/">教程</a>
+            
+          </div>
         
       </div>
     </div>
@@ -335,17 +334,14 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/11/05/面向对象技术/">
-        <p class="h4 index-header">面向对象技术</p>
-      </a>
+      <a class="index-header" href="/2019/11/05/面向对象技术/">面向对象技术</a>
 
-      <a href="/2019/11/05/面向对象技术/">
+      <a href="/2019/11/05/面向对象技术/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 面向对象技术
+        <div> 面向对象技术
  面向对象的基本概念
 
 对象：属性（数据）+ 方法（操作）+ 对象ID
@@ -360,24 +356,23 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 
 面向对象设计7大原则
 
-单一职责原则：设计目的单一的类
-开发-封闭原则：对扩展开发，对修改封闭
-李氏(Liskov)替换原则：子类可以替换父类
-依赖倒置原则：要依赖于抽象，而不是具体实现；针对接口编程，不要针对实现编程
-接口隔离原</div>
-        </div>
+单一职</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-05&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-11-05
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -387,36 +382,35 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/11/04/计算机网络与信息安全/">
-        <p class="h4 index-header">计算机网络与信息安全</p>
-      </a>
+      <a class="index-header" href="/2019/11/04/计算机网络与信息安全/">计算机网络与信息安全</a>
 
-      <a href="/2019/11/04/计算机网络与信息安全/">
+      <a href="/2019/11/04/计算机网络与信息安全/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1">
+        <div>
   
     var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
     var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
-    if (isMemoria</div>
-        </div>
+    var isMemorialDay = now.getFullYear() === day.</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-04&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-11-04
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -426,36 +420,35 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/11/04/系统开发基础/">
-        <p class="h4 index-header">系统开发基础</p>
-      </a>
+      <a class="index-header" href="/2019/11/04/系统开发基础/">系统开发基础</a>
 
-      <a href="/2019/11/04/系统开发基础/">
+      <a href="/2019/11/04/系统开发基础/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1">
+        <div>
   
     var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
     var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
-    if (isMemoria</div>
-        </div>
+    var isMemorialDay = now.getFullYear() === day.</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-04&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-11-04
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -465,17 +458,14 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/28/并发控制与数据库完整性约束/">
-        <p class="h4 index-header">并发控制与数据库完整性约束</p>
-      </a>
+      <a class="index-header" href="/2019/10/28/并发控制与数据库完整性约束/">并发控制与数据库完整性约束</a>
 
-      <a href="/2019/10/28/并发控制与数据库完整性约束/">
+      <a href="/2019/10/28/并发控制与数据库完整性约束/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 并发控制
+        <div> 并发控制
  事务
 四个特性：
 
@@ -490,34 +480,23 @@ id1(并发产生的问题)-->id2(丢失更新 / 不可重复读问题 / 读 脏 
 id1(并发产生的问题)==>id3(封锁协议)
 id3(封锁协议)-->id4(S封锁-共享锁 / X封锁-排它锁 / 两段锁协议)
 id3(封锁协议)==>id5(死锁)
-id5(死锁)-->id6(预防 / 死锁的解除)
- 数据库完整性约束
- 实体完整性约束
-主键的完整性：
-
-非空
-唯一
-
- 参照完整性约束
-外键的完整性：
-要么空 否则 得有一个正确的索引
- 用户自定义完整性约束
- 触发器
-脚本
-</div>
-        </div>
+id5(死锁)-->id6(预防</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-28&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-10-28
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -527,36 +506,35 @@ id5(死锁)-->id6(预防 / 死锁的解除)
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/28/SQL语言/">
-        <p class="h4 index-header">SQL语言</p>
-      </a>
+      <a class="index-header" href="/2019/10/28/SQL语言/">SQL语言</a>
 
-      <a href="/2019/10/28/SQL语言/">
+      <a href="/2019/10/28/SQL语言/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1">
+        <div>
   
     var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
     var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
-    if (isMemoria</div>
-        </div>
+    var isMemorialDay = now.getFullYear() === day.</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-28&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-10-28
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -566,17 +544,14 @@ id5(死锁)-->id6(预防 / 死锁的解除)
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/26/规范化理论/">
-        <p class="h4 index-header">规范化理论</p>
-      </a>
+      <a class="index-header" href="/2019/10/26/规范化理论/">规范化理论</a>
 
-      <a href="/2019/10/26/规范化理论/">
+      <a href="/2019/10/26/规范化理论/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 规范化理论
+        <div> 规范化理论
 
 数据冗余
 修改异常
@@ -607,26 +582,23 @@ B-->C
 外键
 其他关系的主键
 
- 求候选键
-
-图示法求候选键
-
-将关系的函数依赖关系，用“有向图”的方式表示。
-找出入度为0的属性，并以该属性集合为起点，尝试遍历有向图，若能正常遍历图中所有结点，则该属性集即为关系模式的候选键。
-若入度为0的</div>
-        </div>
+ 求候选键</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-26&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-10-26
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -636,36 +608,35 @@ B-->C
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/24/关系代数/">
-        <p class="h4 index-header">关系代数</p>
-      </a>
+      <a class="index-header" href="/2019/10/24/关系代数/">关系代数</a>
 
-      <a href="/2019/10/24/关系代数/">
+      <a href="/2019/10/24/关系代数/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1">
+        <div>
   
     var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (中国标准时间)';
+    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
     var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
-    if (isMemoria</div>
-        </div>
+    var isMemorialDay = now.getFullYear() === day.</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-24&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-10-24
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -675,17 +646,14 @@ B-->C
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/24/数据库系统/">
-        <p class="h4 index-header">数据库系统</p>
-      </a>
+      <a class="index-header" href="/2019/10/24/数据库系统/">数据库系统</a>
 
-      <a href="/2019/10/24/数据库系统/">
+      <a href="/2019/10/24/数据库系统/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 数据库系统
+        <div> 数据库系统
  三级模式-两层映射
 
 （视图级）外模式
@@ -720,26 +688,23 @@ ER模型
 
 1-1联系：可将联系合并至n端实体关系模型中。
 1-n联系：可将联系合并至n端实体关系模式中。
-m-n联系：联系必须单独转成关系模式
-
-
-三个以上实体间的一个多元联系
-例：三个不同实体集和它们之间的多对多联系m:n:p,最少可转换为4个关系模式。
-
-</div>
-        </div>
+m-</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-24&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-10-24
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -749,17 +714,14 @@ m-n联系：联系必须单独转成关系模式
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/24/操作系统/">
-        <p class="h4 index-header">操作系统</p>
-      </a>
+      <a class="index-header" href="/2019/10/24/操作系统/">操作系统</a>
 
-      <a href="/2019/10/24/操作系统/">
+      <a href="/2019/10/24/操作系统/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 操作系统
+        <div> 操作系统
  进程管理
  概念
 
@@ -769,29 +731,23 @@ m-n联系：联系必须单独转成关系模式
 进程是程序的一次执行过程，没有程序就没有进程。
 程序是完成某个特定功能的一系列程序语句的集合，只要不被破坏，它就永远存在。
 程序是一个静态的概念，而进程是一个动态的概念，它由创建而产生，完成任务后因撤销而消亡。
-进程是系统进行资源分配和调度的独立单位，而程序不是。
-
-
-
- 进程的状态
-三态模型：
-graph LR
-id(就绪)--调度-->id1(运行)
-id1(运行)--等待某个事件-->id2(等待)
-id2(等待)--</div>
-        </div>
+进程是系统进行资</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-24&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-10-24
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -801,17 +757,14 @@ id2(等待)--</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/22/校验码/">
-        <p class="h4 index-header">校验码</p>
-      </a>
+      <a class="index-header" href="/2019/10/22/校验码/">校验码</a>
 
-      <a href="/2019/10/22/校验码/">
+      <a href="/2019/10/22/校验码/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 校验码
+        <div> 校验码
  奇偶校验码
 有效信息位加一个二进制位(校验位)
 
@@ -850,32 +803,23 @@ id2(等待)--</div>
 
 
 偶校验
-0101
-0
-01010
-
-
-
- 循环校验码CRC
-k位信息码拼接r位校验码
-CRC可检错不可纠错
-运算过程中使用到模2除法
-模2除法：在除法运算的过程中不计其进位与借位的的除法。
- 海明码
-在有效信息</div>
-        </div>
+0</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-22&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-10-22
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -885,17 +829,14 @@ CRC可检错不可纠错
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/20/Cache/">
-        <p class="h4 index-header">Cache</p>
-      </a>
+      <a class="index-header" href="/2019/10/20/Cache/">Cache</a>
 
-      <a href="/2019/10/20/Cache/">
+      <a href="/2019/10/20/Cache/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> Cache
+        <div> Cache
 
 在计算机的存储系统体系中，Cache是访问速度最快的层次（若有寄存器，则寄存器最快）
 使用Cache改善系统性能的依据是程序的局部性原理。
@@ -904,26 +845,23 @@ t1 表示Cache的周期时间，
 t2 表示主存储器周期时间，
 以读操作为例，使用“Cache + 主存储器”的系统的平均周期为 t3 则：
 
-t3=h×t1+(1−h)×t2    t_3 = h × t_1 + (1 - h) × t_2
-t3​=h×t1​+(1−h)×t2​
-其中 (1 - h) 又称 失效率（未命中率）
- 映象
-映象(Cache与主存的对应关系）是直接由硬件控制的。
-
-直接</div>
-        </div>
+t3=h×t1+(1−h)×t2    t_3 = h ×</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-20&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-10-20
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -933,17 +871,14 @@ t3​=h×t1​+(1−h)×t2​
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/20/流水线/">
-        <p class="h4 index-header">流水线</p>
-      </a>
+      <a class="index-header" href="/2019/10/20/流水线/">流水线</a>
 
-      <a href="/2019/10/20/流水线/">
+      <a href="/2019/10/20/流水线/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 流水线
+        <div> 流水线
  公式
 流水线周期（Δt）：执行时间最长的一段
 理论公式：
@@ -954,25 +889,23 @@ k∗Δt+(n−1)∗Δt    k * Δt + (n-1) * Δt
 k∗Δt+(n−1)∗Δt
 注意：
 
-k 为执行完一条指令需要多少个步骤
-Δt 在题目中一般指单位时间
-
- 流水线吞吐量
-流水线吞吐量（Though Put, TP）指在单位时间内流水线所完成的任务数量或输出的结果数量。
-TP=指令条数流水线执行时间    T</div>
-        </div>
+k 为执行完一条指令需</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-20&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-10-20
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/软件设计师/">软件设计师</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/软件设计师/">软件设计师</a>
+            
+          </div>
         
       </div>
     </div>
@@ -981,18 +914,21 @@ TP=指令条数流水线执行时间    T</div>
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/06/06/Windows2012安装IIS和FTP/">
-        <p class="h4 index-header">Windows2012安装IIS和FTP</p>
-      </a>
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2019/06/06/Windows2012安装IIS和FTP/" target="_self">
+          <img src="/2019/06/06/Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB147AsHXXXXXc7XpXXjcp1IXXX-780-536.jpg" srcset="/img/loading.gif" alt="Windows2012安装IIS和FTP">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2019/06/06/Windows2012安装IIS和FTP/">Windows2012安装IIS和FTP</a>
 
-      <a href="/2019/06/06/Windows2012安装IIS和FTP/">
+      <a href="/2019/06/06/Windows2012安装IIS和FTP/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> Windows2012安装IIS和FTP
+        <div> Windows2012安装IIS和FTP
  1. 安装IIS
 
 打开Windows 2012的服务器管理器，选择 管理→添加角色和功能。
@@ -1005,35 +941,27 @@ TP=指令条数流水线执行时间    T</div>
 
 选择“FTP服务器”，以及开设主机必须要用的“管理工具”，此项重要。
 
-等待安装，时间稍长，耐心等待即可。
-
-安装完毕，打开IIS管理器查看。
-
-打开了IIS管理器，看到程序池，站点，至此，在Windows2012下安装IIS已经成功。
-
-
- 2. 安装FTP
-
-单击图标进入服务器管理器。
-
-单击</div>
-        </div>
+等待安装，时间稍长，耐心等</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-06-06&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-06-06
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/问题/">问题</a>&nbsp;
-          
-            <a href="/tags/记录/">记录</a>&nbsp;
-          
-            <a href="/tags/教程/">教程</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/问题/">问题</a>
+            
+              <a href="/tags/记录/">记录</a>
+            
+              <a href="/tags/教程/">教程</a>
+            
+          </div>
         
       </div>
     </div>
@@ -1043,19 +971,15 @@ TP=指令条数流水线执行时间    T</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/04/02/CSS动画（animation与keyframes）/">
-        <p class="h4 index-header">CSS动画（animation与keyframes）</p>
-      </a>
+      <a class="index-header" href="/2019/04/02/CSS动画（animation与keyframes）/">CSS动画（animation与keyframes）</a>
 
-      <a href="/2019/04/02/CSS动画（animation与keyframes）/">
+      <a href="/2019/04/02/CSS动画（animation与keyframes）/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> animation
+        <div> animation
 animation: name duration timing-function delay iteration-count direction;
-
 
 
 
@@ -1078,25 +1002,23 @@ animation-duration
 
 animation-timing-function
 速度曲线
-linear | ease | ease-in | ease-out |  ease-in-out | cubic-bezier(n,n,n,n)
-
-
-animation-delay
-开始前的延迟
-(tim</div>
-        </div>
+line</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-04-02&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-04-02
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/CSS/">CSS</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CSS/">CSS</a>
+            
+          </div>
         
       </div>
     </div>
@@ -1106,17 +1028,14 @@ animation-delay
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/">
-        <p class="h4 index-header">Hexo d 时出现 On branch master nothing to commit</p>
-      </a>
+      <a class="index-header" href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/">Hexo d 时出现 On branch master nothing to commit</a>
 
-      <a href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/">
+      <a href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> 问题：
+        <div> 问题：
 
 Hexo d 时出现 On branch master nothing to commit 和一大串的 warning
 上传不上远程仓库
@@ -1126,19 +1045,22 @@ Hexo d 时出现 On branch master nothing to commit 和一大串的 warning
  参考来源
 git 使用——关于使用指令hexo d 出现一大串waring以及无法成功部署到github的解决办法 作者： 寰宇的行者
 </div>
-        </div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-29&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-03-29
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/问题/">问题</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/问题/">问题</a>
+            
+          </div>
         
       </div>
     </div>
@@ -1148,50 +1070,40 @@ git 使用——关于使用指令hexo d 出现一大串waring以及无法成功
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/03/29/搭建Hexo博客/">
-        <p class="h4 index-header">搭建Hexo博客</p>
-      </a>
+      <a class="index-header" href="/2019/03/29/搭建Hexo博客/">搭建Hexo博客</a>
 
-      <a href="/2019/03/29/搭建Hexo博客/">
+      <a href="/2019/03/29/搭建Hexo博客/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1"> Hexo 博客搭建
+        <div> Hexo 博客搭建
  1.安装git
 
 windows：到git官网上下载 Download git,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。
 linux：一行代码
 
 sudo apt-get install git
-
  2.安装nodeJS
 Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。
 
-windows：nodejs选择LTS版本就行了。(LTS:长期支持版本)
-linux：
-
-	sudo apt-get install nodejs
-	sudo apt-get install npm
-
-
-安装完后，打开命令行
-
-  </div>
-        </div>
+windows：nodejs选择LT</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-29&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-03-29
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/记录/">记录</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/记录/">记录</a>
+            
+          </div>
         
       </div>
     </div>
@@ -1201,41 +1113,32 @@ linux：
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/02/09/hello-world/">
-        <p class="h4 index-header">Hello World</p>
-      </a>
+      <a class="index-header" href="/2019/02/09/hello-world/">Hello World</a>
 
-      <a href="/2019/02/09/hello-world/">
+      <a href="/2019/02/09/hello-world/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt">
-          <div class="index-text mb-1">欢迎来到Hexo! 这是第一个帖子. 点击 文档 查看更多信息。 如果在使用时有任何问题可以在 故障排除 里找解决办法，或者来GitHub 问.
+        <div>欢迎来到Hexo! 这是第一个帖子. 点击 文档 查看更多信息。 如果在使用时有任何问题可以在 故障排除 里找解决办法，或者来GitHub 问.
  快速上手
  创建新帖
 $ hexo new "My New Post"
-
 更多信息: Writing
  运行本地服务
 $ hexo server
-
 更多信息: Server
  生成静态文件
 $ hexo generate
-
 更多信息: Generating
- 部署到远程站点
-$ hexo deploy
-
-更多信息: Deployment
 </div>
-        </div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-02-09&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-02-09
+          </div>
         
         
         
@@ -1256,8 +1159,8 @@ $ hexo deploy
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -1290,9 +1193,10 @@ $ hexo deploy
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
 
@@ -1304,24 +1208,25 @@ $ hexo deploy
 
 <!-- SCRIPTS -->
 <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+<script src="/js/debouncer.js"></script>
 <script src="/js/main.js"></script>
 
-
-  <script src="/js/lazyload.js"></script>
-
-
-
-
-
-
-
-
-
-
 <!-- Plugins -->
+
+
+  
+    <script src="/js/lazyload.js"></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <script src="/js/clipboard-use.js"></script>
+
+
+
+
 
 
 
@@ -1347,21 +1252,6 @@ $ hexo deploy
 
 
 
-  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
 
 
   <script src="/js/local-search.js"></script>
@@ -1369,24 +1259,19 @@ $ hexo deploy
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
-  </script>
+
+
+
+
+
+
 
 
 
