@@ -5,7 +5,7 @@ tags:
     - CSS
 ---
 ## animation
-```
+```css
 animation: name duration timing-function delay iteration-count direction;
 ```
 属性名 | 中文名 | 值
@@ -22,7 +22,7 @@ animation-play-state      | 指定动画播放或暂停  | paused &#124; running
 2. n表示任意整数
 
 ## @keyframes
-```
+```css
 @keyframes name {
     from {
         color: #fff;
@@ -32,7 +32,7 @@ animation-play-state      | 指定动画播放或暂停  | paused &#124; running
     }
 }
 ```
-```
+```css
 @keyframes name {
     0% {
         color: #fff;

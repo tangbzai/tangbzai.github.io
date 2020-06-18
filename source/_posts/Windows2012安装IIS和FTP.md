@@ -5,6 +5,7 @@ tags:
 	- 问题
 	- 记录
 	- 教程
+index_img: 2019/06/06/Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB147AsHXXXXXc7XpXXjcp1IXXX-780-536.jpg
 ---
 ## Windows2012安装IIS和FTP
 ### 1. 安装IIS
@@ -40,14 +41,14 @@ tags:
 7. 使用系统默认的 administrator 账号和密码，进行登录测试，现在您可以可以正常上传下载文件。
 	![](TB1a3.KHVXXXXXsXXXXXXXXXXXX.png)
 ### 3. 阿里云安全设置开发ftp端口
-	添加规则选择FTP
-	![](ftp.png)
+添加规则选择FTP
+![](ftp.png)
 ### 遇到的问题与解决办法
-	1.Xftp 提示无法显示远程文件
-	![](xftpnoshowdir.png)
-	点击属性->选项->将使用被动模式选项去掉即可
-	![](2018091715131039.png)
-	\* 如果还不行请检查目录是否属于当前用户下的目录，用户是否有权限访问当前目录
+1.Xftp 提示无法显示远程文件
+![](xftpnoshowdir.png)
+点击属性->选项->将使用被动模式选项去掉即可
+![](2018091715131039.png)
+\* 如果还不行请检查目录是否属于当前用户下的目录，用户是否有权限访问当前目录
 
 ## 摘自
 [Windows2012安装IIS和FTP](https://help.aliyun.com/knowledge_detail/40896.html?spm=5176.10695662.1996646101.searchclickresult.582843c0LhJGp6)<br/>

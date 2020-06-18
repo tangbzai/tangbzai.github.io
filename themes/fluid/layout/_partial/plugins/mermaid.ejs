@@ -1,9 +1,24 @@
-<% if(theme.post.mermaid.enable && (!theme.post.mermaid.specific || (theme.post.mermaid.specific && page.mermaid))) { %>
-<!-- <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.js'></script> -->
-<%- js_ex(theme.static_prefix.mermaid, "mermaid.min.js") %>
-<script>
+<%
+var enable = theme.post.mermaid.enable;
+
+if (enable) {
+  if (is_post()) {
+    enable = !theme.post.mermaid.specific || (theme.post.mermaid.specific && page.mermaid);
+  } else if (is_page()) {
+    enable = page.mermaid;
+  } else {
+    enable = false;
+  }
+}
+
+var options = JSON.stringify(theme.post.mermaid.options);
+%>
+
+<% if (enable) { %>
+  <%- js_ex(theme.static_prefix.mermaid, 'mermaid.min.js') %>
+  <script>
     if (window.mermaid) {
-        mermaid.initialize({ theme: 'default' });
+      mermaid.initialize(<%- options %>);
     }
-</script>
+  </script>
 <% } %>

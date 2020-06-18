@@ -40,7 +40,7 @@ relative_link: false
 future: true
 highlight:
   enable: false
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace:
   
@@ -109,5 +109,5 @@ deploy:
   type: git
   repo: 
     github: git@github.com:tangbzai/tangbzai.github.io.git
-    coding: git@git.dev.tencent.com:btsfii/blog.git
+    coding: git@e.coding.net:btsfii/blog.git
   branch: master

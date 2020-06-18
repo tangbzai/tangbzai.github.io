@@ -17,15 +17,14 @@
 
 <p align="center">
   <span>Docs：</span>
-  <a href="https://hexo.fluid-dev.com/docs/en/">Theme Guide</a>&nbsp&nbsp&nbsp&nbsp
-  <a href="https://hexo.io/docs/front-matter">Post Front-matter</a>
+  <a href="https://hexo.fluid-dev.com/docs/en/">Documents</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://hexo.io/docs/front-matter">Post-Guide</a>
 </p>
 
 <p align="center">
-  <span>Demo：</span>
-  <a href="https://rook1e.com">Rook1e's blog</a>&nbsp&nbsp&nbsp&nbsp
-  <a href="https://zkqiang.cn">zkqiang's blog</a>&nbsp&nbsp&nbsp&nbsp
-  <a href="https://eatrice.top">EatRice's blog</a>
+  <span>Preview: </span>
+  <a href="https://hexo.fluid-dev.com/">demo</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="https://zkqiang.cn">zkqiang's blog</a>
 </p>
 
 ## Quick Start
@@ -50,7 +49,7 @@ theme: fluid
 
 #### 4. Create About Page
 
-Since v1.7.0, the about page needs to be created manually:
+The about page needs to be created manually:
 
 ```bash
 $ hexo new page about
@@ -58,29 +57,36 @@ $ hexo new page about
 
 Then edit `/source/about/index.md` and add `layout` attribute.
 
-The modified file example is as follows:
+The modified example is as follows:
 
 ```yml
+---
 title: about
 date: 2020-02-23 19:20:33
 layout: about
 ---
 
-You can write the content here
-Support Markdown, HTML
+About content
 ```
+
+## How to Upgrade
+
+[Please follow here](https://hexo.fluid-dev.com/docs/en/example/#theme-upgrading)
 
 ## Features
 
-- [x] Img lazyload
+- [x] Image lazyload
 - [x] Custom code highlighting scheme
 - [x] Internationalization
 - [x] Support for multiple comment plugins
 - [x] Support for storing configuration in [Data Files](https://hexo.io/docs/data-files.html)
 - [x] Custom static resource CDN
+- [x] Detailed [documents](https://hexo.fluid-dev.com/docs/en/)
 - [x] Built-in search plugin
 - [x] Website analysis
+- [x] Support for footnote
 - [x] Support for LaTeX
+- [x] Support for mermaid
 - [x] Music player
 
 ## FAQ
@@ -101,10 +107,6 @@ Support Markdown, HTML
 English docs translator：[@EatRice](https://eatrice.top/) [@橙子杀手](https://ruru.eatrice.top)
 
 Contributors outside PR：[@zhugaoqi](https://github.com/zhugaoqi) [@julydate](https://github.com/julydate)
-
-## Feedback
-
-- WeChat: After the scan, add, **reply "fluid"** (in chat reply, not request note) automatically pull you into the group<details> <summary>Qr code</summary><img width="250" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.jpeg"></details>
 
 ## Star trending
 
