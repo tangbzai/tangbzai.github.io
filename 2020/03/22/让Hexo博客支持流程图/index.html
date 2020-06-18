@@ -202,9 +202,9 @@
 <li>安装<br><br>
 在博客的根目录下使用命令</li>
 </ol>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span> yarn add hexo-filter-mermaid-diagrams
+<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> yarn add hexo-filter-mermaid-diagrams</span>
 或者
-<span class="hljs-meta">$</span> npm install hexo-filter-mermaid-diagrams</code></pre></div>
+<span class="hljs-meta">$</span><span class="bash"> npm install hexo-filter-mermaid-diagrams</span></code></pre></div>
 <ol start="2">
 <li>配置<br><br>
 配置hexo的配置文件<code>_config.yml</code></li>
@@ -222,14 +222,14 @@
 <ul>
 <li>我的主题使用的是<a href="https://github.com/fluid-dev/hexo-theme-fluid">fluid</a>就添加下面的代码到<code>/themes/fluid/layout/plugins/footer.ERB</code>, 如果是其他尾缀类型的模版例如<code>pug</code>或<code>swig</code>请去看<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">官方文档</a><br></li>
 </ul>
-<div class="hljs"><pre><code class="hljs ERB">&lt;% if (theme.mermaid.enable) &#123; %&gt;
-  &lt;script src='https://unpkg.com/mermaid@&lt;%= theme.mermaid.version %&gt;/dist/mermaid.min.js'&gt;&lt;/script&gt;
-  &lt;script&gt;
-    if (window.mermaid) &#123;
-      mermaid.initialize(&#123;theme: 'forest'&#125;);
+<div class="hljs"><pre><code class="hljs ERB"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby"> <span class="hljs-keyword">if</span> (theme.mermaid.enable) &#123; </span><span class="xml"><span class="hljs-tag">%&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'https://unpkg.com/mermaid@&lt;%=</span></span></span><span class="ruby"> theme.mermaid.version </span><span class="xml"><span class="hljs-tag"><span class="hljs-string">%&gt;/dist/mermaid.min.js'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.mermaid) &#123;
+      mermaid.initialize(&#123;<span class="hljs-attr">theme</span>: <span class="hljs-string">'forest'</span>&#125;);
     &#125;
-  &lt;/script&gt;
-&lt;% &#125; %&gt;</code></pre></div>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby"> &#125; </span><span class="xml"><span class="hljs-tag">%&gt;</span></span></code></pre></div>
 <p>添加完成后，回到博客根目录的_config.yml，把external_link的值改为false，默认的为true</p>
 <h3 id="2-出现问题"><a class="markdownIt-Anchor" href="#2-出现问题"></a> 2. 出现问题</h3>
 <ol>
@@ -258,19 +258,19 @@
 <p>（就快速使用的第二步里的内容多了<code>specific</code>来控制是否启动转换）<br>
 *如果不想放在主题配置里把第二步的<code>theme.post</code>改成<code>config</code>就好了<br>
 2. 在<code>/themes/fluid/layout/_partial/plugins</code>新建<code>mermaid.ERB</code>文件，内容如下<br></p>
-<div class="hljs"><pre><code class="hljs ERB">&lt;% if(theme.post.mermaid.enable &amp;&amp; (!theme.post.mermaid.specific || (theme.post.mermaid.specific &amp;&amp; page.mermaid))) &#123; %&gt;
-&lt;%- js_ex(theme.static_prefix.mermaid, "mermaid.min.js") %&gt;
-&lt;script&gt;
-    if (window.mermaid) &#123;
-        mermaid.initialize(&#123; theme: 'default' &#125;);
+<div class="hljs"><pre><code class="hljs ERB"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby"> <span class="hljs-keyword">if</span>(theme.post.mermaid.enable &amp;&amp; (!theme.post.mermaid.specific <span class="hljs-params">||</span> (theme.post.mermaid.specific &amp;&amp; page.mermaid))) &#123; </span><span class="xml"><span class="hljs-tag">%&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">%-</span></span></span><span class="ruby"> js_ex(theme.static_prefix.mermaid, <span class="hljs-string">"mermaid.min.js"</span>) </span><span class="xml"><span class="hljs-tag">%&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.mermaid) &#123;
+        mermaid.initialize(&#123; <span class="hljs-attr">theme</span>: <span class="hljs-string">'default'</span> &#125;);
     &#125;
-&lt;/script&gt;
-&lt;% &#125; %&gt;</code></pre></div>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby"> &#125; </span><span class="xml"><span class="hljs-tag">%&gt;</span></span></code></pre></div>
 <ol start="3">
 <li>引入文件到<code>scripts.ERB</code><br><br>
 在<code>/themes/fluid/layout/_partial/scripts.ERB</code>最下面添加</li>
 </ol>
-<div class="hljs"><pre><code class="hljs ERB">&lt;%- partial('_partial/plugins/mermaid.ERB') %&gt;</code></pre></div>
+<div class="hljs"><pre><code class="hljs ERB"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%-</span></span></span><span class="ruby"> partial(<span class="hljs-string">'_partial/plugins/mermaid.ERB'</span>) </span><span class="xml"><span class="hljs-tag">%&gt;</span></span></code></pre></div>
 <ol start="4">
 <li>最后在<code>_static_prefix.yml</code>添加cdn即可<br>
 在<code>/themes/fluid/source/_static_prefix.yml</code>最下面添加</li>
