@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.tangbzai.top/"/>
-  <updated>2020-04-12T14:24:00.548Z</updated>
+  <updated>2020-07-17T14:20:35.799Z</updated>
   <id>http://blog.tangbzai.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深拷贝/深克隆</title>
+    <link href="http://blog.tangbzai.top/2020/07/17/%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    <id>http://blog.tangbzai.top/2020/07/17/深拷贝/</id>
+    <published>2020-07-17T13:03:49.000Z</published>
+    <updated>2020-07-17T14:20:35.799Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="深拷贝深克隆deepclone"><a class="markdownIt-Anchor" href="#深拷贝深克隆deepclone"></a> 深拷贝/深克隆（deepclone）</h2><h3 id="一-jsonstringify-和-jsonparse0"><a class="markdownIt-Anchor" href="#一-jsonstringify-和-jsonparse0"></a> 一. JSON.stringify 和 JSON.parse0</h3><div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deepCopy</span>(<span class="hljs-params">obj</span>)</span>&#123;  <span class="hljs-keyword">return</span> <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-built_in">JSON</span>.stringify(obj));&#125;</code></pre></div><p>局限性：</p><ul><li>无法实现对undefined、函数(function)、正则表达式(RegExp)、Symbol类型的克隆</li><li>会抛弃对象的构造函数（constructor），所有的构造函数会指向Object</li><li>对象有循环引用，会报错</li></ul><h3 id="二-遍历"><a class="markdownIt-Anchor" href="#二-遍历"></a> 二. 遍历</h3><div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deepCopy</span>(<span class="hljs-params">obj</span>)</span>&#123;   <span class="hljs-comment">// 判断是否是简单数据类型</span>   <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> obj == <span class="hljs-string">"object"</span>)&#123;       <span class="hljs-keyword">var</span> result = obj.constructor == <span class="hljs-built_in">Array</span> ? [] : &#123;&#125;;       <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> obj)&#123;           result[i] = <span class="hljs-keyword">typeof</span> obj[i] == <span class="hljs-string">"object"</span> ? deepCopy(obj[i]) : obj[i];       &#125;   &#125; <span class="hljs-keyword">else</span> &#123;       <span class="hljs-keyword">var</span> result = obj;   &#125;   <span class="hljs-keyword">return</span> result;&#125;</code></pre></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;深拷贝深克隆deepclone&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#深拷贝深克隆deepclone&quot;&gt;&lt;/a&gt; 深拷贝/深克隆（deepclone）&lt;/h2&gt;
+&lt;h3 id=&quot;一-jsonstringify-和-jsonpar
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://blog.tangbzai.top/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>微分中值定理及导数应用</title>
@@ -497,30 +521,6 @@
     
     
       <category term="问题" scheme="http://blog.tangbzai.top/tags/%E9%97%AE%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搭建Hexo博客</title>
-    <link href="http://blog.tangbzai.top/2019/03/29/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://blog.tangbzai.top/2019/03/29/搭建Hexo博客/</id>
-    <published>2019-03-28T16:30:03.000Z</published>
-    <updated>2020-03-22T07:02:27.067Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="hexo-博客搭建"><a class="markdownIt-Anchor" href="#hexo-博客搭建"></a> Hexo 博客搭建</h1><h2 id="1安装git"><a class="markdownIt-Anchor" href="#1安装git"></a> 1.安装git</h2><ol><li>windows：到git官网上下载 <a href="https://www.git-scm.com/download/win/">Download git</a>,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</li><li>linux：一行代码</li></ol><div class="hljs"><pre><code class="hljs undefined">sudo apt-<span class="hljs-builtin-name">get</span> install git</code></pre></div><h2 id="2安装nodejs"><a class="markdownIt-Anchor" href="#2安装nodejs"></a> 2.安装nodeJS</h2><p>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。</p><ul><li>windows：nodejs选择LTS版本就行了。(LTS:长期支持版本)</li><li>linux：</li></ul><div class="hljs"><pre><code class="hljs undefined">sudo apt-<span class="hljs-builtin-name">get</span> install nodejssudo apt-<span class="hljs-builtin-name">get</span> install npm</code></pre></div><ol start="2"><li>安装完后，打开命令行</li></ol><div class="hljs"><pre><code class="hljs undefined">   <span class="hljs-keyword">node</span> <span class="hljs-title">-v</span>npm -v</code></pre></div><h2 id="3安装hexo"><a class="markdownIt-Anchor" href="#3安装hexo"></a> 3.安装Hexo</h2><p>1.先创建一个文件夹blog，然后cd到这个文件夹下（或 文件夹右键-&gt;git bash）</p><div class="hljs"><pre><code class="hljs undefined">npm install -g hexo-<span class="hljs-keyword">cli</span></code></pre></div><ul><li>可用<code>hexo -v</code>查看一下版本</li></ul><p>初始化hexo</p><div class="hljs"><pre><code class="hljs undefined">hexo init myblog<span class="hljs-keyword">cd</span> myblog <span class="hljs-string">//</span>进入文件夹内npm install</code></pre></div><p>新建完成后，指定文件夹目录下有：</p><ul><li>node_modules: 依赖包</li><li>public: 存放生成的页面</li><li>scaffolds: 生成文章的一些模板</li><li>source: 存放文章</li><li>themes: 主题</li><li>_config.yml: 博客的配置文件</li></ul><p>生成静态文件<br><br>启动服务器 <code>http://localhost:4000</code></p><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo ghexo sever</span></code></pre></div><h2 id="4注册github账号-注册github"><a class="markdownIt-Anchor" href="#4注册github账号-注册github"></a> 4.注册Github账号、注册Github</h2><ol><li>注册Github帐号</li><li>登陆后需选择New repository,新建仓库</li><li>创建一个与用户名相同的仓库，<a href="http://xn--yfr16an19l.github.io">后面加.github.io</a></li><li>点击create repository。</li></ol><h2 id="5生成ssh添加到github"><a class="markdownIt-Anchor" href="#5生成ssh添加到github"></a> 5.生成SSH添加到GitHub</h2><ol><li>设置git的身份信息（名字与邮箱）</li></ol><div class="hljs"><pre><code class="hljs undefined">git<span class="hljs-built_in"> config </span>--global user.name <span class="hljs-string">"name"</span>git<span class="hljs-built_in"> config </span>--global user.email <span class="hljs-string">"email"</span></code></pre></div><ol start="2"><li>创建SSH</li></ol><div class="hljs"><pre><code class="hljs undefined">ssh-keygen -<span class="hljs-built_in">t</span> rsa -C <span class="hljs-string">"email"</span></code></pre></div><ol start="3"><li>在 系统盘-&gt;用户-&gt;（用户名）-&gt;.ssh 目录下找到.ssh文件</li></ol><blockquote><p>ssh，简单来讲，就是一个秘钥，其中，<code>id_rsa</code>是你这台电脑的私人秘钥，不能给别人看的，<code>id_rsa.pub</code>是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p><p>作者：zjufangzh<br><br>来源：CSDN <br><br>原文：<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">https://blog.csdn.net/sinat_37781304/article/details/82729029</a> <br><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p></blockquote><ol start="4"><li>在GitHub的setting中，找到SSH keys的设置选项，点击<code>New SSH key</code><br>把你的<code>id_rsa.pub</code>里面的信息复制进去。</li><li>查看是否成功</li></ol><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-T</span> <span class="hljs-selector-tag">git</span>@<span class="hljs-keyword">github</span>.<span class="hljs-keyword">com</span></code></pre></div><h2 id="6将hexo部署到github"><a class="markdownIt-Anchor" href="#6将hexo部署到github"></a> 6.将Hexo部署到GitHub</h2><ol><li>将hexo和GitHub关联起来,打开站点配置文件 _config.yml，翻到最后，修改为</li></ol><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attribute">deploy</span>:  <span class="hljs-attribute">type</span>: git  <span class="hljs-attribute">repo</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//github.com/YourgithubName/YourgithubName.github.io.git</span>  <span class="hljs-attribute">branch</span>: master</code></pre></div><p>YourgithubName就是你的GitHub账户<br>2. 安装 <strong>deploy-git</strong></p><div class="hljs"><pre><code class="hljs undefined">npm <span class="hljs-keyword">install</span> hexo-deployer-git <span class="hljs-comment">--save</span></code></pre></div><ol start="3"><li>使用命令部署</li></ol><div class="hljs"><pre><code class="hljs undefined">hexo cleanhexo <span class="hljs-keyword">generate</span>hexo deploy</code></pre></div><blockquote><p><code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p></blockquote><p>过一会儿就可以在<code>http://yourname.github.io</code> 这个网站看到你的博客了</p><h2 id="7设置个人域名"><a class="markdownIt-Anchor" href="#7设置个人域名"></a> 7.设置个人域名</h2><p>这步之前博客的地址是<code>yourname.github.io</code>,如果想换个就买个域名。<br>买好了就在域名控制台，选择域名点<strong>解析</strong>添加192.30.252.153 和 192.30.252.154 是GitHub的服务器地址。<br><strong>解析线路选默认</strong></p><ol><li>登陆GitHub, 进入之前创建的仓库，点击settings, 设置Custiom domain,输入你的域名<br></li><li><code>source</code>创建一个名为CHANME的文件，不要后缀，写上域名。</li><li>最后在<strong>git bash</strong> 中输入</li></ol><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo cleanhexo ghexo d</span></code></pre></div><h2 id="8使用腾讯开发者平台的pages服务进行分流"><a class="markdownIt-Anchor" href="#8使用腾讯开发者平台的pages服务进行分流"></a> 8.使用腾讯开发者平台的pages服务进行分流</h2><p>注：现在coding不能使用pages,得升级账号，腾讯开发者平台的才有此功能。</p><ol><li>注册腾讯云开发者平台账号，或coding用户升级。</li><li>新建项目</li><li>使用Git上传文件项目里</li><li>添加ssh公钥到个人账号的公钥上</li><li>选择项目-&gt;代码-&gt;pages服务，按照指引完成即可</li><li>修改配置文件</li></ol><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attribute">deploy</span>:  <span class="hljs-attribute">type</span>: git  <span class="hljs-attribute">repository</span>:      <span class="hljs-attribute">github</span>: git<span class="hljs-variable">@github</span>.<span class="hljs-attribute">com</span>:ShomyLiu/ShomyLiu.github.io.git      <span class="hljs-attribute">coding</span>: git<span class="hljs-variable">@git</span>.coding.<span class="hljs-attribute">net</span>:shomyliu/shomyliu.git  <span class="hljs-attribute">branch</span>: master</code></pre></div><blockquote><p>在博客的source/目录下需要创建一个空白文件,至于原因，是因为 coding.net需要这个文件来作为以静态文件部署的标志。就是说看到这个Staticfile就知道按照静态文件来发布。<br><br>coding还需要在根目录下建一个.nojekyll空文件（coding page 配置hexo报错 the xx theme not be found<br><br>在根目录下建一个.nojekyll空文件就可以了，因为Coding默认支持Jekyll搭建网站）</p></blockquote><ol start="7"><li>域名添加解析，这时要把之前的github的解析改成境外，把coding的设置为默认。</li></ol><h2 id="参考来源"><a class="markdownIt-Anchor" href="#参考来源"></a> 参考来源</h2><ul><li><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">hexo史上最全搭建教程 作者：zjufangzh</a><br></li><li><a href="https://www.jianshu.com/p/a19962485b4a">Coding Pages 搭建 Hexo 静态博客 作者：Zelsonia</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;hexo-博客搭建&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#hexo-博客搭建&quot;&gt;&lt;/a&gt; Hexo 博客搭建&lt;/h1&gt;
-&lt;h2 id=&quot;1安装git&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1安
-      
-    
-    </summary>
-    
-    
-      <category term="记录" scheme="http://blog.tangbzai.top/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
