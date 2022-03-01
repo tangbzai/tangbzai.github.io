@@ -1,59 +1,103 @@
 
   <script type="text/javascript">
-    var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
-    var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
-    if (isMemorialDay) {
-      var html = document.getElementsByTagName('html')[0];
-      html.style.setProperty('-webkit-filter', 'grayscale(100%)');
-      html.style.setProperty('filter', 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)')
-    }
+    (function () {
+      var dayStr = '2020/04/04';
+      if (/^\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        dayStr = new Date().getFullYear() + '/' + dayStr;
+      }
+      if (!/^\d{4}\/\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        return ;
+      }
+      var day = new Date(dayStr);
+      var now = new Date();
+      var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate();
+      if (isMemorialDay) {
+        if (document.all) {
+          window.style = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.createStyleSheet('javascript:style');
+        } else {
+          var style = document.createElement('style');
+          style.type = 'text/css';
+          style.innerHTML = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.getElementsByTagName('HEAD').item(0).appendChild(style);
+        }
+      }
+    })();
   </script>
-  <!DOCTYPE html>
-<html lang="zh-CN">
+  
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
-
-
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" type="image/png" href="/img/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2E294E">
-  <meta name="description" content="糖仔的博客">
   <meta name="author" content="糖仔">
   <meta name="keywords" content="糖仔的博客;博客;HTML;CSS;javascript;">
+  
+    <meta name="description" content="操作系统  进程管理  概念  进程是程序在一个数据集合上运行的过程，它是系统的一个独立单位。它由程序块、进程控制块（PCB）和数据块三部分组成。 进程与程序的区别：  进程是程序的一次执行过程，没有程序就没有进程。 程序是完成某个特定功能的一系列程序语句的集合，只要不被破坏，它就永远存在。 程序是一个静态的概念，而进程是一个动态的概念，它由创建而产生，完成任务后因撤销而消亡。 进程是系统进行资">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统">
+<meta property="og:url" content="http://blog.tangbzai.top/2019/10/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="糖仔">
+<meta property="og:description" content="操作系统  进程管理  概念  进程是程序在一个数据集合上运行的过程，它是系统的一个独立单位。它由程序块、进程控制块（PCB）和数据块三部分组成。 进程与程序的区别：  进程是程序的一次执行过程，没有程序就没有进程。 程序是完成某个特定功能的一系列程序语句的集合，只要不被破坏，它就永远存在。 程序是一个静态的概念，而进程是一个动态的概念，它由创建而产生，完成任务后因撤销而消亡。 进程是系统进行资">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-24T05:37:35.000Z">
+<meta property="article:modified_time" content="2022-03-01T15:04:01.836Z">
+<meta property="article:author" content="糖仔">
+<meta property="article:tag" content="软件设计师">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>操作系统 - 糖仔</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
   
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/tomorrow-night.min.css">
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
   
 
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.tangbzai.top","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="糖仔" type="application/atom+xml">
 </head>
 
 
@@ -61,9 +105,13 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>糖仔呐</strong>
+    </a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
@@ -121,7 +169,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -129,43 +185,43 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="操作系统">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2019-10-24 13:37">
-      2019年10月24日 下午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-10-24 13:37" pubdate>
+        2019年10月24日 下午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2.5k 字
     </span>
   
 
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20
-       分钟
+      21 分钟
     </span>
   
 
@@ -186,15 +242,17 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">操作系统</h1>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <h1 id="操作系统"><a class="markdownIt-Anchor" href="#操作系统"></a> 操作系统</h1>
 <h2 id="进程管理"><a class="markdownIt-Anchor" href="#进程管理"></a> 进程管理</h2>
 <h3 id="概念"><a class="markdownIt-Anchor" href="#概念"></a> 概念</h3>
@@ -211,11 +269,16 @@
 </ul>
 <h3 id="进程的状态"><a class="markdownIt-Anchor" href="#进程的状态"></a> 进程的状态</h3>
 <p><mark>三态模型：</mark></p>
-<div class="hljs"><pre class="hljs mermaid">graph LR
+
+<pre>
+<code class="mermaid" >
+graph LR
 id(就绪)--调度-->id1(运行)
 id1(运行)--等待某个事件-->id2(等待)
 id2(等待)--等待事情发生-->id(就绪)
-id1(运行)--时间片到-->id(就绪)</pre></div>
+id1(运行)--时间片到-->id(就绪)
+</code>
+</pre>
 <h3 id="进程的同步与互斥"><a class="markdownIt-Anchor" href="#进程的同步与互斥"></a> 进程的同步与互斥</h3>
 <ul>
 <li>直接制约关系</li>
@@ -251,10 +314,15 @@ id1(运行)--时间片到-->id(就绪)</pre></div>
 </tbody>
 </table>
 <h4 id="同步模型"><a class="markdownIt-Anchor" href="#同步模型"></a> 同步模型</h4>
-<div class="hljs"><pre class="hljs mermaid">graph LR
+
+<pre>
+<code class="mermaid" >
+graph LR
 
 id(生产者)-->id1(市场)
-id1(市场)-->id2(消费者)</pre></div>
+id1(市场)-->id2(消费者)
+</code>
+</pre>
 <table>
 <thead>
 <tr>
@@ -275,13 +343,18 @@ id1(市场)-->id2(消费者)</pre></div>
 </table>
 <p>PV操作是成对的</p>
 <h4 id="前趋图帮助理解"><a class="markdownIt-Anchor" href="#前趋图帮助理解"></a> 前趋图（帮助理解）</h4>
-<div class="hljs"><pre class="hljs mermaid">graph LR
+
+<pre>
+<code class="mermaid" >
+graph LR
 id(A)-->id3(D)
 id1(B)-->id3(D)
 id2(C)-->id3(D)
-id3(D)-->id4(E)</pre></div>
-<p>例如上图：<br>
-Sa = Sb = Sc = Sd = 0;<br><br>
+id3(D)-->id4(E)
+</code>
+</pre>
+<p>例如上图：<br />
+Sa = Sb = Sc = Sd = 0;<br><br />
 <mark>线程D需要等待线程A、B、C的V(Sa、Sb、Sc)的唤醒 : P(Sa、Sb、Sc)</mark></p>
 <h3 id="死锁问题"><a class="markdownIt-Anchor" href="#死锁问题"></a> 死锁问题</h3>
 <p>如果<mark>设计不当</mark>或进程在<mark>等待一件不可能发生的事</mark>，进程就会<mark>死锁</mark>。</p>
@@ -325,17 +398,17 @@ Sa = Sb = Sc = Sd = 0;<br><br>
 
 物理地址=页帧号（物理块号）+页内地址
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord cjk_fallback">逻</span><span class="mord cjk_fallback">辑</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">页</span><span class="mord cjk_fallback">号</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord cjk_fallback">页</span><span class="mord cjk_fallback">内</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span><span class="mord cjk_fallback">物</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">页</span><span class="mord cjk_fallback">帧</span><span class="mord cjk_fallback">号</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">物</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">块</span><span class="mord cjk_fallback">号</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">页</span><span class="mord cjk_fallback">内</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span></span></span></span></span></p>
-<p>优点：利用率高，碎片小，分配及管理简单。<br>
+<p>优点：利用率高，碎片小，分配及管理简单。<br />
 缺点：增加了系统开销；可能产生抖动现象。</p>
 <h3 id="段式存储组织"><a class="markdownIt-Anchor" href="#段式存储组织"></a> 段式存储组织</h3>
 <p><em>按用户作业中的自然段（程序段）来划分逻辑空间，然后调入内存，<mark>段的长度可以不一样</mark>。</em></p>
-<p>优点：多道程序共享内存，各段程序修改互不影响<br>
+<p>优点：多道程序共享内存，各段程序修改互不影响<br />
 缺点：内存利用率低，内存碎片浪费大</p>
 <h3 id="段页式存储组织"><a class="markdownIt-Anchor" href="#段页式存储组织"></a> 段页式存储组织</h3>
-<p><mark>段式和页式的综合体。</mark><br><br>
-<mark>先分段，再分页。</mark><br><br>
+<p><mark>段式和页式的综合体。</mark><br><br />
+<mark>先分段，再分页。</mark><br><br />
 1个程序有若干个段，每个段中可以有若干页，每个页的大小相同，但每个段的大小不同。</p>
-<p>优点：空间浪费小、存储共享容易、存储保护容易、能动态链接<br><br>
+<p>优点：空间浪费小、存储共享容易、存储保护容易、能动态链接<br><br />
 缺点：由于管理软件的增加，复杂性和开销也随之增加，需要的硬件以及占用的内容也有所增加，使得执行速度大大下降。</p>
 <h3 id="页面置换算法"><a class="markdownIt-Anchor" href="#页面置换算法"></a> 页面置换算法</h3>
 <ul>
@@ -352,7 +425,7 @@ Sa = Sb = Sc = Sd = 0;<br><br>
 <h3 id="磁盘管理"><a class="markdownIt-Anchor" href="#磁盘管理"></a> 磁盘管理</h3>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">存</mi><mi mathvariant="normal">取</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>=</mo><mi mathvariant="normal">寻</mi><mi mathvariant="normal">道</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">等</mi><mi mathvariant="normal">待</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi></mrow><annotation encoding="application/x-tex">存取时间 = 寻道时间 + 等待时间
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord cjk_fallback">存</span><span class="mord cjk_fallback">取</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">寻</span><span class="mord cjk_fallback">道</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">等</span><span class="mord cjk_fallback">待</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span></span></span></span></span></p>
-<p>寻道时间：指磁头移动到磁道所需的时间。<br><br>
+<p>寻道时间：指磁头移动到磁道所需的时间。<br><br />
 等待时间：等待读写的扇区转到磁头下方所用的时间。</p>
 <h3 id="磁盘调度算法"><a class="markdownIt-Anchor" href="#磁盘调度算法"></a> 磁盘调度算法</h3>
 <ul>
@@ -370,10 +443,15 @@ Sa = Sb = Sc = Sd = 0;<br><br>
 </ol>
 <h2 id="作业管理"><a class="markdownIt-Anchor" href="#作业管理"></a> 作业管理</h2>
 <h3 id="作业状态与作业管理"><a class="markdownIt-Anchor" href="#作业状态与作业管理"></a> 作业状态与作业管理</h3>
-<div class="hljs"><pre class="hljs mermaid">graph LR
+
+<pre>
+<code class="mermaid" >
+graph LR
 id(提交)-->id1(后备)
 id1(后备)-->id2(执行)
-id2(执行)-->id3(完成)</pre></div>
+id2(执行)-->id3(完成)
+</code>
+</pre>
 <h3 id="作业调度算法"><a class="markdownIt-Anchor" href="#作业调度算法"></a> 作业调度算法</h3>
 <ul>
 <li>先来先服务法</li>
@@ -389,21 +467,36 @@ id2(执行)-->id3(完成)</pre></div>
 <ul>
 <li>直接索引：</li>
 </ul>
-<div class="hljs"><pre class="hljs mermaid">graph LR
-id1(索引节点)-->id2(物理盘块)</pre></div>
+
+<pre>
+<code class="mermaid" >
+graph LR
+id1(索引节点)-->id2(物理盘块)
+</code>
+</pre>
 <ul>
 <li>一级间接索引：</li>
 </ul>
-<div class="hljs"><pre class="hljs mermaid">graph LR
+
+<pre>
+<code class="mermaid" >
+graph LR
 id1(索引节点)-->id3(地址项)
-id3(地址项)-->id2(物理盘块)</pre></div>
+id3(地址项)-->id2(物理盘块)
+</code>
+</pre>
 <ul>
 <li>二级间接索引：</li>
 </ul>
-<div class="hljs"><pre class="hljs mermaid">graph LR
+
+<pre>
+<code class="mermaid" >
+graph LR
 id1(索引节点)-->id3(地址项)
 id3(地址项)-->id4(地址项)
-id4(地址项)-->id2(物理盘块)</pre></div>
+id4(地址项)-->id2(物理盘块)
+</code>
+</pre>
 <p><em>物理盘块存放的是逻辑页</em></p>
 <ul>
 <li>逻辑页计算公式
@@ -453,10 +546,10 @@ id4(地址项)-->id2(物理盘块)</pre></div>
 <li>程序控制（查询）方式：分为<mark>无条件传送</mark>和<mark>程序查询</mark>方式两种。方法简单，硬件开销小，但I/O能力不高，严重影响CPU的利用率。</li>
 </ol>
 <h3 id="虚设备与spooling技术"><a class="markdownIt-Anchor" href="#虚设备与spooling技术"></a> 虚设备与SPOOLING技术</h3>
-<p>SPOOLing是关于慢速字符设备如何与计算机交换信息的一种技术，通常称为“假脱机技术”。SPOOLing技术通过磁盘实现。<br><br>
+<p>SPOOLing是关于慢速字符设备如何与计算机交换信息的一种技术，通常称为“假脱机技术”。SPOOLing技术通过磁盘实现。<br><br />
 <em>可简单想象为一个队列把任务排队按序执行</em></p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -465,42 +558,46 @@ id4(地址项)-->id2(物理盘块)</pre></div>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/软件设计师/">软件设计师</a>
+                      <a class="hover-with-bg" href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/10/24/数据库系统/">
+                      <a href="/2019/10/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">数据库系统</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
-                      <a href="/2019/10/22/校验码/">
+                      <a href="/2019/10/22/%E6%A0%A1%E9%AA%8C%E7%A0%81/">
                         <span class="hidden-mobile">校验码</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -508,7 +605,7 @@ id4(地址项)-->id2(物理盘块)</pre></div>
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -520,16 +617,16 @@ id4(地址项)-->id2(物理盘块)</pre></div>
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -541,46 +638,78 @@ id4(地址项)-->id2(物理盘块)</pre></div>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
 
     
+  </main>
 
-    
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="/js/debouncer.js"></script>
-<script src="/js/main.js"></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
-    <script src="/js/lazyload.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
   
 
 
@@ -588,97 +717,15 @@ id4(地址项)-->id2(物理盘块)</pre></div>
 
 
 
-
-
-
-  <script src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "操作系统&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script src="/js/local-search.js"></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+        typing(title);
+      
+    })(window, document);
   </script>
 
 
@@ -689,19 +736,14 @@ id4(地址项)-->id2(物理盘块)</pre></div>
 
   
     <!-- KaTeX -->
-    <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
   
 
 
 
 
 
-
-
-
-
-
-  <script src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({"theme":"default"});
@@ -712,6 +754,10 @@ id4(地址项)-->id2(物理盘块)</pre></div>
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

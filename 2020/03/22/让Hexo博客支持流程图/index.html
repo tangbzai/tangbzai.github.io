@@ -1,59 +1,104 @@
 
   <script type="text/javascript">
-    var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
-    var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
-    if (isMemorialDay) {
-      var html = document.getElementsByTagName('html')[0];
-      html.style.setProperty('-webkit-filter', 'grayscale(100%)');
-      html.style.setProperty('filter', 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)')
-    }
+    (function () {
+      var dayStr = '2020/04/04';
+      if (/^\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        dayStr = new Date().getFullYear() + '/' + dayStr;
+      }
+      if (!/^\d{4}\/\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        return ;
+      }
+      var day = new Date(dayStr);
+      var now = new Date();
+      var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate();
+      if (isMemorialDay) {
+        if (document.all) {
+          window.style = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.createStyleSheet('javascript:style');
+        } else {
+          var style = document.createElement('style');
+          style.type = 'text/css';
+          style.innerHTML = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.getElementsByTagName('HEAD').item(0).appendChild(style);
+        }
+      }
+    })();
   </script>
-  <!DOCTYPE html>
-<html lang="zh-CN">
+  
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
-
-
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" type="image/png" href="/img/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2E294E">
-  <meta name="description" content="糖仔的博客">
   <meta name="author" content="糖仔">
   <meta name="keywords" content="糖仔的博客;博客;HTML;CSS;javascript;">
+  
+    <meta name="description" content="本文讲的是hexo的插件hexo-filter-mermaid-diagrams  hexo-filter-mermaid-diagrams  1. 快速使用  安装 在博客的根目录下使用命令  123$ yarn add hexo-filter-mermaid-diagrams或者$ npm install hexo-filter-mermaid-diagrams  配置 配置hexo的配置文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="让Hexo博客支持流程图">
+<meta property="og:url" content="http://blog.tangbzai.top/2020/03/22/%E8%AE%A9Hexo%E5%8D%9A%E5%AE%A2%E6%94%AF%E6%8C%81%E6%B5%81%E7%A8%8B%E5%9B%BE/index.html">
+<meta property="og:site_name" content="糖仔">
+<meta property="og:description" content="本文讲的是hexo的插件hexo-filter-mermaid-diagrams  hexo-filter-mermaid-diagrams  1. 快速使用  安装 在博客的根目录下使用命令  123$ yarn add hexo-filter-mermaid-diagrams或者$ npm install hexo-filter-mermaid-diagrams  配置 配置hexo的配置文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-22T11:10:54.000Z">
+<meta property="article:modified_time" content="2020-06-18T18:17:06.654Z">
+<meta property="article:author" content="糖仔">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>让Hexo博客支持流程图 - 糖仔</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
   
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/tomorrow-night.min.css">
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
   
 
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.tangbzai.top","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="糖仔" type="application/atom+xml">
 </head>
 
 
@@ -61,9 +106,13 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>糖仔呐</strong>
+    </a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
@@ -121,7 +170,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -129,43 +186,43 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="让Hexo博客支持流程图">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-03-22 19:10">
-      2020年3月22日 晚上
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-22 19:10" pubdate>
+        2020年3月22日 晚上
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      768 字
+      2.3k 字
     </span>
   
 
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
-       分钟
+      19 分钟
     </span>
   
 
@@ -186,101 +243,77 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">让Hexo博客支持流程图</h1>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <p>本文讲的是hexo的插件<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">hexo-filter-mermaid-diagrams</a></p>
 <h2 id="hexo-filter-mermaid-diagrams"><a class="markdownIt-Anchor" href="#hexo-filter-mermaid-diagrams"></a> hexo-filter-mermaid-diagrams</h2>
 <h3 id="1-快速使用"><a class="markdownIt-Anchor" href="#1-快速使用"></a> 1. 快速使用</h3>
 <ol>
-<li>安装<br><br>
+<li>安装<br><br />
 在博客的根目录下使用命令</li>
 </ol>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> yarn add hexo-filter-mermaid-diagrams</span>
-或者
-<span class="hljs-meta">$</span><span class="bash"> npm install hexo-filter-mermaid-diagrams</span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$ </span><span class="language-bash">yarn add hexo-filter-mermaid-diagrams</span><br>或者<br><span class="hljs-meta">$ </span><span class="language-bash">npm install hexo-filter-mermaid-diagrams</span><br></code></pre></td></tr></table></figure>
 <ol start="2">
-<li>配置<br><br>
+<li>配置<br><br />
 配置hexo的配置文件<code>_config.yml</code></li>
 </ol>
-<div class="hljs"><pre><code class="hljs yml"><span class="hljs-comment"># mermaid chart</span>
-<span class="hljs-attr">mermaid:</span> <span class="hljs-comment">## mermaid url https://github.com/knsv/mermaid</span>
-<span class="hljs-attr">  enable:</span> <span class="hljs-literal">true</span>  <span class="hljs-comment"># default true</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-string">"7.1.2"</span> <span class="hljs-comment"># default v7.1.2</span>
-<span class="hljs-attr">  options:</span>  <span class="hljs-comment"># find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span>
-    <span class="hljs-comment">#startOnload: true  // default true</span></code></pre></div>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># mermaid chart</span><br><span class="hljs-attr">mermaid:</span> <span class="hljs-comment">## mermaid url https://github.com/knsv/mermaid</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span>  <span class="hljs-comment"># default true</span><br>  <span class="hljs-attr">version:</span> <span class="hljs-string">&quot;7.1.2&quot;</span> <span class="hljs-comment"># default v7.1.2</span><br>  <span class="hljs-attr">options:</span>  <span class="hljs-comment"># find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br>    <span class="hljs-comment">#startOnload: true  // default true</span><br></code></pre></td></tr></table></figure>
 <ol start="3">
-<li>在模版文件引入mermaid.js<br>
+<li>在模版文件引入mermaid.js<br />
 在<code>/themes/</code>里找到自己正在使用的主题的文件夹 ,打开里面的<code>layout</code>文件夹，在里面找到一个在文章页面有被加载的模版文件(官方写的是<code>after_footer</code>文件，我的主题没有)根据下面情况引入相应内容。</li>
 </ol>
 <ul>
 <li>我的主题使用的是<a href="https://github.com/fluid-dev/hexo-theme-fluid">fluid</a>就添加下面的代码到<code>/themes/fluid/layout/plugins/footer.ERB</code>, 如果是其他尾缀类型的模版例如<code>pug</code>或<code>swig</code>请去看<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">官方文档</a><br></li>
 </ul>
-<div class="hljs"><pre><code class="hljs ERB"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby"> <span class="hljs-keyword">if</span> (theme.mermaid.enable) &#123; </span><span class="xml"><span class="hljs-tag">%&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'https://unpkg.com/mermaid@&lt;%=</span></span></span><span class="ruby"> theme.mermaid.version </span><span class="xml"><span class="hljs-tag"><span class="hljs-string">%&gt;/dist/mermaid.min.js'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.mermaid) &#123;
-      mermaid.initialize(&#123;<span class="hljs-attr">theme</span>: <span class="hljs-string">'forest'</span>&#125;);
-    &#125;
-  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby"> &#125; </span><span class="xml"><span class="hljs-tag">%&gt;</span></span></code></pre></div>
+<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ERB"><span class="language-xml">&lt;%</span><span class="language-ruby"> <span class="hljs-keyword">if</span> (theme.mermaid.enable) &#123; </span><span class="language-xml">%&gt;</span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;https://unpkg.com/mermaid@&lt;%=</span></span></span><span class="language-ruby"> theme.mermaid.version </span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">%&gt;/dist/mermaid.min.js&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">mermaid</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">      mermaid.<span class="hljs-title function_">initialize</span>(&#123;<span class="hljs-attr">theme</span>: <span class="hljs-string">&#x27;forest&#x27;</span>&#125;);</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml">  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml">&lt;%</span><span class="language-ruby"> &#125; </span><span class="language-xml">%&gt;</span><br></code></pre></td></tr></table></figure>
 <p>添加完成后，回到博客根目录的_config.yml，把external_link的值改为false，默认的为true</p>
 <h3 id="2-出现问题"><a class="markdownIt-Anchor" href="#2-出现问题"></a> 2. 出现问题</h3>
 <ol>
-<li>没有效果<br><br>
-*记得<code>hexo clean</code><br><br>
+<li>没有效果<br><br />
+*记得<code>hexo clean</code><br><br />
 原因：语法不一样,三个点后面填写<code>mermaid</code></li>
 </ol>
-<div class="hljs"><pre><code class="hljs markdown"><span class="hljs-code">` `</span> `mermaid
-内容
-<span class="hljs-code">` `</span> `</code></pre></div>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">` `</span> `mermaid<br>内容<br><span class="hljs-code">` `</span> `<br></code></pre></td></tr></table></figure>
 <ol start="2">
-<li>报错Error: &lt;svg&gt; attribute viewBox: Expected number, “0 0 -Infinity -Infin…”.<br>
-原因：主题的代码高亮样式冲突了。（主题版本为v1.7.4）<br>
+<li>报错Error: &lt;svg&gt; attribute viewBox: Expected number, “0 0 -Infinity -Infin…”.<br />
+原因：主题的代码高亮样式冲突了。（主题版本为v1.7.4）<br />
 将主题的代码高亮关了就好了.</li>
 </ol>
-<div class="hljs"><pre><code class="hljs yml"><span class="hljs-attr">highlight:</span> <span class="hljs-comment"># 代码高亮</span>
-<span class="hljs-attr">  enable:</span> <span class="hljs-literal">false</span></code></pre></div>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">highlight:</span> <span class="hljs-comment"># 代码高亮</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
 <h3 id="优化"><a class="markdownIt-Anchor" href="#优化"></a> 优化</h3>
 <p>在模版<code>footer</code>文件引入mermaid.js的话会在博客的每个页面都加载这个文件，而我们往往并不是每个页面都会有用到这个插件。</p>
 <ol>
 <li>把<mark>配置部分</mark>放到<mark>主题配置</mark>(<code>/themes/fluid/_config.yml</code>)里<br></li>
 </ol>
-<div class="hljs"><pre><code class="hljs yml"><span class="hljs-attr">mermaid:</span> <span class="hljs-comment"># 流程图</span>
-<span class="hljs-attr">    enable:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">    specific:</span> <span class="hljs-literal">true</span>  <span class="hljs-comment"># 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度</span></code></pre></div>
-<p>（就快速使用的第二步里的内容多了<code>specific</code>来控制是否启动转换）<br>
-*如果不想放在主题配置里把第二步的<code>theme.post</code>改成<code>config</code>就好了<br>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">mermaid:</span> <span class="hljs-comment"># 流程图</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">specific:</span> <span class="hljs-literal">true</span>  <span class="hljs-comment"># 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度</span><br></code></pre></td></tr></table></figure>
+<p>（就快速使用的第二步里的内容多了<code>specific</code>来控制是否启动转换）<br />
+*如果不想放在主题配置里把第二步的<code>theme.post</code>改成<code>config</code>就好了<br />
 2. 在<code>/themes/fluid/layout/_partial/plugins</code>新建<code>mermaid.ERB</code>文件，内容如下<br></p>
-<div class="hljs"><pre><code class="hljs ERB"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby"> <span class="hljs-keyword">if</span>(theme.post.mermaid.enable &amp;&amp; (!theme.post.mermaid.specific <span class="hljs-params">||</span> (theme.post.mermaid.specific &amp;&amp; page.mermaid))) &#123; </span><span class="xml"><span class="hljs-tag">%&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">%-</span></span></span><span class="ruby"> js_ex(theme.static_prefix.mermaid, <span class="hljs-string">"mermaid.min.js"</span>) </span><span class="xml"><span class="hljs-tag">%&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.mermaid) &#123;
-        mermaid.initialize(&#123; <span class="hljs-attr">theme</span>: <span class="hljs-string">'default'</span> &#125;);
-    &#125;
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby"> &#125; </span><span class="xml"><span class="hljs-tag">%&gt;</span></span></code></pre></div>
+<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ERB"><span class="language-xml">&lt;%</span><span class="language-ruby"> <span class="hljs-keyword">if</span>(theme.post.mermaid.enable &amp;&amp; (!theme.post.mermaid.specific <span class="hljs-params">||</span> (theme.post.mermaid.specific &amp;&amp; page.mermaid))) &#123; </span><span class="language-xml">%&gt;</span><br><span class="language-xml">&lt;%-</span><span class="language-ruby"> js_ex(theme.static_prefix.mermaid, <span class="hljs-string">&quot;mermaid.min.js&quot;</span>) </span><span class="language-xml">%&gt;</span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">mermaid</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        mermaid.<span class="hljs-title function_">initialize</span>(&#123; <span class="hljs-attr">theme</span>: <span class="hljs-string">&#x27;default&#x27;</span> &#125;);</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml">&lt;%</span><span class="language-ruby"> &#125; </span><span class="language-xml">%&gt;</span><br></code></pre></td></tr></table></figure>
 <ol start="3">
-<li>引入文件到<code>scripts.ERB</code><br><br>
+<li>引入文件到<code>scripts.ERB</code><br><br />
 在<code>/themes/fluid/layout/_partial/scripts.ERB</code>最下面添加</li>
 </ol>
-<div class="hljs"><pre><code class="hljs ERB"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%-</span></span></span><span class="ruby"> partial(<span class="hljs-string">'_partial/plugins/mermaid.ERB'</span>) </span><span class="xml"><span class="hljs-tag">%&gt;</span></span></code></pre></div>
+<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ERB"><span class="language-xml">&lt;%-</span><span class="language-ruby"> partial(<span class="hljs-string">&#x27;_partial/plugins/mermaid.ERB&#x27;</span>) </span><span class="language-xml">%&gt;</span><br></code></pre></td></tr></table></figure>
 <ol start="4">
-<li>最后在<code>_static_prefix.yml</code>添加cdn即可<br>
+<li>最后在<code>_static_prefix.yml</code>添加cdn即可<br />
 在<code>/themes/fluid/source/_static_prefix.yml</code>最下面添加</li>
 </ol>
-<div class="hljs"><pre><code class="hljs yml"><span class="hljs-attr">mermaid:</span> <span class="hljs-attr">https://cdn.bootcss.com/mermaid/8.4.8/</span></code></pre></div>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">mermaid:</span> <span class="hljs-string">https://cdn.bootcss.com/mermaid/8.4.8/</span><br></code></pre></td></tr></table></figure>
 <p>*此处写死了版本号，想移到配置文件中请自行修改</p>
 <h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
 <p>优化部分的代码还是蛮好懂的，照着本身自带的math进行修改即可。就是代码高亮部分导致的报错并无法显示耗费了许多时间。下次遇到问题先在github的Issues里看看。</p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -289,44 +322,48 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/记录/">记录</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%B0%E5%BD%95/">记录</a>
                     
-                      <a class="hover-with-bg" href="/tags/教程/">教程</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/25/函数-极限与连续/">
+                      <a href="/2020/03/25/%E5%87%BD%E6%95%B0-%E6%9E%81%E9%99%90%E4%B8%8E%E8%BF%9E%E7%BB%AD/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">函数 极限与连续</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
-                      <a href="/2019/11/05/面向对象技术/">
+                      <a href="/2019/11/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF/">
                         <span class="hidden-mobile">面向对象技术</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -334,7 +371,7 @@
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -346,16 +383,16 @@
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -367,147 +404,94 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
 
     
+  </main>
 
-    
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="/js/debouncer.js"></script>
-<script src="/js/main.js"></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
-    <script src="/js/lazyload.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
-  <script src="/js/clipboard-use.js"></script>
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
 
 
 
-
-  <script src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "让Hexo博客支持流程图&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script src="/js/local-search.js"></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+        typing(title);
+      
+    })(window, document);
   </script>
 
 
@@ -524,9 +508,8 @@
 
 
 
-
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

@@ -1,59 +1,103 @@
 
   <script type="text/javascript">
-    var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
-    var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
-    if (isMemorialDay) {
-      var html = document.getElementsByTagName('html')[0];
-      html.style.setProperty('-webkit-filter', 'grayscale(100%)');
-      html.style.setProperty('filter', 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)')
-    }
+    (function () {
+      var dayStr = '2020/04/04';
+      if (/^\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        dayStr = new Date().getFullYear() + '/' + dayStr;
+      }
+      if (!/^\d{4}\/\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        return ;
+      }
+      var day = new Date(dayStr);
+      var now = new Date();
+      var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate();
+      if (isMemorialDay) {
+        if (document.all) {
+          window.style = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.createStyleSheet('javascript:style');
+        } else {
+          var style = document.createElement('style');
+          style.type = 'text/css';
+          style.innerHTML = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.getElementsByTagName('HEAD').item(0).appendChild(style);
+        }
+      }
+    })();
   </script>
-  <!DOCTYPE html>
-<html lang="zh-CN">
+  
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
-
-
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" type="image/png" href="/img/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2E294E">
-  <meta name="description" content="糖仔的博客">
   <meta name="author" content="糖仔">
   <meta name="keywords" content="糖仔的博客;博客;HTML;CSS;javascript;">
+  
+    <meta name="description" content="规范化理论  数据冗余 修改异常 插入异常 删除异常   函数依赖  部分依赖 依赖集1：{AB -&gt; C, A -&gt; C}     graph LR A--&gt;C B--&gt;C    传递依赖 依赖集2：{A -&gt; B, B -&gt; C}     graph LR A--&gt;B B--&gt;C    键  候选键 唯一标识元组，且无冗余 主键 任选一个候选键为主键。 外键 其他关系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="规范化理论">
+<meta property="og:url" content="http://blog.tangbzai.top/2019/10/26/%E8%A7%84%E8%8C%83%E5%8C%96%E7%90%86%E8%AE%BA/index.html">
+<meta property="og:site_name" content="糖仔">
+<meta property="og:description" content="规范化理论  数据冗余 修改异常 插入异常 删除异常   函数依赖  部分依赖 依赖集1：{AB -&gt; C, A -&gt; C}     graph LR A--&gt;C B--&gt;C    传递依赖 依赖集2：{A -&gt; B, B -&gt; C}     graph LR A--&gt;B B--&gt;C    键  候选键 唯一标识元组，且无冗余 主键 任选一个候选键为主键。 外键 其他关系">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-26T07:16:38.000Z">
+<meta property="article:modified_time" content="2022-03-01T15:04:01.835Z">
+<meta property="article:author" content="糖仔">
+<meta property="article:tag" content="软件设计师">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>规范化理论 - 糖仔</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
   
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/tomorrow-night.min.css">
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
   
 
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.tangbzai.top","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="糖仔" type="application/atom+xml">
 </head>
 
 
@@ -61,9 +105,13 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>糖仔呐</strong>
+    </a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
@@ -121,7 +169,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -129,43 +185,43 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="规范化理论">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2019-10-26 15:16">
-      2019年10月26日 下午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-10-26 15:16" pubdate>
+        2019年10月26日 下午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      736 字
+      943 字
     </span>
   
 
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
-       分钟
+      8 分钟
     </span>
   
 
@@ -186,15 +242,17 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">规范化理论</h1>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <h1 id="规范化理论"><a class="markdownIt-Anchor" href="#规范化理论"></a> 规范化理论</h1>
 <ul>
 <li><strong>数据冗余</strong></li>
@@ -204,26 +262,36 @@
 </ul>
 <h2 id="函数依赖"><a class="markdownIt-Anchor" href="#函数依赖"></a> 函数依赖</h2>
 <ul>
-<li>部分依赖<br><br>
+<li>部分依赖<br><br />
 依赖集1：{AB -&gt; C, A -&gt; C}</li>
 </ul>
-<div class="hljs"><pre class="hljs mermaid">graph LR
+
+<pre>
+<code class="mermaid" >
+graph LR
 A-->C
-B-->C</pre></div>
+B-->C
+</code>
+</pre>
 <ul>
-<li>传递依赖<br><br>
+<li>传递依赖<br><br />
 依赖集2：{A -&gt; B, B -&gt; C}</li>
 </ul>
-<div class="hljs"><pre class="hljs mermaid">graph LR
+
+<pre>
+<code class="mermaid" >
+graph LR
 A-->B
-B-->C</pre></div>
+B-->C
+</code>
+</pre>
 <h2 id="键"><a class="markdownIt-Anchor" href="#键"></a> 键</h2>
 <ul>
-<li>候选键<br><br>
+<li>候选键<br><br />
 唯一标识元组，且无冗余</li>
-<li>主键<br><br>
+<li>主键<br><br />
 任选一个候选键为主键。</li>
-<li>外键<br><br>
+<li>外键<br><br />
 其他关系的主键</li>
 </ul>
 <h3 id="求候选键"><a class="markdownIt-Anchor" href="#求候选键"></a> 求候选键</h3>
@@ -240,38 +308,43 @@ B-->C</pre></div>
 <p><strong>组成候选码的属性就是主属性，其它的就是非主属性。</strong></p>
 <h2 id="范式"><a class="markdownIt-Anchor" href="#范式"></a> 范式</h2>
 <ul>
-<li>第一范式（1NF）<br><br>
+<li>第一范式（1NF）<br><br />
 当且仅当所有域只包含<mark>原子值</mark>，<mark>即每个属性都是不可再分的数据项</mark>，则称该关系模式是第一范式。</li>
-<li>第二范式（2NF）<br><br>
+<li>第二范式（2NF）<br><br />
 当且仅当关系模式是第一范式（1NF），且每一个<mark>非主属性完全依赖候选键（没不完全依赖时）</mark>,则称该关系模式是第二范式。</li>
-<li>第三范式（3NF）<br><br>
+<li>第三范式（3NF）<br><br />
 当且仅当关系模式是第二范式（2NF），且该关系模型中没有<mark>非主属性传递依赖于候选键</mark>时，则称关系模式是第三范式。</li>
-<li>BC范式（BCNF）<br><br>
+<li>BC范式（BCNF）<br><br />
 当且仅当依赖集中每个依赖的决定因素必定包含该关系模式的某个候选码。</li>
 </ul>
-<div class="hljs"><pre class="hljs mermaid">graph TB
+
+<pre>
+<code class="mermaid" >
+graph TB
 1NF-->2NF
 1NF---属性值都是不可分的原子
 2NF-->3NF
 2NF---消除非主属性对候选键的部分依赖
 3NF-->BCNF
 3NF---清除非主属性对候选键的传递依赖
-BCNF---清除主属性对候选键的部分和传递依赖</pre></div>
+BCNF---清除主属性对候选键的部分和传递依赖
+</code>
+</pre>
 <p>1NF ⊃ 2NF ⊃ 3NF ⊃ BCNF</p>
 <h2 id="模式分解"><a class="markdownIt-Anchor" href="#模式分解"></a> 模式分解</h2>
 <h3 id="保持函数依赖分解"><a class="markdownIt-Anchor" href="#保持函数依赖分解"></a> 保持函数依赖分解</h3>
-<p>数据库模式 ρ={R1,R2,…,Rk} 是关系模式 R 的一个分解，F是R上的函数依赖集，ρ中每个模式Ri上的FD集是Fi。<br><br>
-如果{F1,F2,…,Fk}与F是等价的（即相互逻辑蕴含），那么称为分解ρ保持FD。<br><br>
+<p>数据库模式 ρ={R1,R2,…,Rk} 是关系模式 R 的一个分解，F是R上的函数依赖集，ρ中每个模式Ri上的FD集是Fi。<br><br />
+如果{F1,F2,…,Fk}与F是等价的（即相互逻辑蕴含），那么称为分解ρ保持FD。<br><br />
 <em>也就是说一个 关系模式 分成 多个关系模式的组合 表达的关系没有改变</em></p>
 <h3 id="无损分解"><a class="markdownIt-Anchor" href="#无损分解"></a> 无损分解</h3>
-<p>有损：不能还原。<br><br>
-无损：可以还原。<br><br>
+<p>有损：不能还原。<br><br />
+无损：可以还原。<br><br />
 无损联结分解：指将一个关系模式分解成若干个关系模式后，通过自然联接和投影等运算仍能还原到原来的关系模式。</p>
 <h3 id="表格法"><a class="markdownIt-Anchor" href="#表格法"></a> 表格法</h3>
 <h3 id="公式法"><a class="markdownIt-Anchor" href="#公式法"></a> 公式法</h3>
 <p>适应于两个点的时候</p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -280,42 +353,46 @@ BCNF---清除主属性对候选键的部分和传递依赖</pre></div>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/软件设计师/">软件设计师</a>
+                      <a class="hover-with-bg" href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/10/28/SQL语言/">
+                      <a href="/2019/10/28/SQL%E8%AF%AD%E8%A8%80/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">SQL语言</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
-                      <a href="/2019/10/24/关系代数/">
+                      <a href="/2019/10/24/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0/">
                         <span class="hidden-mobile">关系代数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -323,7 +400,7 @@ BCNF---清除主属性对候选键的部分和传递依赖</pre></div>
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -335,16 +412,16 @@ BCNF---清除主属性对候选键的部分和传递依赖</pre></div>
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -356,46 +433,78 @@ BCNF---清除主属性对候选键的部分和传递依赖</pre></div>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
 
     
+  </main>
 
-    
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="/js/debouncer.js"></script>
-<script src="/js/main.js"></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
-    <script src="/js/lazyload.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
   
 
 
@@ -403,97 +512,15 @@ BCNF---清除主属性对候选键的部分和传递依赖</pre></div>
 
 
 
-
-
-
-  <script src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "规范化理论&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script src="/js/local-search.js"></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+        typing(title);
+      
+    })(window, document);
   </script>
 
 
@@ -504,12 +531,7 @@ BCNF---清除主属性对候选键的部分和传递依赖</pre></div>
 
 
 
-
-
-
-
-
-  <script src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({"theme":"default"});
@@ -520,6 +542,10 @@ BCNF---清除主属性对候选键的部分和传递依赖</pre></div>
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

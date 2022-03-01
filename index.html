@@ -1,50 +1,86 @@
 
   <script type="text/javascript">
-    var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
-    var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDay()  === day.getDay();
-    if (isMemorialDay) {
-      var html = document.getElementsByTagName('html')[0];
-      html.style.setProperty('-webkit-filter', 'grayscale(100%)');
-      html.style.setProperty('filter', 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)')
-    }
+    (function () {
+      var dayStr = '2020/04/04';
+      if (/^\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        dayStr = new Date().getFullYear() + '/' + dayStr;
+      }
+      if (!/^\d{4}\/\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        return ;
+      }
+      var day = new Date(dayStr);
+      var now = new Date();
+      var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate();
+      if (isMemorialDay) {
+        if (document.all) {
+          window.style = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.createStyleSheet('javascript:style');
+        } else {
+          var style = document.createElement('style');
+          style.type = 'text/css';
+          style.innerHTML = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.getElementsByTagName('HEAD').item(0).appendChild(style);
+        }
+      }
+    })();
   </script>
-  <!DOCTYPE html>
-<html lang="zh-CN">
+  
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
-
-
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" type="image/png" href="/img/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2E294E">
-  <meta name="description" content="糖仔的博客">
   <meta name="author" content="糖仔">
   <meta name="keywords" content="糖仔的博客;博客;HTML;CSS;javascript;">
+  
+    <meta name="description" content="糖仔的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="糖仔">
+<meta property="og:url" content="http://blog.tangbzai.top/index.html">
+<meta property="og:site_name" content="糖仔">
+<meta property="og:description" content="糖仔的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="糖仔">
+<meta property="article:tag" content="糖仔的博客;博客;HTML;CSS;javascript;">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>糖仔</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.tangbzai.top","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="糖仔" type="application/atom+xml">
 </head>
 
 
@@ -52,9 +88,13 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">&nbsp;<strong>糖仔呐</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>糖仔呐</strong>
+    </a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
@@ -112,7 +152,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -120,13 +168,13 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
               
             </span>
 
@@ -145,7 +193,7 @@
 
   <main>
     
-      <div class="container nopadding-md">
+      <div class="container nopadding-x-md">
         <div class="py-5" id="board"
           style=margin-top:0>
           
@@ -158,29 +206,28 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/07/17/深拷贝/">深拷贝/深克隆</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/07/17/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_self">
+          深拷贝/深克隆
+        </a>
+      </h1>
 
-      <a href="/2020/07/17/深拷贝/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/07/17/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_self">
           
-        
-        <div> 深拷贝/深克隆（deepclone）
- 一. JSON.stringify 和 JSON.parse0
-function deepCopy(obj)&#123;
-  return JSON.parse(JSON.stringify(obj));
-&#125;
-局限性：
-
-无法实现对undefined、函数(function)、正则表达式(RegExp)、Symbol类型的克隆
-会抛弃对象的构造函</div>
-      </a>
+          深拷贝&#x2F;深克隆（deepclone）  一. JSON.stringify 和 JSON.parse0 123function deepCopy(obj)&amp;#123;  return JSON.parse(JSON.stringify(obj));&amp;#125; 局限性：  无法实现对undefined、函数(function)、正则表达式(RegExp)、Symbol类型的克隆 会抛弃对象的构造
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-07-17
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-17 21:03" pubdate>
+              2020-07-17
+            </time>
           </div>
         
         
@@ -193,40 +240,34 @@ function deepCopy(obj)&#123;
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/04/12/微分中值定理及导数应用/">微分中值定理及导数应用</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/12/%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E5%8F%8A%E5%AF%BC%E6%95%B0%E5%BA%94%E7%94%A8/" target="_self">
+          微分中值定理及导数应用
+        </a>
+      </h1>
 
-      <a href="/2020/04/12/微分中值定理及导数应用/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/04/12/%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E5%8F%8A%E5%AF%BC%E6%95%B0%E5%BA%94%E7%94%A8/" target="_self">
           
-        
-        <div> 微分中值定理及导数的应用
- 一、微分中值定理
- 1. 罗尔定理
-如果函数f(x)f(x)f(x)满足：
-
-在闭区间[a,b]上连续;
-在开区间(a,b)上内可导;
-f(a)=f(b)f(a) = f(b)f(a)=f(b)
-则∃ξ∈(a,b)\exist \xi\in(a,b)∃ξ∈(a,b)，使得
-
-f′(ξ)=0f&#x27;(\xi) = 0
-f′(ξ)=0
- 2. 拉格朗日中值定理
-如果</div>
-      </a>
+          微分中值定理及导数的应用  一、微分中值定理  1. 罗尔定理 如果函数f(x)f(x)f(x)满足：  在闭区间[a,b]上连续; 在开区间(a,b)上内可导; f(a)&#x3D;f(b)f(a) &#x3D; f(b)f(a)&#x3D;f(b) 则∃ξ∈(a,b)\exist \xi\in(a,b)∃ξ∈(a,b)，使得  f′(ξ)&#x3D;0f&amp;#x27;(\xi) &#x3D; 0 f′(ξ)&#x3D;0  2. 拉格朗日中值定理 如果
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-12
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-12 19:25" pubdate>
+              2020-04-12
+            </time>
           </div>
         
         
@@ -234,36 +275,39 @@ f′(ξ)=0
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/数学/">数学</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/04/04/导数与微分/">导数与微分</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/04/%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/" target="_self">
+          导数与微分
+        </a>
+      </h1>
 
-      <a href="/2020/04/04/导数与微分/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/04/04/%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/" target="_self">
           
-        
-        <div> 导数与微分
- 一、导数概念
- 1. 导数的定义
-若极限lim⁡Δx→xΔyΔx\lim_{\Delta x\to x}{\frac{\Delta y}{\Delta x}}limΔx→x​ΔxΔy​存在，则称函数y=f(x)y=f(x)y=f(x)在x0x_0x0​处可导，并称此极限为函数y=f(x)y=f(x)y=f(x)在点x0x_0x0​处的导数，记作
-y′∣x=x0或y′(x0)或dyd</div>
-      </a>
+          导数与微分  一、导数概念  1. 导数的定义 若极限lim⁡Δx→xΔyΔx\lim_{\Delta x\to x}{\frac{\Delta y}{\Delta x}}limΔx→x​ΔxΔy​存在，则称函数y&#x3D;f(x)y&#x3D;f(x)y&#x3D;f(x)在x0x_0x0​处可导，并称此极限为函数y&#x3D;f(x)y&#x3D;f(x)y&#x3D;f(x)在点x0x_0x0​处的导数，记作 y′∣x&#x3D;x0或y′(x0)或dyd
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-04
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-04 19:25" pubdate>
+              2020-04-04
+            </time>
           </div>
         
         
@@ -271,44 +315,39 @@ y′∣x=x0或y′(x0)或dyd</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/数学/">数学</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/03/25/函数-极限与连续/">函数 极限与连续</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/03/25/%E5%87%BD%E6%95%B0-%E6%9E%81%E9%99%90%E4%B8%8E%E8%BF%9E%E7%BB%AD/" target="_self">
+          函数 极限与连续
+        </a>
+      </h1>
 
-      <a href="/2020/03/25/函数-极限与连续/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/03/25/%E5%87%BD%E6%95%B0-%E6%9E%81%E9%99%90%E4%B8%8E%E8%BF%9E%E7%BB%AD/" target="_self">
           
-        
-        <div> 函数、极限与连续
- 函数
- 求函数的定义域
-原则：
-
-分母不能为01x:x≠0\frac{1}{x}: x \neq 0
-x1​:x​=0
-
-开偶次方时被开方数大于等于0x2n:x≥0\sqrt[2n]{x}: x \geq 0
-2nx​:x≥0
-
-真数大于0log⁡ax(ln⁡x,lg⁡x):x&gt;0\log_ax(\ln x, \lg x): x &gt; 0
-loga​x(lnx,l</div>
-      </a>
+          函数、极限与连续  函数  求函数的定义域 原则：  分母不能为01x:x≠0\frac{1}{x}: x \neq 0 x1​:x​&#x3D;0  开偶次方时被开方数大于等于0x2n:x≥0\sqrt[2n]{x}: x \geq 0 2nx​:x≥0  真数大于0log⁡ax(ln⁡x,lg⁡x):x&gt;0\log_ax(\ln x, \lg x): x &gt; 0 loga​x(lnx,l
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-25
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-25 17:29" pubdate>
+              2020-03-25
+            </time>
           </div>
         
         
@@ -316,44 +355,39 @@ loga​x(lnx,l</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/数学/">数学</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/03/22/让Hexo博客支持流程图/">让Hexo博客支持流程图</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/03/22/%E8%AE%A9Hexo%E5%8D%9A%E5%AE%A2%E6%94%AF%E6%8C%81%E6%B5%81%E7%A8%8B%E5%9B%BE/" target="_self">
+          让Hexo博客支持流程图
+        </a>
+      </h1>
 
-      <a href="/2020/03/22/让Hexo博客支持流程图/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/03/22/%E8%AE%A9Hexo%E5%8D%9A%E5%AE%A2%E6%94%AF%E6%8C%81%E6%B5%81%E7%A8%8B%E5%9B%BE/" target="_self">
           
-        
-        <div>本文讲的是hexo的插件hexo-filter-mermaid-diagrams
- hexo-filter-mermaid-diagrams
- 1. 快速使用
-
-安装
-在博客的根目录下使用命令
-
-$ yarn add hexo-filter-mermaid-diagrams
-或者
-$ npm install hexo-filter-mermaid-diagrams
-
-配置
-配置hexo的配置文件_</div>
-      </a>
+          本文讲的是hexo的插件hexo-filter-mermaid-diagrams  hexo-filter-mermaid-diagrams  1. 快速使用  安装 在博客的根目录下使用命令  123$ yarn add hexo-filter-mermaid-diagrams或者$ npm install hexo-filter-mermaid-diagrams  配置 配置hexo的配置文件
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-22
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-22 19:10" pubdate>
+              2020-03-22
+            </time>
           </div>
         
         
@@ -361,49 +395,41 @@ $ npm install hexo-filter-mermaid-diagrams
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/记录/">记录</a>
+              <a href="/tags/%E8%AE%B0%E5%BD%95/">记录</a>
             
-              <a href="/tags/教程/">教程</a>
+              <a href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/11/05/面向对象技术/">面向对象技术</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/11/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF/" target="_self">
+          面向对象技术
+        </a>
+      </h1>
 
-      <a href="/2019/11/05/面向对象技术/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF/" target="_self">
           
-        
-        <div> 面向对象技术
- 面向对象的基本概念
-
-对象：属性（数据）+ 方法（操作）+ 对象ID
-类（实体类/控制类/边界类）
-继承与泛化：复用机制
-封装：隐藏对象的属性和实现细节，仅对外公开接口
-多态：不同对象收到同样的消息产生不同的结果
-接口：一种特殊的类，他只有方法定义没有实现
-重载：一个类可以有多个同名而参数类型不同的方法
-模板类
-消息和消息通信：消息是异步通信的。
-
-面向对象设计7大原则
-
-单一职</div>
-      </a>
+          面向对象技术  面向对象的基本概念  对象：属性（数据）+ 方法（操作）+ 对象ID 类（实体类&#x2F;控制类&#x2F;边界类） 继承与泛化：复用机制 封装：隐藏对象的属性和实现细节，仅对外公开接口 多态：不同对象收到同样的消息产生不同的结果 接口：一种特殊的类，他只有方法定义没有实现 重载：一个类可以有多个同名而参数类型不同的方法 模板类 消息和消息通信：消息是异步通信的。  面向对象设计7大原则  单一职
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-05
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-05 22:25" pubdate>
+              2019-11-05
+            </time>
           </div>
         
         
@@ -411,37 +437,39 @@ $ npm install hexo-filter-mermaid-diagrams
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/11/04/计算机网络与信息安全/">计算机网络与信息安全</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/11/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" target="_self">
+          计算机网络与信息安全
+        </a>
+      </h1>
 
-      <a href="/2019/11/04/计算机网络与信息安全/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" target="_self">
           
-        
-        <div>
-  
-    var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
-    var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.</div>
-      </a>
+          计算机网络与信息安全  计算机网络  OSI&#x2F;RM七层模型   层次名称主要功能主要设备及协议  7应用层实现具体的应用功能POP3、FTP、HTTP、Telnet、SMTPDHCP、TFTP、SNMP、DNS 6表示层数据格式与表达、加密、压缩 5会话层建立、管理和终止会话 4传输层端到端的连接TCP、UDP 3网络层分组传输和路由选择三层交换机、路由器ARP、RARP、IP、ICMP、IGM
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-04
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-04 20:23" pubdate>
+              2019-11-04
+            </time>
           </div>
         
         
@@ -449,37 +477,39 @@ $ npm install hexo-filter-mermaid-diagrams
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/11/04/系统开发基础/">系统开发基础</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/11/04/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" target="_self">
+          系统开发基础
+        </a>
+      </h1>
 
-      <a href="/2019/11/04/系统开发基础/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/04/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" target="_self">
           
-        
-        <div>
-  
-    var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
-    var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.</div>
-      </a>
+          系统开发基础  软件开发模型   瀑布模型 用于需求明确的时候         阶段具体活动产物   定义阶段软件计划1. 可行性分析2. 软件计划书   需求分析 需求规格说明书   开发阶段软件设计1. 概要设计说明书2. 详细设计说明书   程序编码系统   软件测试测试报告(测试计划、测试用意)   维护阶段运行维护交付给用户，跟踪维护。        V模型  相对瀑布模型更重视测试
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-04
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-04 15:20" pubdate>
+              2019-11-04
+            </time>
           </div>
         
         
@@ -487,47 +517,39 @@ $ npm install hexo-filter-mermaid-diagrams
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/10/28/并发控制与数据库完整性约束/">并发控制与数据库完整性约束</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/28/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F/" target="_self">
+          并发控制与数据库完整性约束
+        </a>
+      </h1>
 
-      <a href="/2019/10/28/并发控制与数据库完整性约束/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/10/28/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F/" target="_self">
           
-        
-        <div> 并发控制
- 事务
-四个特性：
-
-原子性
-一致性
-隔离性
-持续性
-
- 并发产生的问题
-graph TB
-id1(并发产生的问题)-->id2(丢失更新 / 不可重复读问题 / 读 脏 数据)
-id1(并发产生的问题)==>id3(封锁协议)
-id3(封锁协议)-->id4(S封锁-共享锁 / X封锁-排它锁 / 两段锁协议)
-id3(封锁协议)==>id5(死锁)
-id5(死锁)-->id6(预防</div>
-      </a>
+          并发控制  事务 四个特性：  原子性 一致性 隔离性 持续性   并发产生的问题    graph TB id1(并发产生的问题)--&gt;id2(丢失更新 &#x2F; 不可重复读问题 &#x2F; 读 脏 数据) id1(并发产生的问题)&#x3D;&#x3D;&gt;id3(封锁协议) id3(封锁协议)--&gt;id4(S封锁-共享锁 &#x2F; X封锁-排它锁 &#x2F; 两段锁协议) id3(封锁协议)&#x3D;&#x3D;&gt;id5(死锁) id5(死锁)--&gt;id6
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-10-28
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-28 21:19" pubdate>
+              2019-10-28
+            </time>
           </div>
         
         
@@ -535,37 +557,39 @@ id5(死锁)-->id6(预防</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/10/28/SQL语言/">SQL语言</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/28/SQL%E8%AF%AD%E8%A8%80/" target="_self">
+          SQL语言
+        </a>
+      </h1>
 
-      <a href="/2019/10/28/SQL语言/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/10/28/SQL%E8%AF%AD%E8%A8%80/" target="_self">
           
-        
-        <div>
-  
-    var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
-    var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.</div>
-      </a>
+          SQL语言  建表 123CREATE TABLE &lt;表名1&gt; (&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件]    [,&lt;列名&gt;&lt;数据库类型&gt;[列级完整性约束条件]]...    [,&lt;表现级完整性约束条件&gt;]);    数据类型 说明     char(N) 字符型   int 整形   float 浮点型   date
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-10-28
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-28 13:18" pubdate>
+              2019-10-28
+            </time>
           </div>
         
         
@@ -573,63 +597,39 @@ id5(死锁)-->id6(预防</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/10/26/规范化理论/">规范化理论</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/26/%E8%A7%84%E8%8C%83%E5%8C%96%E7%90%86%E8%AE%BA/" target="_self">
+          规范化理论
+        </a>
+      </h1>
 
-      <a href="/2019/10/26/规范化理论/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/10/26/%E8%A7%84%E8%8C%83%E5%8C%96%E7%90%86%E8%AE%BA/" target="_self">
           
-        
-        <div> 规范化理论
-
-数据冗余
-修改异常
-插入异常
-删除异常
-
- 函数依赖
-
-部分依赖
-依赖集1：{AB -&gt; C, A -&gt; C}
-
-graph LR
-A-->C
-B-->C
-
-传递依赖
-依赖集2：{A -&gt; B, B -&gt; C}
-
-graph LR
-A-->B
-B-->C
- 键
-
-候选键
-唯一标识元组，且无冗余
-主键
-任选一个候选键为主键。
-外键
-其他关系的主键
-
- 求候选键</div>
-      </a>
+          规范化理论  数据冗余 修改异常 插入异常 删除异常   函数依赖  部分依赖 依赖集1：{AB -&gt; C, A -&gt; C}     graph LR A--&gt;C B--&gt;C    传递依赖 依赖集2：{A -&gt; B, B -&gt; C}     graph LR A--&gt;B B--&gt;C    键  候选键 唯一标识元组，且无冗余 主键 任选一个候选键为主键。 外键 其他关系
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-10-26
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-26 15:16" pubdate>
+              2019-10-26
+            </time>
           </div>
         
         
@@ -637,37 +637,39 @@ B-->C
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/10/24/关系代数/">关系代数</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/24/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0/" target="_self">
+          关系代数
+        </a>
+      </h1>
 
-      <a href="/2019/10/24/关系代数/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/10/24/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0/" target="_self">
           
-        
-        <div>
-  
-    var now = new Date();
-    var dayStr = 'Sat Apr 04 2020 08:00:00 GMT+0800 (GMT+08:00)';
-    var day = dayStr ? new Date(dayStr) : new Date();
-    var isMemorialDay = now.getFullYear() === day.</div>
-      </a>
+          关系代数       关系S1     SnoSnameSdept     No0001MaryIS     No0003CandyIS     No0004JamIS       关系S2     SnoSnameSdept     No0001MaryIS     No0008KatterIS     No0021TomIS    并 合并所有      S1∪S2     SnoSname
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-10-24
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-24 20:12" pubdate>
+              2019-10-24
+            </time>
           </div>
         
         
@@ -675,67 +677,39 @@ B-->C
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/10/24/数据库系统/">数据库系统</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" target="_self">
+          数据库系统
+        </a>
+      </h1>
 
-      <a href="/2019/10/24/数据库系统/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/10/24/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" target="_self">
           
-        
-        <div> 数据库系统
- 三级模式-两层映射
-
-（视图级）外模式
-（表级）概念模式
-（文件级）内模式
-
- 数据库设计过程
-
-需求分析
-
-数据库流图
-数据字典
-需求说明书
-
-
-概念结构设计
-
-ER模型
-
-
-逻辑结构设计
-
-关系模式
-
-
-物理设计
-
- E-R模型
-
-一个实体型转换为一个关系模式
-联系转关系模式
-
-1-1联系：可将联系合并至n端实体关系模型中。
-1-n联系：可将联系合并至n端实体关系模式中。
-m-</div>
-      </a>
+          数据库系统  三级模式-两层映射  （视图级）外模式 （表级）概念模式 （文件级）内模式   数据库设计过程  需求分析  数据库流图 数据字典 需求说明书   概念结构设计  ER模型   逻辑结构设计  关系模式   物理设计   E-R模型  一个实体型转换为一个关系模式 联系转关系模式  1-1联系：可将联系合并至n端实体关系模型中。 1-n联系：可将联系合并至n端实体关系模式中。 m-
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-10-24
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-24 15:10" pubdate>
+              2019-10-24
+            </time>
           </div>
         
         
@@ -743,42 +717,39 @@ m-</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/10/24/操作系统/">操作系统</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_self">
+          操作系统
+        </a>
+      </h1>
 
-      <a href="/2019/10/24/操作系统/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/10/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_self">
           
-        
-        <div> 操作系统
- 进程管理
- 概念
-
-进程是程序在一个数据集合上运行的过程，它是系统的一个独立单位。它由程序块、进程控制块（PCB）和数据块三部分组成。
-进程与程序的区别：
-
-进程是程序的一次执行过程，没有程序就没有进程。
-程序是完成某个特定功能的一系列程序语句的集合，只要不被破坏，它就永远存在。
-程序是一个静态的概念，而进程是一个动态的概念，它由创建而产生，完成任务后因撤销而消亡。
-进程是系统进行资</div>
-      </a>
+          操作系统  进程管理  概念  进程是程序在一个数据集合上运行的过程，它是系统的一个独立单位。它由程序块、进程控制块（PCB）和数据块三部分组成。 进程与程序的区别：  进程是程序的一次执行过程，没有程序就没有进程。 程序是完成某个特定功能的一系列程序语句的集合，只要不被破坏，它就永远存在。 程序是一个静态的概念，而进程是一个动态的概念，它由创建而产生，完成任务后因撤销而消亡。 进程是系统进行资
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-10-24
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-24 13:37" pubdate>
+              2019-10-24
+            </time>
           </div>
         
         
@@ -786,71 +757,39 @@ m-</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/10/22/校验码/">校验码</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/22/%E6%A0%A1%E9%AA%8C%E7%A0%81/" target="_self">
+          校验码
+        </a>
+      </h1>
 
-      <a href="/2019/10/22/校验码/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/10/22/%E6%A0%A1%E9%AA%8C%E7%A0%81/" target="_self">
           
-        
-        <div> 校验码
- 奇偶校验码
-有效信息位加一个二进制位(校验位)
-
-可检查奇数个位数出错的情况
-
-奇校验：整个校验码（信息位和校验位）中的“1”的个数为奇数
-偶校验：整个校验码（信息位和校验位）中的“1”的个数为偶数
-例如：
-
-
-
-校验法（奇/偶）
-信息位
-校验位
-校验码
-
-
-
-
-奇校验
-1010
-1
-10101
-
-
-奇校验
-1101
-0
-11010
-
-
-偶校验
-1011
-1
-10111
-
-
-偶校验
-0</div>
-      </a>
+          校验码  奇偶校验码 有效信息位加一个二进制位(校验位)  可检查奇数个位数出错的情况  奇校验：整个校验码（信息位和校验位）中的“1”的个数为奇数 偶校验：整个校验码（信息位和校验位）中的“1”的个数为偶数 例如：    校验法（奇&#x2F;偶） 信息位 校验位 校验码     奇校验 1010 1 10101   奇校验 1101 0 11010   偶校验 1011 1 10111   偶校验 0
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-10-22
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-22 12:35" pubdate>
+              2019-10-22
+            </time>
           </div>
         
         
@@ -858,41 +797,39 @@ m-</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/10/20/Cache/">Cache</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/20/Cache/" target="_self">
+          Cache
+        </a>
+      </h1>
 
-      <a href="/2019/10/20/Cache/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/10/20/Cache/" target="_self">
           
-        
-        <div> Cache
-
-在计算机的存储系统体系中，Cache是访问速度最快的层次（若有寄存器，则寄存器最快）
-使用Cache改善系统性能的依据是程序的局部性原理。
-如果 h 代表对Cache的访问命令率，
-t1 表示Cache的周期时间，
-t2 表示主存储器周期时间，
-以读操作为例，使用“Cache + 主存储器”的系统的平均周期为 t3 则：
-
-t3=h×t1+(1−h)×t2    t_3 = h ×</div>
-      </a>
+          Cache  在计算机的存储系统体系中，Cache是访问速度最快的层次（若有寄存器，则寄存器最快） 使用Cache改善系统性能的依据是程序的局部性原理。 如果 h 代表对Cache的访问命令率， t1 表示Cache的周期时间， t2 表示主存储器周期时间， 以读操作为例，使用“Cache + 主存储器”的系统的平均周期为 t3 则：  t3&#x3D;h×t1+(1−h)×t2    t_3 &#x3D; h ×
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-10-20
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-20 15:34" pubdate>
+              2019-10-20
+            </time>
           </div>
         
         
@@ -900,43 +837,39 @@ t3=h×t1+(1−h)×t2    t_3 = h ×</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/10/20/流水线/">流水线</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/20/%E6%B5%81%E6%B0%B4%E7%BA%BF/" target="_self">
+          流水线
+        </a>
+      </h1>
 
-      <a href="/2019/10/20/流水线/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/10/20/%E6%B5%81%E6%B0%B4%E7%BA%BF/" target="_self">
           
-        
-        <div> 流水线
- 公式
-流水线周期（Δt）：执行时间最长的一段
-理论公式：
-(t1+t2+⋯+tk)+(n−1)∗Δt    (t_1 + t_2 + \cdots + t_k) + (n - 1) * Δt
-(t1​+t2​+⋯+tk​)+(n−1)∗Δt
-实践公式：
-k∗Δt+(n−1)∗Δt    k * Δt + (n-1) * Δt
-k∗Δt+(n−1)∗Δt
-注意：
-
-k 为执行完一条指令需</div>
-      </a>
+          流水线  公式 流水线周期（Δt）：执行时间最长的一段 理论公式： (t1+t2+⋯+tk)+(n−1)∗Δt    (t_1 + t_2 + \cdots + t_k) + (n - 1) * Δt (t1​+t2​+⋯+tk​)+(n−1)∗Δt 实践公式： k∗Δt+(n−1)∗Δt    k * Δt + (n-1) * Δt k∗Δt+(n−1)∗Δt 注意：  k 为执行完一条指令需
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-10-20
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-20 13:54" pubdate>
+              2019-10-20
+            </time>
           </div>
         
         
@@ -944,51 +877,45 @@ k 为执行完一条指令需</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/软件设计师/">软件设计师</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">软件设计师</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2019/06/06/Windows2012安装IIS和FTP/" target="_self">
-          <img src="/2019/06/06/Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB147AsHXXXXXc7XpXXjcp1IXXX-780-536.jpg" srcset="/img/loading.gif" alt="Windows2012安装IIS和FTP">
+        <a href="/2019/06/06/Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/" target="_self">
+          <img src="/2019/06/06/Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/TB147AsHXXXXXc7XpXXjcp1IXXX-780-536.jpg" srcset="/img/loading.gif" lazyload alt="Windows2012安装IIS和FTP">
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/06/06/Windows2012安装IIS和FTP/">Windows2012安装IIS和FTP</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/06/06/Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/" target="_self">
+          Windows2012安装IIS和FTP
+        </a>
+      </h1>
 
-      <a href="/2019/06/06/Windows2012安装IIS和FTP/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/06/06/Windows2012%E5%AE%89%E8%A3%85IIS%E5%92%8CFTP/" target="_self">
           
-        
-        <div> Windows2012安装IIS和FTP
- 1. 安装IIS
-
-打开Windows 2012的服务器管理器，选择 管理→添加角色和功能。
-
-进入 添加角色和功能向导，选择 “Web服务器(IIS)”。
-
-根据情况选择对应功能，这里选择.Net3.5。
-
-安装角色服务，选择对应的安全性选项，如图。
-
-选择“FTP服务器”，以及开设主机必须要用的“管理工具”，此项重要。
-
-等待安装，时间稍长，耐心等</div>
-      </a>
+          Windows2012安装IIS和FTP  1. 安装IIS  打开Windows 2012的服务器管理器，选择 管理→添加角色和功能。  进入 添加角色和功能向导，选择 “Web服务器(IIS)”。  根据情况选择对应功能，这里选择.Net3.5。  安装角色服务，选择对应的安全性选项，如图。  选择“FTP服务器”，以及开设主机必须要用的“管理工具”，此项重要。  等待安装，时间稍长，耐心等
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-06-06
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-06-06 10:57" pubdate>
+              2019-06-06
+            </time>
           </div>
         
         
@@ -996,60 +923,43 @@ k 为执行完一条指令需</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/问题/">问题</a>
+              <a href="/tags/%E9%97%AE%E9%A2%98/">问题</a>
             
-              <a href="/tags/记录/">记录</a>
+              <a href="/tags/%E8%AE%B0%E5%BD%95/">记录</a>
             
-              <a href="/tags/教程/">教程</a>
+              <a href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/04/02/CSS动画（animation与keyframes）/">CSS动画（animation与keyframes）</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/04/02/CSS%E5%8A%A8%E7%94%BB%EF%BC%88animation%E4%B8%8Ekeyframes%EF%BC%89/" target="_self">
+          CSS动画（animation与keyframes）
+        </a>
+      </h1>
 
-      <a href="/2019/04/02/CSS动画（animation与keyframes）/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/04/02/CSS%E5%8A%A8%E7%94%BB%EF%BC%88animation%E4%B8%8Ekeyframes%EF%BC%89/" target="_self">
           
-        
-        <div> animation
-animation: name duration timing-function delay iteration-count direction;
-
-
-
-属性名
-中文名
-值
-
-
-
-
-animation-name
-keyframe名称
-/
-
-
-animation-duration
-持续时间
-(time)
-
-
-animation-timing-function
-速度曲线
-line</div>
-      </a>
+          animation 1animation: name duration timing-function delay iteration-count direction;    属性名 中文名 值     animation-name keyframe名称 &#x2F;   animation-duration 持续时间 (time)   animation-timing-function 速度曲线 lin
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-04-02
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-04-02 01:05" pubdate>
+              2019-04-02
+            </time>
           </div>
         
         
@@ -1062,36 +972,34 @@ line</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/">Hexo d 时出现 On branch master nothing to commit</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/03/29/Hexo-d-%E6%97%B6%E5%87%BA%E7%8E%B0-On-branch-master-nothing-to-commit/" target="_self">
+          Hexo d 时出现 On branch master nothing to commit
+        </a>
+      </h1>
 
-      <a href="/2019/03/29/Hexo-d-时出现-On-branch-master-nothing-to-commit/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/03/29/Hexo-d-%E6%97%B6%E5%87%BA%E7%8E%B0-On-branch-master-nothing-to-commit/" target="_self">
           
-        
-        <div> 问题：
-
-Hexo d 时出现 On branch master nothing to commit 和一大串的 warning
-上传不上远程仓库
-
- 解决
-删除文件夹里的.deploy_git文件
- 参考来源
-git 使用——关于使用指令hexo d 出现一大串waring以及无法成功部署到github的解决办法 作者： 寰宇的行者
-</div>
-      </a>
+          问题：  Hexo d 时出现 On branch master nothing to commit 和一大串的 warning 上传不上远程仓库   解决 删除文件夹里的.deploy_git文件  参考来源 git 使用——关于使用指令hexo d 出现一大串waring以及无法成功部署到github的解决办法 作者： 寰宇的行者
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-03-29
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-03-29 01:03" pubdate>
+              2019-03-29
+            </time>
           </div>
         
         
@@ -1099,42 +1007,39 @@ git 使用——关于使用指令hexo d 出现一大串waring以及无法成功
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/问题/">问题</a>
+              <a href="/tags/%E9%97%AE%E9%A2%98/">问题</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/03/29/搭建Hexo博客/">搭建Hexo博客</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/03/29/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/" target="_self">
+          搭建Hexo博客
+        </a>
+      </h1>
 
-      <a href="/2019/03/29/搭建Hexo博客/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/03/29/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/" target="_self">
           
-        
-        <div> Hexo 博客搭建
- 1.安装git
-
-windows：到git官网上下载 Download git,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。
-linux：一行代码
-
-sudo apt-get install git
- 2.安装nodeJS
-Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。
-
-windows：nodejs选择LT</div>
-      </a>
+          Hexo 博客搭建  1.安装git  windows：到git官网上下载 Download git,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。 linux：一行代码  1sudo apt-get install git  2.安装nodeJS Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。  windows：nodejs选择L
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-03-29
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-03-29 00:30" pubdate>
+              2019-03-29
+            </time>
           </div>
         
         
@@ -1142,49 +1047,45 @@ windows：nodejs选择LT</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/记录/">记录</a>
+              <a href="/tags/%E8%AE%B0%E5%BD%95/">记录</a>
             
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/02/09/hello-world/">Hello World</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/02/09/hello-world/" target="_self">
+          Hello World
+        </a>
+      </h1>
 
-      <a href="/2019/02/09/hello-world/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/02/09/hello-world/" target="_self">
           
-        
-        <div>欢迎来到Hexo! 这是第一个帖子. 点击 文档 查看更多信息。 如果在使用时有任何问题可以在 故障排除 里找解决办法，或者来GitHub 问.
- 快速上手
- 创建新帖
-$ hexo new "My New Post"
-更多信息: Writing
- 运行本地服务
-$ hexo server
-更多信息: Server
- 生成静态文件
-$ hexo generate
-更多信息: Generating
-</div>
-      </a>
+          欢迎来到Hexo! 这是第一个帖子. 点击 文档 查看更多信息。 如果在使用时有任何问题可以在 故障排除 里找解决办法，或者来GitHub 问.  快速上手  创建新帖 1$ hexo new &quot;My New Post&quot; 更多信息: Writing  运行本地服务 1$ hexo server 更多信息: Server  生成静态文件 1$ hexo generate 更多信息
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-02-09
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-02-09 01:55" pubdate>
+              2019-02-09
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
 
@@ -1197,16 +1098,16 @@ $ hexo generate
         </div>
       </div>
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -1218,52 +1119,64 @@ $ hexo generate
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
 
     
+  </main>
 
-    
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="/js/debouncer.js"></script>
-<script src="/js/main.js"></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
-    <script src="/js/lazyload.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
-  <script src="/js/clipboard-use.js"></script>
+  
 
 
 
@@ -1272,37 +1185,15 @@ $ hexo generate
 
 
 
-
-  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-
-
-  <script src="/js/local-search.js"></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
   </script>
 
 
@@ -1319,11 +1210,8 @@ $ hexo generate
 
 
 
-
-
-
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>
