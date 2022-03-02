@@ -68,7 +68,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/vs2015.min.css" />
     
   
 
@@ -259,26 +259,26 @@
 <li>windows：到git官网上下载 <a href="https://www.git-scm.com/download/win/">Download git</a>,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</li>
 <li>linux：一行代码</li>
 </ol>
-<figure class="highlight routeros"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> install git<br></code></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> install git<br></code></pre></div></td></tr></table></figure>
 <h2 id="2安装nodejs"><a class="markdownIt-Anchor" href="#2安装nodejs"></a> 2.安装nodeJS</h2>
 <p>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。</p>
 <ul>
 <li>windows：nodejs选择LTS版本就行了。(LTS:长期支持版本)</li>
 <li>linux：</li>
 </ul>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> install nodejs<br>sudo apt-<span class="hljs-built_in">get</span> install npm<br></code></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> install nodejs<br>sudo apt-<span class="hljs-built_in">get</span> install npm<br></code></pre></div></td></tr></table></figure>
 <ol start="2">
 <li>安装完后，打开命令行</li>
 </ol>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">   <span class="hljs-keyword">node</span> <span class="hljs-title">-v</span><br>npm -v<br></code></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">   <span class="hljs-keyword">node</span> <span class="hljs-title">-v</span><br>npm -v<br></code></pre></div></td></tr></table></figure>
 <h2 id="3安装hexo"><a class="markdownIt-Anchor" href="#3安装hexo"></a> 3.安装Hexo</h2>
 <p>1.先创建一个文件夹blog，然后cd到这个文件夹下（或 文件夹右键-&gt;git bash）</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">npm install -g hexo-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs avrasm">npm install -g hexo-<span class="hljs-keyword">cli</span><br></code></pre></div></td></tr></table></figure>
 <ul>
 <li>可用<code>hexo -v</code>查看一下版本</li>
 </ul>
 <p>初始化hexo</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">hexo init myblog<br>cd myblog <span class="hljs-regexp">//</span>进入文件夹内<br>npm install<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">hexo init myblog<br>cd myblog <span class="hljs-regexp">//</span>进入文件夹内<br>npm install<br></code></pre></div></td></tr></table></figure>
 <p>新建完成后，指定文件夹目录下有：</p>
 <ul>
 <li>node_modules: 依赖包</li>
@@ -290,7 +290,7 @@
 </ul>
 <p>生成静态文件<br />
 <br>启动服务器 <code>http://localhost:4000</code></p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo g</span><br><span class="hljs-attribute">hexo sever</span>  <br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo g</span><br><span class="hljs-attribute">hexo sever</span>  <br></code></pre></div></td></tr></table></figure>
 <h2 id="4注册github账号-注册github"><a class="markdownIt-Anchor" href="#4注册github账号-注册github"></a> 4.注册Github账号、注册Github</h2>
 <ol>
 <li>注册Github帐号</li>
@@ -302,11 +302,11 @@
 <ol>
 <li>设置git的身份信息（名字与邮箱）</li>
 </ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.name</span> <span class="hljs-string">&quot;name&quot;</span><br>git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.email</span> <span class="hljs-string">&quot;email&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.name</span> <span class="hljs-string">&quot;name&quot;</span><br>git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.email</span> <span class="hljs-string">&quot;email&quot;</span><br></code></pre></div></td></tr></table></figure>
 <ol start="2">
 <li>创建SSH</li>
 </ol>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">ssh-keygen -<span class="hljs-built_in">t</span> rsa -C <span class="hljs-string">&quot;email&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight excel"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs excel">ssh-keygen -<span class="hljs-built_in">t</span> rsa -C <span class="hljs-string">&quot;email&quot;</span><br></code></pre></div></td></tr></table></figure>
 <ol start="3">
 <li>在 系统盘-&gt;用户-&gt;（用户名）-&gt;.ssh 目录下找到.ssh文件</li>
 </ol>
@@ -322,19 +322,19 @@
 把你的<code>id_rsa.pub</code>里面的信息复制进去。</li>
 <li>查看是否成功</li>
 </ol>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">ssh</span> -T git<span class="hljs-variable">@github</span>.com <br></code></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">ssh</span> -T git<span class="hljs-variable">@github</span>.com <br></code></pre></div></td></tr></table></figure>
 <h2 id="6将hexo部署到github"><a class="markdownIt-Anchor" href="#6将hexo部署到github"></a> 6.将Hexo部署到GitHub</h2>
 <ol>
 <li>将hexo和GitHub关联起来,打开站点配置文件 _config.yml，翻到最后，修改为</li>
 </ol>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repo:</span> https:<span class="hljs-comment">//github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="hljs-symbol">  branch:</span> master<br></code></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repo:</span> https:<span class="hljs-comment">//github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="hljs-symbol">  branch:</span> master<br></code></pre></div></td></tr></table></figure>
 <p>YourgithubName就是你的GitHub账户<br />
 2. 安装 <strong>deploy-git</strong></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ada">npm install hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></div></td></tr></table></figure>
 <ol start="3">
 <li>使用命令部署</li>
 </ol>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog">hexo clean<br>hexo <span class="hljs-keyword">generate</span><br>hexo deploy<br></code></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs verilog">hexo clean<br>hexo <span class="hljs-keyword">generate</span><br>hexo deploy<br></code></pre></div></td></tr></table></figure>
 <blockquote>
 <p><code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><br />
 <code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><br />
@@ -350,7 +350,7 @@
 <li><code>source</code>创建一个名为CHANME的文件，不要后缀，写上域名。</li>
 <li>最后在<strong>git bash</strong> 中输入</li>
 </ol>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo clean</span><br><span class="hljs-attribute">hexo g</span><br><span class="hljs-attribute">hexo d</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo clean</span><br><span class="hljs-attribute">hexo g</span><br><span class="hljs-attribute">hexo d</span><br></code></pre></div></td></tr></table></figure>
 <h2 id="8使用腾讯开发者平台的pages服务进行分流"><a class="markdownIt-Anchor" href="#8使用腾讯开发者平台的pages服务进行分流"></a> 8.使用腾讯开发者平台的pages服务进行分流</h2>
 <p>注：现在coding不能使用pages,得升级账号，腾讯开发者平台的才有此功能。</p>
 <ol>
@@ -361,7 +361,7 @@
 <li>选择项目-&gt;代码-&gt;pages服务，按照指引完成即可</li>
 <li>修改配置文件</li>
 </ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">deploy:<br>  type: git<br>  repository:<br>      github: git@github<span class="hljs-selector-class">.com</span>:ShomyLiu/ShomyLiu<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span><span class="hljs-selector-class">.git</span><br>      coding: git@git<span class="hljs-selector-class">.coding</span><span class="hljs-selector-class">.net</span>:shomyliu/shomyliu<span class="hljs-selector-class">.git</span><br>  branch: master<br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">deploy:<br>  type: git<br>  repository:<br>      github: git@github<span class="hljs-selector-class">.com</span>:ShomyLiu/ShomyLiu<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span><span class="hljs-selector-class">.git</span><br>      coding: git@git<span class="hljs-selector-class">.coding</span><span class="hljs-selector-class">.net</span>:shomyliu/shomyliu<span class="hljs-selector-class">.git</span><br>  branch: master<br></code></pre></div></td></tr></table></figure>
 <blockquote>
 <p>在博客的source/目录下需要创建一个空白文件,至于原因，是因为 coding.net需要这个文件来作为以静态文件部署的标志。就是说看到这个Staticfile就知道按照静态文件来发布。<br><br />
 coding还需要在根目录下建一个.nojekyll空文件（coding page 配置hexo报错 the xx theme not be found<br><br />
