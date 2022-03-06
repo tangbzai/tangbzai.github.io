@@ -1,0 +1,600 @@
+
+  <script type="text/javascript">
+    (function () {
+      var dayStr = '2020/04/04';
+      if (/^\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        dayStr = new Date().getFullYear() + '/' + dayStr;
+      }
+      if (!/^\d{4}\/\d{1,2}\/\d{1,2}$/.test(dayStr)) {
+        return ;
+      }
+      var day = new Date(dayStr);
+      var now = new Date();
+      var isMemorialDay = now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate();
+      if (isMemorialDay) {
+        if (document.all) {
+          window.style = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.createStyleSheet('javascript:style');
+        } else {
+          var style = document.createElement('style');
+          style.type = 'text/css';
+          style.innerHTML = 'html {     -webkit-filter: grayscale(100%); /* webkit */     -moz-filter: grayscale(100%); /* firefox */     -ms-filter: grayscale(100%); /* ie9 */     -o-filter: grayscale(100%); /* opera */     filter: grayscale(100%);     filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray; /* ie9- */   }';
+          document.getElementsByTagName('HEAD').item(0).appendChild(style);
+        }
+      }
+    })();
+  </script>
+  
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2E294E">
+  <meta name="author" content="糖仔">
+  <meta name="keywords" content="糖仔的博客;博客;HTML;CSS;javascript;">
+  
+    <meta name="description" content="报头格式 TCP报头长度为 20 - 60 字节，其中固定部分长度为 20 字节， 选项部分长度可变， 最多为 40 字节。  端口号 四个要素确定唯一一个连接：（源IP，源端口号）+（目的IP，目的端口号）TCP的头部预留了两个16位作为端口号的位置，而IP地址由上一层IP协议负责传递  端口号占16位（两个字节），也就是端口的范围是 2^16 &#x3D; 65535； 1024以下是系统保留，从10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP协议">
+<meta property="og:url" content="http://blog.tangbzai.top/2022/03/06/TCP%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:site_name" content="糖仔">
+<meta property="og:description" content="报头格式 TCP报头长度为 20 - 60 字节，其中固定部分长度为 20 字节， 选项部分长度可变， 最多为 40 字节。  端口号 四个要素确定唯一一个连接：（源IP，源端口号）+（目的IP，目的端口号）TCP的头部预留了两个16位作为端口号的位置，而IP地址由上一层IP协议负责传递  端口号占16位（两个字节），也就是端口的范围是 2^16 &#x3D; 65535； 1024以下是系统保留，从10">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.tangbzai.top/2022/03/06/TCP%E5%8D%8F%E8%AE%AE/TCP%E5%A4%B4%E9%83%A8%E8%A7%84%E8%8C%83.png">
+<meta property="article:published_time" content="2022-03-06T03:01:45.000Z">
+<meta property="article:modified_time" content="2022-03-06T03:17:59.542Z">
+<meta property="article:author" content="糖仔">
+<meta property="article:tag" content="TCP">
+<meta property="article:tag" content="协议">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://blog.tangbzai.top/2022/03/06/TCP%E5%8D%8F%E8%AE%AE/TCP%E5%A4%B4%E9%83%A8%E8%A7%84%E8%8C%83.png">
+  
+  
+  <title>TCP协议 - 糖仔</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/vs2015.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.tangbzai.top","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="糖仔" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>糖仔呐</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="TCP协议">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-06 11:01" pubdate>
+        2022年3月6日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">TCP协议</h1>
+            
+            <div class="markdown-body">
+              <h2 id="报头格式"><a class="markdownIt-Anchor" href="#报头格式"></a> 报头格式</h2>
+<p><img src="./TCP%E5%A4%B4%E9%83%A8%E8%A7%84%E8%8C%83.png" srcset="/img/loading.gif" lazyload alt="TCP头部规范" /><br />TCP报头长度为 20 - 60 字节，其中固定部分长度为 20 字节， 选项部分长度可变， 最多为 40 字节。</p>
+<h3 id="端口号"><a class="markdownIt-Anchor" href="#端口号"></a> 端口号</h3>
+<p>四个要素确定唯一一个连接：<strong>（源IP，源端口号）+（目的IP，目的端口号）</strong><br />TCP的头部预留了两个16位作为端口号的位置，而IP地址由上一层IP协议负责传递</p>
+<blockquote>
+<p>端口号占16位（两个字节），也就是端口的范围是 2^16 = 65535；<br />
+1024以下是系统保留，从1024-65535是用户的端口范围。</p>
+</blockquote>
+<h3 id="tcp的序号和确认号"><a class="markdownIt-Anchor" href="#tcp的序号和确认号"></a> TCP的序号和确认号</h3>
+<p><strong>32位序号 seq</strong>：Sequence number 缩写 seq，TCP 通信过程中某一个传输方向上的字节流的每个字节的序号，通过这个来确认发送的数据<strong>有序</strong>。<br /><strong>32位确认号 ack</strong>：Acknowledge number 缩写 ack，TCP对上一次 seq 序号做出的确认号，用来响应 TCP 报文段，给收到的 TCP 报文段的序号seq加1。</p>
+<h4 id="头部长度"><a class="markdownIt-Anchor" href="#头部长度"></a> 头部长度</h4>
+<p>头部长度字段用来表示TCP报头总长度。<br />头部长度字段以 4 个字节为一个计算单元。</p>
+<blockquote>
+<p>即该字段为 1 时表示 TCP 报头为 4 个字节长，为 2 时 TCP 报头为 8 个字节长…</p>
+</blockquote>
+<p>头部长度字段使用 4 位（可表示 0-15 的数值）进行存储；而因为 TCP 报头的长度为 20 - 60 个字节，所以数值在 5 - 15之间。</p>
+<blockquote>
+<p>该字段数值 5 表示 TCP 报头为 20 个字节，数值 15 表示 TCP 报头为 60 个字节。</p>
+</blockquote>
+<h3 id="保留"><a class="markdownIt-Anchor" href="#保留"></a> 保留</h3>
+<p>保留了6位给今后使用。</p>
+<h3 id="标志位控制字段"><a class="markdownIt-Anchor" href="#标志位控制字段"></a> 标志位（控制字段）</h3>
+<p>每个TCP段都有一个目的，这是借助于TCP标志位选项来确定的，允许发送方或接收方指定哪些标志应该被使用，以便段被另一端正确处理。<br />用的最广泛的标志是 SYN，ACK 和 FIN，用于建立连接，确认成功的段传输，最后终止连接。</p>
+<table>
+<thead>
+<tr>
+<th>标志</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SYN</strong></td>
+<td>同步标志位，用于建立会话连接，同步序列号；<br />当<code>SYN=1，ACK=0</code>表示：这是一个连接请求报文段。若同意连接，则在响应报文段中使用<code>SYN=1，ACK=1</code>。<br />因此，<code>SYN=1</code>表示这是一个连接请求，或连接接收报文，SYN这个标志位只有在TCP建立连接才会被置为1，握手完成后SYN标志位被置为0</td>
+</tr>
+<tr>
+<td><strong>ACK</strong></td>
+<td>确认标志位，对已接收的数据包进行确认；仅当<code>ACK=1</code>，确认号字段才有效</td>
+</tr>
+<tr>
+<td><strong>FIN</strong></td>
+<td>完成标志位，<code>FIN=1</code>表示我已经没有数据要发送了，即将关闭连接</td>
+</tr>
+<tr>
+<td>PSH</td>
+<td>推送标志位，<code>RSH=1</code>表示该数据包被对方接收后应立即交给上层应用，而不在缓冲区排队</td>
+</tr>
+<tr>
+<td>RST</td>
+<td>重置标志位，用于连接复位、拒绝错误和非法的数据包；<code>RST=1</code>表示出现严重差错，必须释放连接，然后重新建立连接。</td>
+</tr>
+<tr>
+<td>URG</td>
+<td>紧急标志位，表示数据包的紧急指针域有效，用来保证连接不被阻断，并督促中间设备尽快处理；<code>URG=1</code>需要配合紧急指针使用，由紧急指针指出在本报文端中的紧急数据的最后一个字节的编号。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="紧急指针"><a class="markdownIt-Anchor" href="#紧急指针"></a> 紧急指针</h3>
+<p>16位，当紧急标志<code>URG=1</code>时该字段才有效，表示这个报文段中包含紧急数据。TCP 软件需要处理完紧急数据之后才能够恢复正常操作。</p>
+<h3 id="窗口大小"><a class="markdownIt-Anchor" href="#窗口大小"></a> 窗口大小</h3>
+<p>16位，表示<strong>接收方</strong>通知即将发送报文的<strong>发送方</strong>下一个报文中<strong>最多</strong>可以发送的字节数。必须维持的窗口大小（以字节为单位），用作控制发送端的缓存，以控制每次发送的流量（速率）。</p>
+<blockquote>
+<p>该字段值是动态变化的。</p>
+</blockquote>
+<p>可以理解为：发送方会根据窗口大小字段控制等待确认前最多给接收方发多少数据包</p>
+<blockquote>
+<p>具体请看 滑动窗口协议 的内容</p>
+</blockquote>
+<h3 id="选项"><a class="markdownIt-Anchor" href="#选项"></a> 选项</h3>
+<p>选项有两类：<strong>单字节选项</strong>，<strong>多字节选项。</strong><br />单字节选项：</p>
+<ul>
+<li>选项结束</li>
+<li>无操作</li>
+</ul>
+<p>多字节选项：</p>
+<ul>
+<li><a href="#tcp-%E6%9C%80%E5%A4%A7%E6%AE%B5%E9%95%BF%E5%BA%A6mss">最大报文长度</a></li>
+<li>窗口扩大因子</li>
+<li>时间戳</li>
+</ul>
+<h2 id="tcp-最大段长度mss"><a class="markdownIt-Anchor" href="#tcp-最大段长度mss"></a> TCP 最大段长度（MSS）</h2>
+<p>TCP 协议对报文<strong>数据部分</strong>的<strong>最大长度</strong>有一个规定，这个值称为最大段长度（maximum segment size, MSS）。</p>
+<blockquote>
+<p>TCP 报文长度 = TCP 报头长度 + 数据部分长度（MSS)</p>
+</blockquote>
+<p>MSS值的选择应该考虑以下几个方面的因素：</p>
+<ul>
+<li><strong>协议开销</strong>：报文中数据长度在报文长度的占比，因报头长度相对固定，故 MSS 越大每个报文用来传输数据的比例越大，反之亦然。</li>
+<li><strong>IP分段</strong>：TCP 报文是要通过 IP 分组传输的，如果 MSS 值选择比较大，受到 IP 分组长度的限制，较长的报文段在 IP 层会被分段传输。分段会导致网络层的开销和传输出错的概率。</li>
+<li><strong>发送和接收缓存区的限制</strong>：MSS 值的大小会直接影响到发送和接受缓冲区的大小与使用效率。</li>
+<li><strong>MSS的默认值</strong>：基于以上因素，确定默认的 MSS 值为 536 字节。编程人员可通过设置 SYN 报文中的最大段长度选项来协商。TCP 允许连接的双方选择不同的 MSS 值。</li>
+</ul>
+<h2 id="tcp-连接建立与释放"><a class="markdownIt-Anchor" href="#tcp-连接建立与释放"></a> TCP 连接建立与释放</h2>
+<h3 id="三次握手建立tcp连接"><a class="markdownIt-Anchor" href="#三次握手建立tcp连接"></a> 三次握手（建立TCP连接）</h3>
+<p>所谓的“三次握手”：为了对每次发送的数据量进行跟踪与协商，确保数据段的发送和接收同步，根据所接收到的数据量而确认数据发送、接收完毕后何时撤消联系，并建立虚连接。<br /><br />
+为了建立连接TCP连接，通信双方必须从对方了解如下信息：</p>
+<ol>
+<li>对方报文发送的开始序号（seq）。</li>
+<li>对方发送数据的缓冲区大小（窗口大小）。</li>
+<li>能被接受的最大报文长度MSS。</li>
+<li>被支持的TCP选项。</li>
+</ol>
+<h4 id="第一次握手"><a class="markdownIt-Anchor" href="#第一次握手"></a> 第一次握手</h4>
+<p>建立连接时，客户端发送SYN包（seq=j）到服务器，并进入SYN_SENT状态，等待服务器确认；</p>
+<blockquote>
+<p>syn：同步序列编号（synchronize sequence numbers）。</p>
+</blockquote>
+<h4 id="第二次握手"><a class="markdownIt-Anchor" href="#第二次握手"></a> 第二次握手</h4>
+<p>服务器收到syn包，必须确认客户端的SYN（ack=j+1），同时自己也发送一个建立连接的包（seq=k），即SYN+ACK包，此时服务器进入SYN_RECV状态。</p>
+<blockquote>
+<p>ack: 确认号（acknowledge number）</p>
+</blockquote>
+<h4 id="第三次握手"><a class="markdownIt-Anchor" href="#第三次握手"></a> 第三次握手</h4>
+<p>客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1)，此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</p>
+<blockquote>
+<p>上述 ‘XXX包’表示将 XXX 标志位置 1，例如： SYN 包 即 SYN=1 的包。<br />
+注意：syn 和 ack 表示<a href="#tcp%E7%9A%84%E5%BA%8F%E5%8F%B7%E5%92%8C%E7%A1%AE%E8%AE%A4%E5%8F%B7">序号和确认号</a>；SYN 和 ACK 表示<a href="#%E6%A0%87%E5%BF%97%E4%BD%8D%E6%8E%A7%E5%88%B6%E5%AD%97%E6%AE%B5">同步标志位和确认标志位</a>。</p>
+</blockquote>
+<h3 id="四次挥手释放tcp连接"><a class="markdownIt-Anchor" href="#四次挥手释放tcp连接"></a> 四次挥手（释放TCP连接）</h3>
+<p>对于一个已经建立的连接，TCP使用四次挥手来释放连接（使用一个<code>FIN=1</code>的报文段）。<br />TCP关闭连接的步骤如下：</p>
+<h4 id="第一步"><a class="markdownIt-Anchor" href="#第一步"></a> 第一步</h4>
+<p>当 <strong>主机A</strong>的应用程序通知 TCP 数据已经发送完毕时，TCP 向 <strong>主机B</strong>发送一个<code>FIN=1</code>报文段。</p>
+<blockquote>
+<p>FIN：<a href="#%E6%A0%87%E5%BF%97%E4%BD%8D%E6%8E%A7%E5%88%B6%E5%AD%97%E6%AE%B5">完成标志位</a><br />
+<strong>主机A</strong> 发送 <code>FIN=1</code> 报文段后进入 FIN-WAIT-1 状态</p>
+</blockquote>
+<h4 id="第二步"><a class="markdownIt-Anchor" href="#第二步"></a> 第二步</h4>
+<p><strong>主机B</strong>收到这个<code>FIN=1</code>报文段之后，先向主机A发送<code>ACK=1</code>报文段，同时通知自己相应的应用程序：对方要求关闭连接（先发送ACK的目的是为了防止在这段时间内，对方重传FIN报文段）。</p>
+<blockquote>
+<p><strong>主机A</strong> 收到 <code>ACK=1</code>报文段后进入 FIN-WAIT-2 状态<br />
+<strong>主机B</strong> 发送 <code>ACK=1</code>报文段后进入 CLOSE-WAIT 状态</p>
+</blockquote>
+<h4 id="第三步"><a class="markdownIt-Anchor" href="#第三步"></a> 第三步</h4>
+<p><strong>主机B</strong>的应用程序告诉 TCP：我要彻底的关闭连接，TCP 向<strong>主机A</strong>发送一个<code>FIN=1</code>报文段。</p>
+<blockquote>
+<p><strong>主机B</strong> 发送 <code>FIN=1</code>报文段后进入 LAST-ACK状态</p>
+</blockquote>
+<h4 id="第四步"><a class="markdownIt-Anchor" href="#第四步"></a> 第四步</h4>
+<p><strong>主机A</strong> 收到这个<code>FIN=1</code>报文段后，向** 主机B** 发送一个<code>ACK=1</code>表示连接彻底释放。</p>
+<blockquote>
+<p><strong>主机B</strong> 进入 CLOSE 状态</p>
+</blockquote>
+<ul>
+<li><strong>主机B</strong> 发送<code>ACK=1</code>到发送 <code>FIN=1</code>之间（即第二步到第三步之间）TCP 连接还未断开，如果有需要可继续发送直至完毕。这种状态称为“半关闭”（half-close）状态。</li>
+<li>客户端和服务器端经过“四次挥手”后确认双方已经同意释放连接，客户端仍需要延迟 2 个 MSL（时间等待定时期）时间。设置等待延时机制的原因是：确保服务器在最后阶段发送给客户端的数据，以及客户端发送给服务器的最后一个<code>ACK=1</code>报文都能正确地被接收，防止因个别报文传输错误导致连接释放失败。</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/TCP/">TCP</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8D%8F%E8%AE%AE/">协议</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/10/Vue%E5%9F%BA%E7%A1%80/">
+                        <span class="hidden-mobile">Vue基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
