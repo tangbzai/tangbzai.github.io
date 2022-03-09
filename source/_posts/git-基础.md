@@ -13,7 +13,9 @@ tags:
 - 远程仓库：区别于本地仓库，位于外部（服务器）的仓库。
 
 ## 新建本地仓库（初始化）
+
 首先进入到项目的根目录，再进行初始化
+
 ```powershell
 $ cd myProject
 $ git init
@@ -32,8 +34,20 @@ $ git add demo.txt
 我们使用 `git commit`命令将暂存区提交到版本库
 
 ```powershell
-$ git commit -m "本次提交的简单说明"
+$ git commit -m "提交类型: 本次提交的简单说明"
 ```
+
+### 提交规范
+
+提交类型：
+- feat：新功能（feature）
+- fix：修补 bug
+- docs：文档（documentation）
+- style、UI ： 样式修改（不影响代码运行的变动）
+- refactor：重构（即不是新增功能，也不是修改 bug 的代码变动）
+- pref: 优化相关，比如提高性能、体验
+- test：增加测试
+- chore：构建过程或辅助工具的变动
 
 ## 分支
 
