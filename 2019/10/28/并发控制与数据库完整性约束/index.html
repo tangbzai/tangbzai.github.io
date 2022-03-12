@@ -45,7 +45,7 @@
     <meta name="description" content="并发控制  事务 四个特性：  原子性 一致性 隔离性 持续性   并发产生的问题    graph TB id1(并发产生的问题)--&gt;id2(丢失更新 &#x2F; 不可重复读问题 &#x2F; 读 脏 数据) id1(并发产生的问题)&#x3D;&#x3D;&gt;id3(封锁协议) id3(封锁协议)--&gt;id4(S封锁-共享锁 &#x2F; X封锁-排它锁 &#x2F; 两段锁协议) id3(封锁协议)&#x3D;&#x3D;&gt;id5(死锁) id5(死锁)--&gt;id6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发控制与数据库完整性约束">
-<meta property="og:url" content="http://blog.tangbzai.top/2019/10/28/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F/index.html">
+<meta property="og:url" content="http://example.com/2019/10/28/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F/index.html">
 <meta property="og:site_name" content="糖仔">
 <meta property="og:description" content="并发控制  事务 四个特性：  原子性 一致性 隔离性 持续性   并发产生的问题    graph TB id1(并发产生的问题)--&gt;id2(丢失更新 &#x2F; 不可重复读问题 &#x2F; 读 脏 数据) id1(并发产生的问题)&#x3D;&#x3D;&gt;id3(封锁协议) id3(封锁协议)--&gt;id4(S封锁-共享锁 &#x2F; X封锁-排它锁 &#x2F; 两段锁协议) id3(封锁协议)&#x3D;&#x3D;&gt;id5(死锁) id5(死锁)--&gt;id6">
 <meta property="og:locale" content="zh_CN">
@@ -93,7 +93,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"blog.tangbzai.top","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
